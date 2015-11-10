@@ -60,6 +60,9 @@ class AlphaNumericAlphabet: Alphabet {
     get {
       return alphabets[currentIndex]
     }
+    set(newValue) {
+      currentIndex = alphabets.indexOf(newValue) ?? currentIndex
+    }
   }
 
   func next() -> Element? {

@@ -39,7 +39,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="wheelCount">
-                                        <integer key="value" value="8"/>
+                                        <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="wheelSpacing">
                                         <real key="value" value="2"/>

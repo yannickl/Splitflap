@@ -44,8 +44,8 @@ final class Wheel: UIView {
 
   var animationDuration = Double(0.2)
 
-  private var targetToken: String = " "
   var alphabet = AlphaNumericAlphabet()
+  private var targetToken: String?
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -74,7 +74,7 @@ final class Wheel: UIView {
     topTacTile.layer.anchorPoint    = CGPointMake(0.5, 1.0)
     bottomTacTile.layer.anchorPoint = CGPointMake(0.5, 0)
 
-    updateWithToken("", animated: false)
+    updateWithToken(alphabet.emptyToken(), animated: false)
   }
 
   private func setupAnimations() {
@@ -111,22 +111,17 @@ final class Wheel: UIView {
     bottomTacTile.frame = bottomLeafFrame
   }
 
-  func tilesFromView(view: UIView) -> (top: UIView, bottom: UIView) {
-    let halfHeight = view.bounds.height / 2
-
-    let topHalfView               = view.resizableSnapshotViewFromRect(CGRectMake(0, 0, view.bounds.width, halfHeight), afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
-    topHalfView.layer.anchorPoint = CGPointMake(0.5, 1.0)
-
-    let bottomHalfView               = view.resizableSnapshotViewFromRect(CGRectMake(0, halfHeight, view.bounds.width, halfHeight), afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
-    bottomHalfView.layer.anchorPoint = CGPointMake(0.5, 0)
-
-    return (top: topHalfView, bottom: bottomHalfView)
-  }
-
   func displayToken(token: String, animated: Bool) {
-    targetToken = token
+    if animated {
+      targetToken = token
 
-    displayNextToken()
+      displayNextToken()
+    }
+    else {
+      alphabet.currentElement = token
+      
+      updateWithToken(token, animated: animated)
+    }
   }
 
   private func displayNextToken() {
@@ -165,6 +160,9 @@ final class Wheel: UIView {
       bottomBack.layer.addAnimation(bottomAnim, forKey: "bottomDownFlip")
     }
     else {
+      bringSubviewToFront(topBack)
+      bringSubviewToFront(bottomBack)
+
       animationTime = animationTime == .Tic ? .Tac : .Tic
     }
   }

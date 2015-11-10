@@ -12,33 +12,27 @@ class ViewController: UIViewController {
   @IBOutlet weak var splitflap: Splitflap!
   @IBOutlet weak var actionButton: UIButton!
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+  private let words        = ["Hey You", "Bonsoir", "12h15", "Arrival"]
+  private var currentIndex = 0
+
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+
+    updateSplitFlapAction(actionButton)
   }
 
-  var i = 0
+  // MARK: - Action Methods
+
   @IBAction func updateSplitFlapAction(sender: AnyObject) {
-    if i == 0 {
-      splitflap.text = "lol"
+    splitflap.setText(words[currentIndex], animated: true)
 
-      i++
-    }
-    else if i == 1 {
-      splitflap.text = "liligo"
+    currentIndex = (currentIndex + 1) % words.count
 
-      i++
-    }
-    else if i == 2 {
-      splitflap.text = "Azerty"
+    updateButtonWithTitle(words[currentIndex])
+  }
 
-      i++
-    }
-    else {
-      splitflap.text = "Hey You"
-
-      i = 0
-    }
+  private func updateButtonWithTitle(title: String) {
+    actionButton.setTitle("Say \(words[currentIndex])!", forState: .Normal)
   }
 }
 
