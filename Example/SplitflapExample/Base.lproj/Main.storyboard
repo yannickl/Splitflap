@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SplitflapExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foz-ah-ebz">
+                                <rect key="frame" x="230" y="562" width="141" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WQC-D6-7oC"/>
+                                    <constraint firstAttribute="width" constant="141" id="wXr-y9-7xd"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="updateSplitFlapAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zWM-J1-Qrd"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPm-IJ-VdU" customClass="Splitflap" customModule="SplitflapExample" customModuleProvider="target">
+                                <rect key="frame" x="130" y="260" width="340" height="80"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="xt3-Re-3pf"/>
+                                    <constraint firstAttribute="width" constant="340" id="zRn-bY-PT6"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="wheelCount">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="wheelSpacing">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="foz-ah-ebz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E1V-lQ-OEy"/>
+                            <constraint firstItem="oPm-IJ-VdU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dOY-ek-7i8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="foz-ah-ebz" secondAttribute="bottom" constant="8" id="gjF-94-nOt"/>
+                            <constraint firstItem="oPm-IJ-VdU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zjk-NO-A13"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="actionButton" destination="foz-ah-ebz" id="eSW-Ge-tN2"/>
+                        <outlet property="splitflap" destination="oPm-IJ-VdU" id="86t-gC-9xN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="370"/>
+        </scene>
+    </scenes>
+</document>
