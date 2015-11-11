@@ -175,11 +175,14 @@ import UIKit
 
   /// Rebuild and layout the split-flap view.
   private func updateAndLayoutView() {
+    let targetDelegate = (delgate ?? self)
+
     var tmp: [FlapView] = []
 
-    for _ in 0 ..< numberOfFlaps {
+    for index in 0 ..< numberOfFlaps {
       let flap = FlapView()
       flap.tokens = tokens
+      flap.font   = targetDelegate.splitflap(self, fontForFlapAtIndex: index)
 
       tmp.append(flap)
       addSubview(flap)
@@ -210,6 +213,7 @@ import UIKit
 
 /// Default implementation of SplitflapDataSource
 extension Splitflap: SplitflapDataSource {
+  /// By default the Splitflap object does not have flaps, so returns 0. 
   public func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
     return 0
   }

@@ -26,7 +26,7 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
 
-    //updateSplitFlapAction(actionButton)
+    updateSplitFlapAction(actionButton)
   }
 
   // MARK: - Action Methods
@@ -57,6 +57,10 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
 
   func splitflap(splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double {
     return 0.2
+  }
+
+  func splitflap(splitflap: Splitflap, fontForFlapAtIndex index: Int) -> UIFont? {
+    return UIFont(name: "Courier", size: 50)
   }
 }
 

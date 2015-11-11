@@ -30,7 +30,7 @@ import UIKit
  A Tile is an half view representing the flap's leaf. A tile can represents the
  top or the bottom of a leaf.
 */
-final class Tile: UIView {
+final class TileView: UIView {
   private let digitLabel        = UILabel()
   private let mainLineView      = UIView()
   private let secondaryLineView = UIView()
@@ -53,6 +53,17 @@ final class Tile: UIView {
       digitLabel.text = newValue
     }
   }
+
+  // MARK: - Configuring the Label
+
+  /// The font of the tile's text.
+  var font: UIFont? {
+    didSet {
+      layoutSubviews()
+    }
+  }
+
+  // MARK: - Initializing a Flap View
 
   convenience init(position: Position) {
     self.init(frame: CGRectZero)
@@ -90,6 +101,8 @@ final class Tile: UIView {
     addSubview(secondaryLineView)
   }
 
+  // MARK: - Laying out Subviews
+
   override func layoutSubviews() {
     super.layoutSubviews()
 
@@ -126,7 +139,7 @@ final class Tile: UIView {
     }
 
     digitLabel.frame         = digitLabelFrame
-    digitLabel.font          = UIFont(name: "Courier", size: bounds.width)
+    digitLabel.font          = font ?? UIFont(name: "Courier", size: bounds.width)
     mainLineView.frame       = mainLineViewFrame
     secondaryLineView.frame  = secondaryLineViewFrame
   }

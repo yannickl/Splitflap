@@ -45,12 +45,30 @@ public protocol SplitflapDelegate: class {
   - returns: The duration of the flap rotation in seconds.
   */
   func splitflap(splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double
+
+  // MARK: - Configuring the Label of Flaps
+
+  /**
+  Called by the split-flap when it needs to create its flap subviews. 
+
+  - parameter splitflap: The split-flap view requesting the data.
+  - parameter index: A zero-indexed number identifying a flap. The index starts
+  at 0 for the leftmost flap.
+  - returns: The font of the flap's text. If it returns nil, the flap uses its
+  internal *Courier* font.
+  */
+  func splitflap(splitflap: Splitflap, fontForFlapAtIndex index: Int) -> UIFont?
 }
 
 /// Default implementation of SplitflapDelegate
 public extension SplitflapDelegate {
-  /// Returns by default 0.2 seconds
+  /// Returns by default 0.2 seconds.
   func splitflap(splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double {
     return 0.2
+  }
+
+  /// Returns nil by default to use the internal flap's font.
+  func splitflap(splitflap: Splitflap, fontForFlapAtIndex index: Int) -> UIFont? {
+    return nil
   }
 }

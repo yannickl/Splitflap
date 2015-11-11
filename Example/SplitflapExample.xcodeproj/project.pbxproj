@@ -20,7 +20,7 @@
 		CE525D971BF3833F00429200 /* SplitflapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D791BF331D100429200 /* SplitflapDataSource.swift */; };
 		CE525D981BF3833F00429200 /* SplitflapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */; };
 		CE525D991BF3833F00429200 /* SplitflapTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */; };
-		CE525D9A1BF3833F00429200 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B91BF266FC00DE6BA9 /* Tile.swift */; };
+		CE525D9A1BF3833F00429200 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B91BF266FC00DE6BA9 /* TileView.swift */; };
 		CE525D9B1BF3833F00429200 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7F1BF3425C00429200 /* TokenGenerator.swift */; };
 		CE525D9C1BF3833F00429200 /* TokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D811BF3467D00429200 /* TokenParser.swift */; };
 		CEB139A41BF266DD00DE6BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139A31BF266DD00DE6BA9 /* AppDelegate.swift */; };
@@ -29,7 +29,7 @@
 		CEB139AB1BF266DD00DE6BA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB139AA1BF266DD00DE6BA9 /* Assets.xcassets */; };
 		CEB139AE1BF266DD00DE6BA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB139AC1BF266DD00DE6BA9 /* LaunchScreen.storyboard */; };
 		CEB139BD1BF266FC00DE6BA9 /* Splitflap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B81BF266FC00DE6BA9 /* Splitflap.swift */; };
-		CEB139BE1BF266FC00DE6BA9 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B91BF266FC00DE6BA9 /* Tile.swift */; };
+		CEB139BE1BF266FC00DE6BA9 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B91BF266FC00DE6BA9 /* TileView.swift */; };
 		CEB139BF1BF266FC00DE6BA9 /* FlapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139BA1BF266FC00DE6BA9 /* FlapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +74,7 @@
 		CEB139AD1BF266DD00DE6BA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEB139AF1BF266DD00DE6BA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEB139B81BF266FC00DE6BA9 /* Splitflap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Splitflap.swift; sourceTree = "<group>"; };
-		CEB139B91BF266FC00DE6BA9 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		CEB139B91BF266FC00DE6BA9 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		CEB139BA1BF266FC00DE6BA9 /* FlapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,7 +146,7 @@
 				CE525D791BF331D100429200 /* SplitflapDataSource.swift */,
 				CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */,
 				CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */,
-				CEB139B91BF266FC00DE6BA9 /* Tile.swift */,
+				CEB139B91BF266FC00DE6BA9 /* TileView.swift */,
 				CE525D7F1BF3425C00429200 /* TokenGenerator.swift */,
 				CE525D811BF3467D00429200 /* TokenParser.swift */,
 			);
@@ -271,7 +271,7 @@
 				CE525D991BF3833F00429200 /* SplitflapTokens.swift in Sources */,
 				CE525D9C1BF3833F00429200 /* TokenParser.swift in Sources */,
 				CE525D951BF3833F00429200 /* FlapView.swift in Sources */,
-				CE525D9A1BF3833F00429200 /* Tile.swift in Sources */,
+				CE525D9A1BF3833F00429200 /* TileView.swift in Sources */,
 				CE525D961BF3833F00429200 /* Splitflap.swift in Sources */,
 				CE525D9B1BF3833F00429200 /* TokenGenerator.swift in Sources */,
 				CE525D971BF3833F00429200 /* SplitflapDataSource.swift in Sources */,
@@ -287,7 +287,7 @@
 				CE525D7C1BF336EA00429200 /* SplitflapDelegate.swift in Sources */,
 				CEB139A61BF266DD00DE6BA9 /* ViewController.swift in Sources */,
 				CEB139A41BF266DD00DE6BA9 /* AppDelegate.swift in Sources */,
-				CEB139BE1BF266FC00DE6BA9 /* Tile.swift in Sources */,
+				CEB139BE1BF266FC00DE6BA9 /* TileView.swift in Sources */,
 				CE525D821BF3467D00429200 /* TokenParser.swift in Sources */,
 				CE525D7A1BF331D100429200 /* SplitflapDataSource.swift in Sources */,
 				CE525D801BF3425C00429200 /* TokenGenerator.swift in Sources */,
