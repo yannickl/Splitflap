@@ -24,8 +24,33 @@
  *
  */
 
-import Foundation
+import UIKit
 
-@objc public protocol SplitflapDelegate: class {
+/**
+ The delegate of a Splitflap object should adopt this protocol and implement at
+ least some of its methods to provide the split-flap view with the data it needs
+ to construct itself.
+ */
+public protocol SplitflapDelegate: class {
+  // MARK: - Setting the Rotation Duration of Flaps
 
+  /**
+  Called by the split-flap when it needs to rotate a flap at a given index.
+
+  The default value for each flap is 0.2 seconds.
+
+  - parameter splitflap: The split-flap view requesting the data.
+  - parameter index: A zero-indexed number identifying a flap. The index starts
+  at 0 for the leftmost flap.
+  - returns: The duration of the flap rotation in seconds.
+  */
+  func splitflap(splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double
+}
+
+/// Default implementation of SplitflapDelegate
+public extension SplitflapDelegate {
+  /// Returns by default 0.2 seconds
+  func splitflap(splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double {
+    return 0.2
+  }
 }

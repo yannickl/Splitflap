@@ -25,12 +25,13 @@
  */
 
 import UIKit
+import QuartzCore
 
 /**
  A Flap view aims to display given tokens with by rotating its tiles to show the
  desired character or graphic.
 */
-final class Flap: UIView {
+final class FlapView: UIView {
   private var topTicTile    = Tile(position: .Top)
   private var bottomTicTile = Tile(position: .Bottom)
   private var topTacTile    = Tile(position: .Top)
@@ -43,18 +44,12 @@ final class Flap: UIView {
 
   private var animationTime = AnimationTime.Tac
 
-  private let topAnim    = CABasicAnimation(keyPath: "transform")
-  private let bottomAnim = CABasicAnimation(keyPath: "transform")
-
-  var animationDuration: Double = 0.2
-
   var tokens: [String] = [] {
     didSet {
       tokenGenerator = TokenGenerator(tokens: tokens)
     }
   }
   private var tokenGenerator = TokenGenerator(tokens: [])
-
   private var targetToken: String?
 
   override init(frame: CGRect) {
@@ -71,7 +66,7 @@ final class Flap: UIView {
     setupAnimations()
   }
 
-  // MARK: - Initializing the Flap
+  // MARK: - Initializing the Flap View
 
   private func setupViews() {
     addSubview(topTicTile)
@@ -87,20 +82,24 @@ final class Flap: UIView {
     updateWithToken(tokenGenerator.firstToken, animated: false)
   }
 
+  // MARK: - Settings the Animations
+
+  private let topAnim    = CABasicAnimation(keyPath: "transform")
+  private let bottomAnim = CABasicAnimation(keyPath: "transform")
+
   private func setupAnimations() {
     // Set perspective
     let zDepth: CGFloat         = 1000
     var skewedIdentityTransform = CATransform3DIdentity
     skewedIdentityTransform.m34 = 1 / -zDepth
 
-    topAnim.duration  = animationDuration / 4 * 3
+    // Predefine the animation
     topAnim.fromValue = NSValue(CATransform3D: skewedIdentityTransform)
     topAnim.toValue   = NSValue(CATransform3D: CATransform3DRotate(skewedIdentityTransform, -CGFloat(M_PI_2), 1, 0, 0))
     topAnim.removedOnCompletion = false
     topAnim.fillMode            = kCAFillModeForwards
     topAnim.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
 
-    bottomAnim.duration  = topAnim.duration / 4
     bottomAnim.fromValue = NSValue(CATransform3D: CATransform3DRotate(skewedIdentityTransform, CGFloat(M_PI_2), 1, 0, 0))
     bottomAnim.toValue   = NSValue(CATransform3D: skewedIdentityTransform)
     bottomAnim.delegate            = self
@@ -121,10 +120,13 @@ final class Flap: UIView {
     bottomTacTile.frame = bottomLeafFrame
   }
 
-  func displayToken(token: String?, animated: Bool) {
+  func displayToken(token: String?, rotationDuration: Double) {
     let sanitizedToken = token ?? tokenGenerator.firstToken
 
-    if animated {
+    if rotationDuration > 0 {
+      topAnim.duration    = rotationDuration / 4 * 3
+      bottomAnim.duration = rotationDuration / 4
+
       targetToken = sanitizedToken
 
       displayNextToken()
@@ -132,7 +134,7 @@ final class Flap: UIView {
     else {
       tokenGenerator.currentElement = sanitizedToken
       
-      updateWithToken(sanitizedToken, animated: animated)
+      updateWithToken(sanitizedToken, animated: false)
     }
   }
 

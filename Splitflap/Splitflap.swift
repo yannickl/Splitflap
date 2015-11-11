@@ -25,33 +25,58 @@
  */
 
 import UIKit
-import QuartzCore
 
 /**
  A split-flap display component that presents changeable alphanumeric text often
- used as a public transport timetable in airports or railway stations and with 
+ used as a public transport timetable in airports or railway stations and with
  some flip clocks.
-*/
+ */
 @IBDesignable public class Splitflap: UIView {
-  /**
-   The data source for the split-flap view.
+  // MARK: - Specifying the Data Source
 
-   The data source must adopt the SplitflapDataSource protocol and implement the
-   required methods to return the number of flaps.
+  /**
+  The data source for the split-flap view.
+
+  The data source must adopt the SplitflapDataSource protocol and implement the
+  required methods to return the number of flaps.
   */
   public weak var datasource: SplitflapDataSource?
-  public weak var delgate: SplitflapDelegate?
+
+  // MARK: - Specifying the Delegate
 
   /**
-   Gets the number of flaps for the split-flap view.
-   
-   A Splitflap object fetches the value of this property from the data source and
-   and caches it. The default value is zero.
+  The delegate for the split-flap view.
+  */
+  public weak var delgate: SplitflapDelegate?
+
+  // MARK: - Getting Flaps
+
+  /**
+  Gets the number of flaps for the split-flap view.
+
+  A Splitflap object fetches the value of this property from the data source and
+  and caches it. The default value is zero.
   */
   public private(set) var numberOfFlaps: Int = 0
 
-  /// The supported token strings by the split-flap view.
-  private var tokens: [String] = [] {
+  /// The flap views used the the split-flap component to display text.
+  private var flaps: [FlapView] = [] {
+    didSet {
+      for flap in oldValue {
+        flap.removeFromSuperview()
+      }
+    }
+  }
+
+  // MARK: - Getting Supported Tokens
+
+  /**
+  The supported token strings by the split-flap view.
+
+  A Splitflap object fetches the value of this property from the data source and
+  and caches it. The default value is zero.
+  */
+  public private(set) var tokens: [String] = [] {
     didSet {
       tokenParser = TokenParser(tokens: tokens)
     }
@@ -60,49 +85,77 @@ import QuartzCore
   /// Token parser used to parse text into small chunk send to each flaps.
   private var tokenParser: TokenParser = TokenParser(tokens: [])
 
-  @IBInspectable public var flapSpacing: CGFloat = 0
+  // MARK: - Configuring the Flap Spacing
 
-  @IBInspectable public var animationDuration: Double = 0.2 {
-    didSet {
-      for flap in flaps {
-        flap.animationDuration = animationDuration
-      }
-    }
-  }
+  /**
+  Specifies the spacing to use between flaps.
 
+  The default value of this property is 2.0.
+  */
+  @IBInspectable public var flapSpacing: CGFloat = 2
+
+  // MARK: - Accessing the Text Attributes
+
+  /// The current displayed text.
+  private var textAsToken: String?
+
+  /**
+   The text displayed by the split-flap.
+
+   Setting the text with this property is equilavent to call the setText:animated:
+   methods with the animated attribute as false. This string is nil by default.
+
+   - seealso: setText:animated:
+   */
   public var text: String? {
-    didSet {
+    get {
+      return textAsToken
+    }
+    set {
       setText(text, animated: false)
     }
   }
 
+  /**
+   Displayed the given text in the split-flap.
+
+   - parameter text: The text to display by the split-flap.
+   - parameter animated: *true* to animate the text change by rotating the flaps
+   (component) to the new value; if you specify *false*, the new text is shown
+   immediately.
+   */
   public func setText(text: String?, animated: Bool) {
-    let tokens: [String]
+    let target = (delgate ?? self)
+    let delay  = animated ? 0.181 : 0
+
+    var tokens: [String] = []
 
     if let t = text, let ts = try? tokenParser.parse(t) {
       tokens = ts
     }
-    else {
-      tokens = []
-    }
+
+    textAsToken = nil
 
     for (index, flap) in flaps.enumerate() {
-      let token: String? = index < tokens.count ? tokens[index] : nil
+      let token: String?   = index < tokens.count ? tokens[index] : nil
+      let rotationDuration = animated ? target.splitflap(self, rotationDurationForFlapAtIndex: index) : 0
 
-      let delay = animationDuration / 1.1
+      if let t = token {
+        textAsToken = textAsToken ?? ""
+        textAsToken?.appendContentsOf(t)
+      }
 
       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(index) * Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
-        flap.displayToken(token, animated: animated)
+        flap.displayToken(token, rotationDuration: rotationDuration)
       })
     }
   }
 
-  private var flaps: [Flap] = [] {
-    didSet {
-      for flap in oldValue {
-        flap.removeFromSuperview()
-      }
-    }
+  // MARK: - Observing View-Related Changes
+
+  /// Tells the view that its window object changed.
+  public override func didMoveToWindow() {
+    reload()
   }
 
   // MARK: - Laying out Subviews
@@ -115,26 +168,24 @@ import QuartzCore
     let widthPerFlap   = (bounds.width - flapSpacing * (fNumberOfFlaps - 1)) / fNumberOfFlaps
 
     for (index, flap) in flaps.enumerate() {
-      let fIndex  = CGFloat(index)
+      let fIndex = CGFloat(index)
       flap.frame = CGRectMake(fIndex * widthPerFlap + flapSpacing * fIndex, 0, widthPerFlap, bounds.height)
     }
   }
 
   /// Rebuild and layout the split-flap view.
   private func updateAndLayoutView() {
-    var flaps: [Flap] = []
+    var tmp: [FlapView] = []
 
     for _ in 0 ..< numberOfFlaps {
-      let flap = Flap()
-      flap.tokens            = tokens
-      flap.animationDuration = animationDuration
+      let flap = FlapView()
+      flap.tokens = tokens
 
-      flaps.append(flap)
-
+      tmp.append(flap)
       addSubview(flap)
     }
 
-    self.flaps = flaps
+    self.flaps = tmp
 
     layoutIfNeeded()
   }
@@ -143,15 +194,15 @@ import QuartzCore
 
   /**
   Reloads the split-flap.
-  
+
   Call this method to reload all the data that is used to construct the split-flap
   view. It should not be called in during a animation.
   */
   public func reload() {
-    let receiver = (datasource ?? self)
+    let target = (datasource ?? self)
 
-    numberOfFlaps = receiver.numberOfFlapsInSplitflat(self)
-    tokens        = receiver.supportedTokensInSplitflap(self)
+    numberOfFlaps = target.numberOfFlapsInSplitflap(self)
+    tokens        = target.supportedTokensInSplitflap(self)
 
     updateAndLayoutView()
   }
@@ -159,7 +210,11 @@ import QuartzCore
 
 /// Default implementation of SplitflapDataSource
 extension Splitflap: SplitflapDataSource {
-  public func numberOfFlapsInSplitflat(splitflap: Splitflap) -> Int {
+  public func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
     return 0
   }
+}
+
+/// Default implementation of SplitflapDelegate
+extension Splitflap: SplitflapDelegate {
 }

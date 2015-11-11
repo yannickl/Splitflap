@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, SplitflapDataSource {
+class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
   @IBOutlet weak var splitflap: Splitflap!
   @IBOutlet weak var actionButton: UIButton!
 
@@ -19,6 +19,7 @@ class ViewController: UIViewController, SplitflapDataSource {
     super.viewDidLoad()
 
     splitflap.datasource = self
+    splitflap.delgate    = self
     splitflap.reload()
   }
 
@@ -44,12 +45,18 @@ class ViewController: UIViewController, SplitflapDataSource {
 
   // MARK: - Splitflap DataSource Methods
 
-  func numberOfFlapsInSplitflat(splitflat: Splitflap) -> Int {
+  func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
     return 7
   }
 
   func supportedTokensInSplitflap(splitflap: Splitflap) -> [String] {
     return SplitflapTokens.AlphanumericAndSpace
+  }
+
+  // MARK: - Splitflap Delegate Methods
+
+  func splitflap(splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double {
+    return 0.2
   }
 }
 

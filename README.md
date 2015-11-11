@@ -20,7 +20,7 @@ splitflapView.setText("Hello", animated: true)
 // MARK: - Splitflap DataSource Methods
 
 // Defines the number of flaps that will be used to display the text
-func numberOfFlapsInSplitflat(splitflat: Splitflap) -> Int {
+func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
   return 5
 }
 
@@ -30,7 +30,7 @@ func numberOfFlapsInSplitflat(splitflat: Splitflap) -> Int {
 
 To go further, take a look at the example project.
 
-*Note: All contribution to add new symbol is welcome*
+*Note: All contributions are welcome*
 
 ## Installation
 

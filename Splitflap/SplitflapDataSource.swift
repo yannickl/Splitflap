@@ -28,17 +28,21 @@ import UIKit
 
 /**
  The SplitflapDataSource protocol must be adopted by an object that mediates
- between a Splitflap object and your application’s data model for that split-flat
- view. The data source provides the split-flat view with the number of flaps for
- displaying the split-flat view data.
+ between a Splitflap object and your application’s data model for that split-flap
+ view. The data source provides the split-flap view with the number of flaps for
+ displaying the split-flap view data.
 */
 public protocol SplitflapDataSource: class {
+  // MARK: - Providing Counts for the Splitflap View
+
   /**
    Called by the split-flap view when it needs the number of flaps.
-   - parameter splitflat: The split-flap view requesting the data.
+   - parameter splitflap: The split-flap view requesting the data.
    - returns: The number of flaps.
   */
-  func numberOfFlapsInSplitflat(splitflap: Splitflap) -> Int
+  func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int
+
+  // MARK: - Managing Supported Tokens for the Splitflap Components
 
   /**
    Called by the split-flap view when it needs to update the token strings that
@@ -46,14 +50,15 @@ public protocol SplitflapDataSource: class {
    
    If you don't implement this method the split-flap view will use the
    `Alphanumeric` token list.
-   - parameter splitflat: The split-flap view requesting the data.
+   - parameter splitflap: The split-flap view requesting the data.
    - returns: A list of token string used as leaf for each flaps.
   */
   func supportedTokensInSplitflap(splitflap: Splitflap) -> [String]
 }
 
-// Alternative to optional 
+/// Default implementation of SplitflapDataSource
 public extension SplitflapDataSource {
+  /// Returns by default the Alphanumeric token list
   func supportedTokensInSplitflap(splitflap: Splitflap) -> [String] {
     return SplitflapTokens.Alphanumeric
   }

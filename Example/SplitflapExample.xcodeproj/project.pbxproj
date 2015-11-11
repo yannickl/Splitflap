@@ -19,7 +19,7 @@
 		CEB139AE1BF266DD00DE6BA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB139AC1BF266DD00DE6BA9 /* LaunchScreen.storyboard */; };
 		CEB139BD1BF266FC00DE6BA9 /* Splitflap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B81BF266FC00DE6BA9 /* Splitflap.swift */; };
 		CEB139BE1BF266FC00DE6BA9 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B91BF266FC00DE6BA9 /* Tile.swift */; };
-		CEB139BF1BF266FC00DE6BA9 /* Flap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139BA1BF266FC00DE6BA9 /* Flap.swift */; };
+		CEB139BF1BF266FC00DE6BA9 /* FlapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139BA1BF266FC00DE6BA9 /* FlapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 		CEB139AF1BF266DD00DE6BA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEB139B81BF266FC00DE6BA9 /* Splitflap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Splitflap.swift; sourceTree = "<group>"; };
 		CEB139B91BF266FC00DE6BA9 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
-		CEB139BA1BF266FC00DE6BA9 /* Flap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flap.swift; sourceTree = "<group>"; };
+		CEB139BA1BF266FC00DE6BA9 /* FlapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +84,12 @@
 		CEB139B51BF266FC00DE6BA9 /* Splitflap */ = {
 			isa = PBXGroup;
 			children = (
+				CEB139BA1BF266FC00DE6BA9 /* FlapView.swift */,
 				CEB139B81BF266FC00DE6BA9 /* Splitflap.swift */,
-				CEB139B91BF266FC00DE6BA9 /* Tile.swift */,
-				CEB139BA1BF266FC00DE6BA9 /* Flap.swift */,
 				CE525D791BF331D100429200 /* SplitflapDataSource.swift */,
 				CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */,
 				CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */,
+				CEB139B91BF266FC00DE6BA9 /* Tile.swift */,
 				CE525D7F1BF3425C00429200 /* TokenGenerator.swift */,
 				CE525D811BF3467D00429200 /* TokenParser.swift */,
 			);
@@ -169,7 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE525D7E1BF340BB00429200 /* SplitflapTokens.swift in Sources */,
-				CEB139BF1BF266FC00DE6BA9 /* Flap.swift in Sources */,
+				CEB139BF1BF266FC00DE6BA9 /* FlapView.swift in Sources */,
 				CE525D7C1BF336EA00429200 /* SplitflapDelegate.swift in Sources */,
 				CEB139A61BF266DD00DE6BA9 /* ViewController.swift in Sources */,
 				CEB139A41BF266DD00DE6BA9 /* AppDelegate.swift in Sources */,
