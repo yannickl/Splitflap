@@ -26,13 +26,20 @@
 
 import UIKit
 
+/**
+ A Tile is an half view representing the flap's leaf. A tile can represents the
+ top or the bottom of a leaf.
+*/
 final class Tile: UIView {
   private let digitLabel        = UILabel()
   private let mainLineView      = UIView()
   private let secondaryLineView = UIView()
 
+  /// Defines the position and by the same time appearance of the tiles.
   enum Position {
+    /// Tile positioned as a top leaf.
     case Top
+    /// Tile positioned as a bottom leaf.
     case Bottom
   }
 

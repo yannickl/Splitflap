@@ -38,10 +38,7 @@
                                     <constraint firstAttribute="width" constant="340" id="zRn-bY-PT6"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="wheelCount">
-                                        <integer key="value" value="7"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="wheelSpacing">
+                                    <userDefinedRuntimeAttribute type="number" keyPath="flapSpacing">
                                         <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>

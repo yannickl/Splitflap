@@ -26,63 +26,30 @@
 
 import Foundation
 
-class AlphaNumericAlphabet: Alphabet {
-  typealias TokenType = String
-  typealias Element   = TokenType
-  typealias Generator = AnyGenerator<TokenType>
+/**
+ The TokenParser parse a given string into a token list.
+*/
+final class TokenParser {
+  let tokens: [String]
 
-  lazy var alphabets: Array<TokenType> = {
-    return " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map { String($0) }
-  }()
-
-  // MARK: -
-
-  func generate() -> Generator {
-    var nextIndex = 0
-
-    return anyGenerator {
-      if nextIndex < self.alphabets.count {
-        return self.alphabets[nextIndex++]
-      }
-
-      return nil
-    }
+  required init(tokens: [String]) {
+    self.tokens = tokens
   }
 
-  // MARK: -
-  private(set) var currentIndex = 0
-
-  func emptyToken() -> TokenType {
-    return " "
-  }
-
-  var currentElement: Element {
-    get {
-      return alphabets[currentIndex]
-    }
-    set(newValue) {
-      currentIndex = alphabets.indexOf(newValue) ?? currentIndex
-    }
-  }
-
-  func next() -> Element? {
-    currentIndex = (currentIndex + 1) % alphabets.count
-
-    return alphabets[currentIndex]
-  }
-
+  // MARK: - Parsing Inputs
+  
   func parse(text: String) throws -> [String] {
-    var tokens: [String] = []
+    var tokenFound: [String] = []
 
     for character in text.characters {
-      if alphabets.contains(String(character)) {
-        tokens.append(String(character))
+      if tokens.contains(String(character)) {
+        tokenFound.append(String(character))
       }
       else {
         throw NSError(domain: "com.yannickloriot.token.invalid", code: 999, userInfo: nil)
       }
     }
-    
-    return tokens
+
+    return tokenFound
   }
 }

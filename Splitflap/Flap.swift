@@ -26,25 +26,35 @@
 
 import UIKit
 
-private enum AnimationTime {
-  case Tic
-  case Tac
-}
-
-final class Wheel: UIView {
+/**
+ A Flap view aims to display given tokens with by rotating its tiles to show the
+ desired character or graphic.
+*/
+final class Flap: UIView {
   private var topTicTile    = Tile(position: .Top)
   private var bottomTicTile = Tile(position: .Bottom)
   private var topTacTile    = Tile(position: .Top)
   private var bottomTacTile = Tile(position: .Bottom)
+
+  private enum AnimationTime {
+    case Tic
+    case Tac
+  }
 
   private var animationTime = AnimationTime.Tac
 
   private let topAnim    = CABasicAnimation(keyPath: "transform")
   private let bottomAnim = CABasicAnimation(keyPath: "transform")
 
-  var animationDuration = Double(0.2)
+  var animationDuration: Double = 0.2
 
-  var alphabet = AlphaNumericAlphabet()
+  var tokens: [String] = [] {
+    didSet {
+      tokenGenerator = TokenGenerator(tokens: tokens)
+    }
+  }
+  private var tokenGenerator = TokenGenerator(tokens: [])
+
   private var targetToken: String?
 
   override init(frame: CGRect) {
@@ -61,7 +71,7 @@ final class Wheel: UIView {
     setupAnimations()
   }
 
-  // MARK: - Initializing the Wheel
+  // MARK: - Initializing the Flap
 
   private func setupViews() {
     addSubview(topTicTile)
@@ -74,7 +84,7 @@ final class Wheel: UIView {
     topTacTile.layer.anchorPoint    = CGPointMake(0.5, 1.0)
     bottomTacTile.layer.anchorPoint = CGPointMake(0.5, 0)
 
-    updateWithToken(alphabet.emptyToken(), animated: false)
+    updateWithToken(tokenGenerator.firstToken, animated: false)
   }
 
   private func setupAnimations() {
@@ -111,25 +121,27 @@ final class Wheel: UIView {
     bottomTacTile.frame = bottomLeafFrame
   }
 
-  func displayToken(token: String, animated: Bool) {
+  func displayToken(token: String?, animated: Bool) {
+    let sanitizedToken = token ?? tokenGenerator.firstToken
+
     if animated {
-      targetToken = token
+      targetToken = sanitizedToken
 
       displayNextToken()
     }
     else {
-      alphabet.currentElement = token
+      tokenGenerator.currentElement = sanitizedToken
       
-      updateWithToken(token, animated: animated)
+      updateWithToken(sanitizedToken, animated: animated)
     }
   }
 
   private func displayNextToken() {
-    guard alphabet.currentElement != targetToken else {
+    guard tokenGenerator.currentElement != targetToken else {
       return
     }
 
-    if let token = alphabet.next() {
+    if let token = tokenGenerator.next() {
       updateWithToken(token, animated: true)
     }
   }

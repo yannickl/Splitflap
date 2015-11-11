@@ -26,10 +26,43 @@
 
 import Foundation
 
-protocol Alphabet: SequenceType, GeneratorType {
-  typealias TokenType
+/**
+ A TokenGenerator helps the flap view by choosing the right token rescpecting the
+ initial order.
+*/
+final class TokenGenerator: GeneratorType {
+  typealias Element = String
 
-  var alphabets: Array<TokenType> { get }
+  let tokens: [String]
 
-  func emptyToken() -> TokenType
+  required init(tokens: [String]) {
+    self.tokens = tokens
+  }
+
+  // MARK: - Implementing GeneratorType
+
+  private(set) var currentIndex = 0
+
+  var currentElement: Element {
+    get {
+      return tokens[currentIndex]
+    }
+    set(newValue) {
+      currentIndex = tokens.indexOf(newValue) ?? currentIndex
+    }
+  }
+
+  func next() -> Element? {
+    currentIndex = (currentIndex + 1) % tokens.count
+
+    return tokens[currentIndex]
+  }
+
+  // MARK: - Convenience Methods
+
+  var firstToken: String {
+    get {
+      return tokens.first ?? ""
+    }
+  }
 }

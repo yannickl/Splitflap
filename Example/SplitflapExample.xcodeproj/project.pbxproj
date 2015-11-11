@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE525D7A1BF331D100429200 /* SplitflapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D791BF331D100429200 /* SplitflapDataSource.swift */; };
+		CE525D7C1BF336EA00429200 /* SplitflapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */; };
+		CE525D7E1BF340BB00429200 /* SplitflapTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */; };
+		CE525D801BF3425C00429200 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7F1BF3425C00429200 /* TokenGenerator.swift */; };
+		CE525D821BF3467D00429200 /* TokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D811BF3467D00429200 /* TokenParser.swift */; };
 		CEB139A41BF266DD00DE6BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139A31BF266DD00DE6BA9 /* AppDelegate.swift */; };
 		CEB139A61BF266DD00DE6BA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139A51BF266DD00DE6BA9 /* ViewController.swift */; };
 		CEB139A91BF266DD00DE6BA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB139A71BF266DD00DE6BA9 /* Main.storyboard */; };
 		CEB139AB1BF266DD00DE6BA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB139AA1BF266DD00DE6BA9 /* Assets.xcassets */; };
 		CEB139AE1BF266DD00DE6BA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB139AC1BF266DD00DE6BA9 /* LaunchScreen.storyboard */; };
-		CEB139BB1BF266FC00DE6BA9 /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B61BF266FC00DE6BA9 /* Alphabet.swift */; };
-		CEB139BC1BF266FC00DE6BA9 /* AlphaNumericAlphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B71BF266FC00DE6BA9 /* AlphaNumericAlphabet.swift */; };
 		CEB139BD1BF266FC00DE6BA9 /* Splitflap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B81BF266FC00DE6BA9 /* Splitflap.swift */; };
 		CEB139BE1BF266FC00DE6BA9 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B91BF266FC00DE6BA9 /* Tile.swift */; };
-		CEB139BF1BF266FC00DE6BA9 /* Wheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139BA1BF266FC00DE6BA9 /* Wheel.swift */; };
+		CEB139BF1BF266FC00DE6BA9 /* Flap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139BA1BF266FC00DE6BA9 /* Flap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE525D791BF331D100429200 /* SplitflapDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapDataSource.swift; sourceTree = "<group>"; };
+		CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapDelegate.swift; sourceTree = "<group>"; };
+		CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapTokens.swift; sourceTree = "<group>"; };
+		CE525D7F1BF3425C00429200 /* TokenGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
+		CE525D811BF3467D00429200 /* TokenParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenParser.swift; sourceTree = "<group>"; };
 		CEB139A01BF266DD00DE6BA9 /* SplitflapExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitflapExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB139A31BF266DD00DE6BA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEB139A51BF266DD00DE6BA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,11 +35,9 @@
 		CEB139AA1BF266DD00DE6BA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEB139AD1BF266DD00DE6BA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEB139AF1BF266DD00DE6BA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEB139B61BF266FC00DE6BA9 /* Alphabet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alphabet.swift; sourceTree = "<group>"; };
-		CEB139B71BF266FC00DE6BA9 /* AlphaNumericAlphabet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaNumericAlphabet.swift; sourceTree = "<group>"; };
 		CEB139B81BF266FC00DE6BA9 /* Splitflap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Splitflap.swift; sourceTree = "<group>"; };
 		CEB139B91BF266FC00DE6BA9 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
-		CEB139BA1BF266FC00DE6BA9 /* Wheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wheel.swift; sourceTree = "<group>"; };
+		CEB139BA1BF266FC00DE6BA9 /* Flap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +84,14 @@
 		CEB139B51BF266FC00DE6BA9 /* Splitflap */ = {
 			isa = PBXGroup;
 			children = (
-				CEB139B61BF266FC00DE6BA9 /* Alphabet.swift */,
-				CEB139B71BF266FC00DE6BA9 /* AlphaNumericAlphabet.swift */,
 				CEB139B81BF266FC00DE6BA9 /* Splitflap.swift */,
 				CEB139B91BF266FC00DE6BA9 /* Tile.swift */,
-				CEB139BA1BF266FC00DE6BA9 /* Wheel.swift */,
+				CEB139BA1BF266FC00DE6BA9 /* Flap.swift */,
+				CE525D791BF331D100429200 /* SplitflapDataSource.swift */,
+				CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */,
+				CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */,
+				CE525D7F1BF3425C00429200 /* TokenGenerator.swift */,
+				CE525D811BF3467D00429200 /* TokenParser.swift */,
 			);
 			name = Splitflap;
 			path = ../Splitflap;
@@ -159,12 +168,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEB139BB1BF266FC00DE6BA9 /* Alphabet.swift in Sources */,
-				CEB139BF1BF266FC00DE6BA9 /* Wheel.swift in Sources */,
+				CE525D7E1BF340BB00429200 /* SplitflapTokens.swift in Sources */,
+				CEB139BF1BF266FC00DE6BA9 /* Flap.swift in Sources */,
+				CE525D7C1BF336EA00429200 /* SplitflapDelegate.swift in Sources */,
 				CEB139A61BF266DD00DE6BA9 /* ViewController.swift in Sources */,
 				CEB139A41BF266DD00DE6BA9 /* AppDelegate.swift in Sources */,
 				CEB139BE1BF266FC00DE6BA9 /* Tile.swift in Sources */,
-				CEB139BC1BF266FC00DE6BA9 /* AlphaNumericAlphabet.swift in Sources */,
+				CE525D821BF3467D00429200 /* TokenParser.swift in Sources */,
+				CE525D7A1BF331D100429200 /* SplitflapDataSource.swift in Sources */,
+				CE525D801BF3425C00429200 /* TokenGenerator.swift in Sources */,
 				CEB139BD1BF266FC00DE6BA9 /* Splitflap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
