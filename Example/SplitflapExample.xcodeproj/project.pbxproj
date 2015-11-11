@@ -482,6 +482,7 @@
 				CE525D931BF3833700429200 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEB1399B1BF266DD00DE6BA9 /* Build configuration list for PBXProject "SplitflapExample" */ = {
 			isa = XCConfigurationList;
