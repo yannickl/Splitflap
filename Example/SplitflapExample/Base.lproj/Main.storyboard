@@ -30,12 +30,12 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPm-IJ-VdU" customClass="Splitflap" customModule="SplitflapExample" customModuleProvider="target">
-                                <rect key="frame" x="130" y="260" width="340" height="80"/>
+                                <rect key="frame" x="150" y="270" width="300" height="60"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="xt3-Re-3pf"/>
-                                    <constraint firstAttribute="width" constant="340" id="zRn-bY-PT6"/>
+                                    <constraint firstAttribute="height" constant="60" id="xt3-Re-3pf"/>
+                                    <constraint firstAttribute="width" constant="300" id="zRn-bY-PT6"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="flapSpacing">

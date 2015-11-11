@@ -121,7 +121,7 @@ final class Tile: UIView {
     else {
       digitLabelFrame.size.height = digitLabelFrame.height * 2
       digitLabelFrame.origin.y    = -digitLabelFrame.height / 2
-      mainLineViewFrame           = CGRectMake(0, -2, bounds.width, 4)
+      mainLineViewFrame           = CGRectMake(0, -2, bounds.width, 3)
       secondaryLineViewFrame      = CGRectMake(0, -2, bounds.width, 2)
     }
 

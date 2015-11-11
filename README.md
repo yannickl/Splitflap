@@ -6,7 +6,9 @@ Splitflap is a simple to use component to present changeable alphanumeric text l
 
 ## Usage
 
-Here is the simplest way to use the `Splitflap` component:
+The first example is the simplest way to use the `Splitflap` component. Here how to display this "Hello" text:
+
+![Hello](http://yannickloriot.com/resources/splitflap-hello.gif)
 
 ```swift
 import Splitflap
