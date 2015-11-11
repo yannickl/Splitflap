@@ -12,7 +12,7 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
   @IBOutlet weak var splitflap: Splitflap!
   @IBOutlet weak var actionButton: UIButton!
 
-  private let words        = ["Hello", "Hey you", "Bonsoir", "12h15", "Arrival"]
+  private let words        = ["Hey you", "Bonsoir", "12h15", "Arrival"]
   private var currentIndex = 0
 
   override func viewDidLoad() {
@@ -46,7 +46,7 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
   // MARK: - Splitflap DataSource Methods
 
   func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
-    return 5
+    return 7
   }
 
   func supportedTokensInSplitflap(splitflap: Splitflap) -> [String] {
