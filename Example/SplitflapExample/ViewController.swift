@@ -18,6 +18,10 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    FlapViewBuilder { builder in
+      builder.backgroundColor = UIColor.whiteColor()
+    }
+    
     splitflap.datasource = self
     splitflap.delgate    = self
     splitflap.reload()
@@ -59,8 +63,11 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
     return 0.2
   }
 
-  func splitflap(splitflap: Splitflap, fontForFlapAtIndex index: Int) -> UIFont? {
-    return UIFont(name: "Courier", size: 50)
+  func splitflap(splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
+    return FlapViewBuilder { builder in
+      builder.backgroundColor = UIColor.blackColor()
+      builder.font            = UIFont(name: "Courier", size: 50)
+    }
   }
 }
 

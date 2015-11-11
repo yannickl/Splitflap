@@ -180,9 +180,8 @@ import UIKit
     var tmp: [FlapView] = []
 
     for index in 0 ..< numberOfFlaps {
-      let flap = FlapView()
+      let flap    = FlapView(builder: targetDelegate.splitflap(self, builderForFlapAtIndex: index))
       flap.tokens = tokens
-      flap.font   = targetDelegate.splitflap(self, fontForFlapAtIndex: index)
 
       tmp.append(flap)
       addSubview(flap)

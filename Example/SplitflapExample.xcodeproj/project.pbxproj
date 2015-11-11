@@ -23,6 +23,8 @@
 		CE525D9A1BF3833F00429200 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B91BF266FC00DE6BA9 /* TileView.swift */; };
 		CE525D9B1BF3833F00429200 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7F1BF3425C00429200 /* TokenGenerator.swift */; };
 		CE525D9C1BF3833F00429200 /* TokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D811BF3467D00429200 /* TokenParser.swift */; };
+		CE525D9E1BF3D57600429200 /* FlapViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D9D1BF3D57600429200 /* FlapViewBuilder.swift */; };
+		CE525D9F1BF3D7AC00429200 /* FlapViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D9D1BF3D57600429200 /* FlapViewBuilder.swift */; };
 		CEB139A41BF266DD00DE6BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139A31BF266DD00DE6BA9 /* AppDelegate.swift */; };
 		CEB139A61BF266DD00DE6BA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139A51BF266DD00DE6BA9 /* ViewController.swift */; };
 		CEB139A91BF266DD00DE6BA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB139A71BF266DD00DE6BA9 /* Main.storyboard */; };
@@ -66,6 +68,7 @@
 		CE525D881BF3833700429200 /* Splitflap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Splitflap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE525D8A1BF3833700429200 /* Splitflap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Splitflap.h; sourceTree = "<group>"; };
 		CE525D8C1BF3833700429200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE525D9D1BF3D57600429200 /* FlapViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapViewBuilder.swift; sourceTree = "<group>"; };
 		CEB139A01BF266DD00DE6BA9 /* SplitflapExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitflapExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB139A31BF266DD00DE6BA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEB139A51BF266DD00DE6BA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB139BA1BF266FC00DE6BA9 /* FlapView.swift */,
+				CE525D9D1BF3D57600429200 /* FlapViewBuilder.swift */,
 				CEB139B81BF266FC00DE6BA9 /* Splitflap.swift */,
 				CE525D791BF331D100429200 /* SplitflapDataSource.swift */,
 				CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */,
@@ -271,6 +275,7 @@
 				CE525D991BF3833F00429200 /* SplitflapTokens.swift in Sources */,
 				CE525D9C1BF3833F00429200 /* TokenParser.swift in Sources */,
 				CE525D951BF3833F00429200 /* FlapView.swift in Sources */,
+				CE525D9F1BF3D7AC00429200 /* FlapViewBuilder.swift in Sources */,
 				CE525D9A1BF3833F00429200 /* TileView.swift in Sources */,
 				CE525D961BF3833F00429200 /* Splitflap.swift in Sources */,
 				CE525D9B1BF3833F00429200 /* TokenGenerator.swift in Sources */,
@@ -282,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE525D9E1BF3D57600429200 /* FlapViewBuilder.swift in Sources */,
 				CE525D7E1BF340BB00429200 /* SplitflapTokens.swift in Sources */,
 				CEB139BF1BF266FC00DE6BA9 /* FlapView.swift in Sources */,
 				CE525D7C1BF336EA00429200 /* SplitflapDelegate.swift in Sources */,

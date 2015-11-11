@@ -57,44 +57,36 @@ final class TileView: UIView {
   // MARK: - Configuring the Label
 
   /// The font of the tile's text.
-  var font: UIFont? {
-    didSet {
-      layoutSubviews()
-    }
-  }
+  private var font: UIFont?
 
   // MARK: - Initializing a Flap View
 
-  convenience init(position: Position) {
-    self.init(frame: CGRectZero)
+  required init(builder: FlapViewBuilder, position: Position) {
+    super.init(frame: CGRectZero)
 
     self.position = position
-  }
 
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-
-    setupViews()
+    setupViewsWithBuilder(builder)
   }
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-
-    setupViews()
   }
 
   // MARK: - Layout the View
 
-  private func setupViews() {
+  private func setupViewsWithBuilder(builder: FlapViewBuilder) {
+    font = builder.font
+
     layer.masksToBounds = true
-    backgroundColor     = UIColor.blackColor()
+    backgroundColor     = builder.backgroundColor
 
     digitLabel.textAlignment   = .Center
-    digitLabel.textColor       = UIColor.whiteColor()
-    digitLabel.backgroundColor = UIColor.blackColor()
+    digitLabel.textColor       = builder.textColor
+    digitLabel.backgroundColor = builder.backgroundColor
 
     mainLineView.backgroundColor      = UIColor.darkGrayColor()
-    secondaryLineView.backgroundColor = UIColor.blackColor()
+    secondaryLineView.backgroundColor = builder.backgroundColor
 
     addSubview(digitLabel)
     addSubview(mainLineView)

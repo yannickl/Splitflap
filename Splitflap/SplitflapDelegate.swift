@@ -54,10 +54,9 @@ public protocol SplitflapDelegate: class {
   - parameter splitflap: The split-flap view requesting the data.
   - parameter index: A zero-indexed number identifying a flap. The index starts
   at 0 for the leftmost flap.
-  - returns: The font of the flap's text. If it returns nil, the flap uses its
-  internal *Courier* font.
+  - returns: A FlapView builder object to create custom flaps.
   */
-  func splitflap(splitflap: Splitflap, fontForFlapAtIndex index: Int) -> UIFont?
+  func splitflap(splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder
 }
 
 /// Default implementation of SplitflapDelegate
@@ -67,8 +66,8 @@ public extension SplitflapDelegate {
     return 0.2
   }
 
-  /// Returns nil by default to use the internal flap's font.
-  func splitflap(splitflap: Splitflap, fontForFlapAtIndex index: Int) -> UIFont? {
-    return nil
+  /// Returns the default FlapViewBuilder configuration by default.
+  func splitflap(splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
+    return FlapViewBuilder()
   }
 }

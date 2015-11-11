@@ -2,7 +2,8 @@
 
 ## Version 0.2.0 (Under Developement)
 
-- [ADD] `splitflap:fontForFlapAtIndex:` method to customize the flap fonts
+- [ADD] `FlapViewBuilder` to make flap configuration easier
+- [ADD] `splitflap:builderForFlapAtIndex:` method to customize the each flap individually
 
 ## [Version 0.1.0](https://github.com/yannickl/Splitflap/releases/tag/0.1.0)
 Released on 2015-11-11.

@@ -33,10 +33,10 @@ import QuartzCore
 */
 final class FlapView: UIView {
   // The tiles used to display and animate the flaps
-  private var topTicTile    = TileView(position: .Top)
-  private var bottomTicTile = TileView(position: .Bottom)
-  private var topTacTile    = TileView(position: .Top)
-  private var bottomTacTile = TileView(position: .Bottom)
+  private let topTicTile: TileView
+  private let bottomTicTile: TileView
+  private let topTacTile: TileView
+  private let bottomTacTile: TileView
 
   // MARK: - Working With Tokens
 
@@ -48,33 +48,35 @@ final class FlapView: UIView {
   private var tokenGenerator = TokenGenerator(tokens: [])
   private var targetToken: String?
 
-  // MARK: - Configuring the Label of Tiles
-
-  /// The font of the flap's text.
-  var font: UIFont? {
-    didSet {
-      topTicTile.font    = font
-      bottomTicTile.font = font
-      topTacTile.font    = font
-      bottomTacTile.font = font
-    }
-  }
-
   // MARK: - Initializing a Flap View
 
-  override init(frame: CGRect) {
-    super.init(frame: frame)
+  required init(builder: FlapViewBuilder) {
+    topTicTile    = TileView(builder: builder, position: .Top)
+    bottomTicTile = TileView(builder: builder, position: .Bottom)
+    topTacTile    = TileView(builder: builder, position: .Top)
+    bottomTacTile = TileView(builder: builder, position: .Bottom)
+
+    super.init(frame: CGRectZero)
 
     setupViews()
     setupAnimations()
   }
 
   required init?(coder aDecoder: NSCoder) {
+    let dummyBuilder = FlapViewBuilder { builder in }
+
+    topTicTile    = TileView(builder: dummyBuilder, position: .Top)
+    bottomTicTile = TileView(builder: dummyBuilder, position: .Bottom)
+    topTacTile    = TileView(builder: dummyBuilder, position: .Top)
+    bottomTacTile = TileView(builder: dummyBuilder, position: .Bottom)
+
     super.init(coder: aDecoder)
 
     setupViews()
     setupAnimations()
   }
+
+  // MARK: - Laying out Subviews
 
   override func layoutSubviews() {
     super.layoutSubviews()
