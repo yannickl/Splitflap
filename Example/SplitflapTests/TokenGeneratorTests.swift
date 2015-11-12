@@ -29,13 +29,48 @@ import XCTest
 
 class TokenGeneratorTests: XCTestCase {
   func testCurrentElement() {
-    let nilGenerator = TokenGenerator(tokens: [])
-    XCTAssertNil(nilGenerator.currentElement)
+    let emptyGenerator = TokenGenerator(tokens: [])
+    XCTAssertNil(emptyGenerator.currentElement)
 
     let oneElementGenerator = TokenGenerator(tokens: ["a"])
     XCTAssertEqual(oneElementGenerator.currentElement, "a")
 
     let nElementsGenerator = TokenGenerator(tokens: ["a", "b", "c", "d"])
     XCTAssertEqual(nElementsGenerator.currentElement, "a")
+  }
+
+  func testNext() {
+    let emptyGenerator = TokenGenerator(tokens: [])
+    XCTAssertNil(emptyGenerator.currentElement)
+
+    let nilElement = emptyGenerator.next()
+    XCTAssertNil(nilElement)
+    XCTAssertNil(emptyGenerator.currentElement)
+
+    let oneElementGenerator = TokenGenerator(tokens: ["a"])
+    let aElement            = oneElementGenerator.next()
+    XCTAssertEqual(aElement, "a")
+    XCTAssertEqual(oneElementGenerator.currentElement, "a")
+
+    let twoElementsGenerator = TokenGenerator(tokens: ["a", "b"])
+    var twoElement           = twoElementsGenerator.next()
+    XCTAssertEqual(twoElement, "b")
+    XCTAssertEqual(twoElementsGenerator.currentElement, "b")
+
+    twoElement = twoElementsGenerator.next()
+    XCTAssertEqual(twoElement, "a")
+    XCTAssertEqual(twoElementsGenerator.currentElement, "a")
+  }
+
+  func testFirstToken() {
+    let emptyGenerator = TokenGenerator(tokens: [])
+    XCTAssertNil(emptyGenerator.firstToken)
+
+    let oneElementGenerator = TokenGenerator(tokens: ["a"])
+    XCTAssertEqual(oneElementGenerator.firstToken, "a")
+
+    let nElementsGenerator = TokenGenerator(tokens: ["a", "b", "c", "d"])
+    nElementsGenerator.next()
+    XCTAssertEqual(nElementsGenerator.firstToken, "a")
   }
 }

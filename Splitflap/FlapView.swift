@@ -184,7 +184,7 @@ final class FlapView: UIView {
   }
 
   /// Display the given token. If animated it rotate the flaps.
-  private func updateWithToken(token: String, animated: Bool) {
+  private func updateWithToken(token: String?, animated: Bool) {
     let topBack    = animationTime == .Tic ? topTicTile : topTacTile
     let bottomBack = animationTime == .Tic ? bottomTicTile : bottomTacTile
     let topFront   = animationTime == .Tic ? topTacTile : topTicTile

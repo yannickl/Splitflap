@@ -41,7 +41,8 @@ final class TokenGenerator: GeneratorType {
 
   // MARK: - Implementing GeneratorType
 
-  private(set) var currentIndex = 0
+  /// Current element index
+  private var currentIndex = 0
 
   /// Returns the current element of the generator, nil otherwise.
   var currentElement: Element? {
@@ -63,7 +64,15 @@ final class TokenGenerator: GeneratorType {
     }
   }
 
+  /// Advance to the next element and return it, or `nil` if no next.
+  /// element exists.
   func next() -> Element? {
+    let tokenCount = tokens.count
+
+    guard tokenCount > 0 else {
+      return nil
+    }
+
     currentIndex = (currentIndex + 1) % tokens.count
 
     return tokens[currentIndex]
@@ -71,9 +80,10 @@ final class TokenGenerator: GeneratorType {
 
   // MARK: - Convenience Methods
 
-  var firstToken: String {
+  /// Returns the first token, or `nil` if no token.
+  var firstToken: String? {
     get {
-      return tokens.first ?? ""
+      return tokens.first
     }
   }
 }
