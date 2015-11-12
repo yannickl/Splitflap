@@ -30,6 +30,27 @@ func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
 
 ```
 
+### Theming
+
+`Splitflap` allows you to customize each flap individually by providing a `splitflap:builderForFlapAtIndex:` delegate method:
+
+```swift
+let splitflapView      = Splitflap(frame: CGRectMake(0, 0, 370, 53))
+splitflapView.delegate = self
+
+// MARK: - Splitflap Delegate Methods
+
+// Configure the appearance for each flaps
+func splitflap(splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
+  return FlapViewBuilder { builder in
+    builder.backgroundColor = UIColor.blackColor()
+    builder.cornerRadius    = 5
+    builder.font            = UIFont(name: "Courier", size: 50)
+    builder.textColor       = UIColor.whiteColor()
+    builder.lineColor       = UIColor.darkGrayColor()
+  }
+}
+```
 ### And many more...
 
 To go further, take a look at the example project.
