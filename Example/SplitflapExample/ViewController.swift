@@ -23,7 +23,7 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
     }
     
     splitflap.datasource = self
-    splitflap.delgate    = self
+    splitflap.delegate   = self
     splitflap.reload()
   }
 

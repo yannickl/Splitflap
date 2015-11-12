@@ -44,6 +44,7 @@
 		CEB139BD1BF266FC00DE6BA9 /* Splitflap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B81BF266FC00DE6BA9 /* Splitflap.swift */; };
 		CEB139BE1BF266FC00DE6BA9 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B91BF266FC00DE6BA9 /* TileView.swift */; };
 		CEB139BF1BF266FC00DE6BA9 /* FlapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139BA1BF266FC00DE6BA9 /* FlapView.swift */; };
+		CEECB4DF1BF53107002511E0 /* SplitflapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECB4DE1BF53107002511E0 /* SplitflapTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		CEB139B81BF266FC00DE6BA9 /* Splitflap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Splitflap.swift; sourceTree = "<group>"; };
 		CEB139B91BF266FC00DE6BA9 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		CEB139BA1BF266FC00DE6BA9 /* FlapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapView.swift; sourceTree = "<group>"; };
+		CEECB4DE1BF53107002511E0 /* SplitflapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				CE525DB11BF4FBC800429200 /* Info.plist */,
 				CE525DB71BF4FBE400429200 /* TokenGeneratorTests.swift */,
 				CE525DC21BF5134D00429200 /* TokenParserTests.swift */,
+				CEECB4DE1BF53107002511E0 /* SplitflapTests.swift */,
 			);
 			path = SplitflapTests;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				CE525DBD1BF4FC3200429200 /* SplitflapDelegate.swift in Sources */,
 				CE525DBB1BF4FC3200429200 /* Splitflap.swift in Sources */,
 				CE525DBA1BF4FC3200429200 /* FlapViewBuilder.swift in Sources */,
+				CEECB4DF1BF53107002511E0 /* SplitflapTests.swift in Sources */,
 				CE525DC01BF4FC3200429200 /* TokenGenerator.swift in Sources */,
 				CE525DB91BF4FC3200429200 /* FlapView.swift in Sources */,
 			);
@@ -621,6 +625,7 @@
 				CE525DB51BF4FBC800429200 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEB1399B1BF266DD00DE6BA9 /* Build configuration list for PBXProject "SplitflapExample" */ = {
 			isa = XCConfigurationList;

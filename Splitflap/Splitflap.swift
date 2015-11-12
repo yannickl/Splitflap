@@ -47,7 +47,7 @@ import UIKit
   /**
   The delegate for the split-flap view.
   */
-  public weak var delgate: SplitflapDelegate?
+  public weak var delegate: SplitflapDelegate?
 
   // MARK: - Getting Flaps
 
@@ -111,8 +111,8 @@ import UIKit
     get {
       return textAsToken
     }
-    set {
-      setText(text, animated: false)
+    set(newValue) {
+      setText(newValue, animated: false)
     }
   }
 
@@ -125,7 +125,7 @@ import UIKit
    immediately.
    */
   public func setText(text: String?, animated: Bool) {
-    let target = (delgate ?? self)
+    let target = (delegate ?? self)
     let delay  = animated ? 0.181 : 0
 
     var tokens: [String] = []
@@ -133,7 +133,7 @@ import UIKit
     if let string = text  {
       tokens = tokenParser.parseString(string)
     }
-
+print("setText: \(text) => \(tokens)")
     textAsToken = nil
 
     for (index, flap) in flaps.enumerate() {
@@ -175,7 +175,7 @@ import UIKit
 
   /// Rebuild and layout the split-flap view.
   private func updateAndLayoutView() {
-    let targetDelegate = (delgate ?? self)
+    let targetDelegate = (delegate ?? self)
 
     var tmp: [FlapView] = []
 
