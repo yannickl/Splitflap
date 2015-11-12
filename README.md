@@ -46,6 +46,7 @@ func splitflap(splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapVi
     builder.backgroundColor = UIColor.blackColor()
     builder.cornerRadius    = 5
     builder.font            = UIFont(name: "Courier", size: 50)
+    builder.textAlignment   = .Center
     builder.textColor       = UIColor.whiteColor()
     builder.lineColor       = UIColor.darkGrayColor()
   }

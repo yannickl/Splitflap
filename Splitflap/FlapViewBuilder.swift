@@ -68,6 +68,13 @@ public final class FlapViewBuilder {
   var font: UIFont?
 
   /**
+   The technique to use for aligning the text.
+   
+   The default value of this property is NSTextAlignment.Center.
+  */
+  var textAlignment: NSTextAlignment = .Center
+
+  /**
    The color of the text.
    
    Uses the white color by default.

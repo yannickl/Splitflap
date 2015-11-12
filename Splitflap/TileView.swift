@@ -91,7 +91,7 @@ final class TileView: UIView {
     layer.masksToBounds = true
     backgroundColor     = builder.backgroundColor
 
-    digitLabel.textAlignment   = .Center
+    digitLabel.textAlignment   = builder.textAlignment
     digitLabel.textColor       = builder.textColor
     digitLabel.backgroundColor = builder.backgroundColor
 
