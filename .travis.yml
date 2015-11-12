@@ -3,15 +3,10 @@ osx_image: xcode7.1
 env:
   matrix:
     - DESTINATION="OS=9.1,name=iPad 2"
-    - DESTINATION="OS=9.1,name=iPad Air"
-    - DESTINATION="OS=9.1,name=iPhone 5"
-    - DESTINATION="OS=9.1,name=iPhone 6s"
-    - DESTINATION="OS=8.4,name=iPhone 6"
-    - DESTINATION="OS=8.4,name=iPad Air"
 before_install:
   - gem install xcpretty
 script:
   - xcodebuild -version
-  - xcodebuild -project Example/SplitflapExample.xcodeproj -scheme SplitflapTests -sdk iphonesimulator -destination "$DESTINATION" -enableCodeCoverage YES -configuration Release test | xcpretty -c
+  - xcodebuild -project Example/SplitflapExample.xcodeproj -scheme SplitflapTests -sdk iphonesimulator -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=YES test | xcpretty -c
 after_success:
   - bash <(curl -s https://codecov.io/bash)
