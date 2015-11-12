@@ -24,56 +24,18 @@
  *
  */
 
-import Foundation
+import UIKit
+import XCTest
 
-/**
- A TokenGenerator helps the flap view by choosing the right token rescpecting the
- initial order.
-*/
-final class TokenGenerator: GeneratorType {
-  typealias Element = String
+class TokenGeneratorTests: XCTestCase {
+  func testCurrentElement() {
+    let nilGenerator = TokenGenerator(tokens: [])
+    XCTAssertNil(nilGenerator.currentElement)
 
-  let tokens: [String]
+    let oneElementGenerator = TokenGenerator(tokens: ["a"])
+    XCTAssertEqual(oneElementGenerator.currentElement, "a")
 
-  required init(tokens: [String]) {
-    self.tokens = tokens
-  }
-
-  // MARK: - Implementing GeneratorType
-
-  private(set) var currentIndex = 0
-
-  /// Returns the current element of the generator, nil otherwise.
-  var currentElement: Element? {
-    get {
-      if currentIndex < tokens.count {
-        return tokens[currentIndex]
-      }
-      else {
-        return nil
-      }
-    }
-    set(newValue) {
-      if let value = newValue {
-        currentIndex = tokens.indexOf(value) ?? currentIndex
-      }
-      else {
-        currentIndex = 0
-      }
-    }
-  }
-
-  func next() -> Element? {
-    currentIndex = (currentIndex + 1) % tokens.count
-
-    return tokens[currentIndex]
-  }
-
-  // MARK: - Convenience Methods
-
-  var firstToken: String {
-    get {
-      return tokens.first ?? ""
-    }
+    let nElementsGenerator = TokenGenerator(tokens: ["a", "b", "c", "d"])
+    XCTAssertEqual(nElementsGenerator.currentElement, "a")
   }
 }

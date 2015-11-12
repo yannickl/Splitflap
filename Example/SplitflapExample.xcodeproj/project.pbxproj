@@ -25,6 +25,16 @@
 		CE525D9C1BF3833F00429200 /* TokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D811BF3467D00429200 /* TokenParser.swift */; };
 		CE525D9E1BF3D57600429200 /* FlapViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D9D1BF3D57600429200 /* FlapViewBuilder.swift */; };
 		CE525D9F1BF3D7AC00429200 /* FlapViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D9D1BF3D57600429200 /* FlapViewBuilder.swift */; };
+		CE525DB81BF4FBE400429200 /* TokenGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525DB71BF4FBE400429200 /* TokenGeneratorTests.swift */; };
+		CE525DB91BF4FC3200429200 /* FlapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139BA1BF266FC00DE6BA9 /* FlapView.swift */; };
+		CE525DBA1BF4FC3200429200 /* FlapViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D9D1BF3D57600429200 /* FlapViewBuilder.swift */; };
+		CE525DBB1BF4FC3200429200 /* Splitflap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B81BF266FC00DE6BA9 /* Splitflap.swift */; };
+		CE525DBC1BF4FC3200429200 /* SplitflapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D791BF331D100429200 /* SplitflapDataSource.swift */; };
+		CE525DBD1BF4FC3200429200 /* SplitflapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */; };
+		CE525DBE1BF4FC3200429200 /* SplitflapTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */; };
+		CE525DBF1BF4FC3200429200 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B91BF266FC00DE6BA9 /* TileView.swift */; };
+		CE525DC01BF4FC3200429200 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7F1BF3425C00429200 /* TokenGenerator.swift */; };
+		CE525DC11BF4FC3200429200 /* TokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D811BF3467D00429200 /* TokenParser.swift */; };
 		CEB139A41BF266DD00DE6BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139A31BF266DD00DE6BA9 /* AppDelegate.swift */; };
 		CEB139A61BF266DD00DE6BA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139A51BF266DD00DE6BA9 /* ViewController.swift */; };
 		CEB139A91BF266DD00DE6BA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB139A71BF266DD00DE6BA9 /* Main.storyboard */; };
@@ -42,6 +52,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = CE525D871BF3833700429200;
 			remoteInfo = Splitflap;
+		};
+		CE525DB21BF4FBC800429200 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEB139981BF266DD00DE6BA9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEB1399F1BF266DD00DE6BA9;
+			remoteInfo = SplitflapExample;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -69,6 +86,9 @@
 		CE525D8A1BF3833700429200 /* Splitflap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Splitflap.h; sourceTree = "<group>"; };
 		CE525D8C1BF3833700429200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE525D9D1BF3D57600429200 /* FlapViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapViewBuilder.swift; sourceTree = "<group>"; };
+		CE525DAD1BF4FBC800429200 /* SplitflapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SplitflapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE525DB11BF4FBC800429200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE525DB71BF4FBE400429200 /* TokenGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenGeneratorTests.swift; sourceTree = "<group>"; };
 		CEB139A01BF266DD00DE6BA9 /* SplitflapExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitflapExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB139A31BF266DD00DE6BA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEB139A51BF266DD00DE6BA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +103,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		CE525D841BF3833700429200 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE525DAA1BF4FBC800429200 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -109,12 +136,22 @@
 			path = Splitflap;
 			sourceTree = "<group>";
 		};
+		CE525DAE1BF4FBC800429200 /* SplitflapTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE525DB71BF4FBE400429200 /* TokenGeneratorTests.swift */,
+				CE525DB11BF4FBC800429200 /* Info.plist */,
+			);
+			path = SplitflapTests;
+			sourceTree = "<group>";
+		};
 		CEB139971BF266DD00DE6BA9 = {
 			isa = PBXGroup;
 			children = (
 				CEB139B51BF266FC00DE6BA9 /* Splitflap */,
 				CEB139A21BF266DD00DE6BA9 /* SplitflapExample */,
 				CE525D891BF3833700429200 /* Splitflap */,
+				CE525DAE1BF4FBC800429200 /* SplitflapTests */,
 				CEB139A11BF266DD00DE6BA9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,6 +161,7 @@
 			children = (
 				CEB139A01BF266DD00DE6BA9 /* SplitflapExample.app */,
 				CE525D881BF3833700429200 /* Splitflap.framework */,
+				CE525DAD1BF4FBC800429200 /* SplitflapTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,6 +228,24 @@
 			productReference = CE525D881BF3833700429200 /* Splitflap.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		CE525DAC1BF4FBC800429200 /* SplitflapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE525DB61BF4FBC800429200 /* Build configuration list for PBXNativeTarget "SplitflapTests" */;
+			buildPhases = (
+				CE525DA91BF4FBC800429200 /* Sources */,
+				CE525DAA1BF4FBC800429200 /* Frameworks */,
+				CE525DAB1BF4FBC800429200 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE525DB31BF4FBC800429200 /* PBXTargetDependency */,
+			);
+			name = SplitflapTests;
+			productName = SplitflapTests;
+			productReference = CE525DAD1BF4FBC800429200 /* SplitflapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CEB1399F1BF266DD00DE6BA9 /* SplitflapExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEB139B21BF266DD00DE6BA9 /* Build configuration list for PBXNativeTarget "SplitflapExample" */;
@@ -222,6 +278,10 @@
 					CE525D871BF3833700429200 = {
 						CreatedOnToolsVersion = 7.1;
 					};
+					CE525DAC1BF4FBC800429200 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = CEB1399F1BF266DD00DE6BA9;
+					};
 					CEB1399F1BF266DD00DE6BA9 = {
 						CreatedOnToolsVersion = 7.1;
 					};
@@ -241,6 +301,7 @@
 			projectRoot = "";
 			targets = (
 				CEB1399F1BF266DD00DE6BA9 /* SplitflapExample */,
+				CE525DAC1BF4FBC800429200 /* SplitflapTests */,
 				CE525D871BF3833700429200 /* Splitflap */,
 			);
 		};
@@ -248,6 +309,13 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		CE525D861BF3833700429200 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE525DAB1BF4FBC800429200 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -283,6 +351,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE525DA91BF4FBC800429200 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE525DBC1BF4FC3200429200 /* SplitflapDataSource.swift in Sources */,
+				CE525DBE1BF4FC3200429200 /* SplitflapTokens.swift in Sources */,
+				CE525DC11BF4FC3200429200 /* TokenParser.swift in Sources */,
+				CE525DBF1BF4FC3200429200 /* TileView.swift in Sources */,
+				CE525DB81BF4FBE400429200 /* TokenGeneratorTests.swift in Sources */,
+				CE525DBD1BF4FC3200429200 /* SplitflapDelegate.swift in Sources */,
+				CE525DBB1BF4FC3200429200 /* Splitflap.swift in Sources */,
+				CE525DBA1BF4FC3200429200 /* FlapViewBuilder.swift in Sources */,
+				CE525DC01BF4FC3200429200 /* TokenGenerator.swift in Sources */,
+				CE525DB91BF4FC3200429200 /* FlapView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEB1399C1BF266DD00DE6BA9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -308,6 +393,11 @@
 			isa = PBXTargetDependency;
 			target = CE525D871BF3833700429200 /* Splitflap */;
 			targetProxy = CE525D8D1BF3833700429200 /* PBXContainerItemProxy */;
+		};
+		CE525DB31BF4FBC800429200 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEB1399F1BF266DD00DE6BA9 /* SplitflapExample */;
+			targetProxy = CE525DB21BF4FBC800429200 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -339,6 +429,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				INFOPLIST_FILE = Splitflap/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -359,6 +450,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				INFOPLIST_FILE = Splitflap/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -368,6 +460,32 @@
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CE525DB41BF4FBC800429200 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SplitflapTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.SplitflapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SplitflapExample.app/SplitflapExample";
+			};
+			name = Debug;
+		};
+		CE525DB51BF4FBC800429200 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SplitflapTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.SplitflapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SplitflapExample.app/SplitflapExample";
 			};
 			name = Release;
 		};
@@ -489,6 +607,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		CE525DB61BF4FBC800429200 /* Build configuration list for PBXNativeTarget "SplitflapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE525DB41BF4FBC800429200 /* Debug */,
+				CE525DB51BF4FBC800429200 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		CEB1399B1BF266DD00DE6BA9 /* Build configuration list for PBXProject "SplitflapExample" */ = {
 			isa = XCConfigurationList;
