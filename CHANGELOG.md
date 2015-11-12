@@ -2,6 +2,7 @@
 
 ## Version 0.2.0 (Under Developement)
 
+- [FIX] Parse characters and words
 - [ADD] `FlapViewBuilder` to make flap configuration easier
 - [ADD] `splitflap:builderForFlapAtIndex:` method to customize the each flap individually
 

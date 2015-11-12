@@ -130,8 +130,8 @@ import UIKit
 
     var tokens: [String] = []
 
-    if let t = text, let ts = try? tokenParser.parse(t) {
-      tokens = ts
+    if let string = text  {
+      tokens = tokenParser.parseString(string)
     }
 
     textAsToken = nil
@@ -180,8 +180,7 @@ import UIKit
     var tmp: [FlapView] = []
 
     for index in 0 ..< numberOfFlaps {
-      let flap    = FlapView(builder: targetDelegate.splitflap(self, builderForFlapAtIndex: index))
-      flap.tokens = tokens
+      let flap = FlapView(tokens: tokens, builder: targetDelegate.splitflap(self, builderForFlapAtIndex: index))
 
       tmp.append(flap)
       addSubview(flap)

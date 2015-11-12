@@ -40,21 +40,20 @@ final class FlapView: UIView {
 
   // MARK: - Working With Tokens
 
-  var tokens: [String] = [] {
-    didSet {
-      tokenGenerator = TokenGenerator(tokens: tokens)
-    }
-  }
-  private var tokenGenerator = TokenGenerator(tokens: [])
+  let tokens: [String]
+  private let tokenGenerator:TokenGenerator
   private var targetToken: String?
 
   // MARK: - Initializing a Flap View
 
-  required init(builder: FlapViewBuilder) {
-    topTicTile    = TileView(builder: builder, position: .Top)
-    bottomTicTile = TileView(builder: builder, position: .Bottom)
-    topTacTile    = TileView(builder: builder, position: .Top)
-    bottomTacTile = TileView(builder: builder, position: .Bottom)
+  required init(tokens: [String], builder: FlapViewBuilder) {
+    self.topTicTile    = TileView(builder: builder, position: .Top)
+    self.bottomTicTile = TileView(builder: builder, position: .Bottom)
+    self.topTacTile    = TileView(builder: builder, position: .Top)
+    self.bottomTacTile = TileView(builder: builder, position: .Bottom)
+
+    self.tokens         = tokens
+    self.tokenGenerator = TokenGenerator(tokens: tokens)
 
     super.init(frame: CGRectZero)
 
@@ -70,6 +69,9 @@ final class FlapView: UIView {
     topTacTile    = TileView(builder: dummyBuilder, position: .Top)
     bottomTacTile = TileView(builder: dummyBuilder, position: .Bottom)
 
+    tokens         = []
+    tokenGenerator = TokenGenerator(tokens: [])
+    
     super.init(coder: aDecoder)
 
     setupViews()

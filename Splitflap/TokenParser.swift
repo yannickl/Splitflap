@@ -27,29 +27,55 @@
 import Foundation
 
 /**
- The TokenParser parse a given string into a token list.
+ The TokenParser parses a given string into a token list.
 */
 final class TokenParser {
-  let tokens: [String]
+  let tokens: [String: Bool]
 
   required init(tokens: [String]) {
-    self.tokens = tokens
+    // Transforms a list into a dictionary to improve the search
+    self.tokens = tokens.reduce([:]) { (var dict, elem) in
+      dict[elem] = true
+
+      return dict
+    }
   }
 
   // MARK: - Parsing Inputs
-  
-  func parse(text: String) throws -> [String] {
-    var tokenFound: [String] = []
 
-    for character in text.characters {
-      if tokens.contains(String(character)) {
-        tokenFound.append(String(character))
-      }
-      else {
-        throw NSError(domain: "com.yannickloriot.token.invalid", code: 999, userInfo: nil)
+  /**
+  Parse a given string to find tokens.
+
+  - parameter string: A string to parse.
+  - returns: A list of token. An empty list if the given string does not
+  contains token.
+  */
+  func parseString(string: String) -> [String] {
+    var tokensFound: [String] = []
+
+    var word: String = ""
+
+    for character in string.characters {
+      word += String(character)
+
+      if isToken(word) {
+        tokensFound.append(word)
+
+        word = ""
       }
     }
 
-    return tokenFound
+    return tokensFound
+  }
+
+  // MARK: -
+
+  /**
+  Checks whether the given word is a token and returns true if it the case.
+
+  - parameter word: A word as String.
+  */
+  private func isToken(word: String) -> Bool {
+    return tokens[word] != nil
   }
 }
