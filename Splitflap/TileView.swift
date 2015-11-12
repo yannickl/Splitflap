@@ -43,7 +43,7 @@ final class TileView: UIView {
     case Bottom
   }
 
-  var position = Position.Top
+  let position: Position
 
   var symbol: String? {
     get {
@@ -59,17 +59,27 @@ final class TileView: UIView {
   /// The font of the tile's text.
   private var font: UIFont?
 
+
+  /**
+   The radii size to use when drawing rounded corners.
+   */
+  private let cornerRadii: CGSize
+
   // MARK: - Initializing a Flap View
 
   required init(builder: FlapViewBuilder, position: Position) {
-    super.init(frame: CGRectZero)
+    self.cornerRadii = CGSizeMake(builder.cornerRadius, builder.cornerRadius)
+    self.position    = position
 
-    self.position = position
+    super.init(frame: CGRectZero)
 
     setupViewsWithBuilder(builder)
   }
 
   required init?(coder aDecoder: NSCoder) {
+    self.cornerRadii = CGSizeMake(0, 0)
+    self.position    = .Top
+
     super.init(coder: aDecoder)
   }
 
@@ -85,7 +95,7 @@ final class TileView: UIView {
     digitLabel.textColor       = builder.textColor
     digitLabel.backgroundColor = builder.backgroundColor
 
-    mainLineView.backgroundColor      = UIColor.darkGrayColor()
+    mainLineView.backgroundColor      = builder.lineColor
     secondaryLineView.backgroundColor = builder.backgroundColor
 
     addSubview(digitLabel)
@@ -102,10 +112,10 @@ final class TileView: UIView {
     let path: UIBezierPath
 
     if position == .Top {
-      path = UIBezierPath(roundedRect:bounds, byRoundingCorners:[.TopLeft, .TopRight], cornerRadii: CGSizeMake(5, 5))
+      path = UIBezierPath(roundedRect:bounds, byRoundingCorners:[.TopLeft, .TopRight], cornerRadii: cornerRadii)
     }
     else {
-      path = UIBezierPath(roundedRect:bounds, byRoundingCorners:[.BottomLeft, .BottomRight], cornerRadii: CGSizeMake(5, 5))
+      path = UIBezierPath(roundedRect:bounds, byRoundingCorners:[.BottomLeft, .BottomRight], cornerRadii: cornerRadii)
     }
 
     let maskLayer  = CAShapeLayer()

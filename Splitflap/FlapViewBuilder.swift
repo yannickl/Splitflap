@@ -43,21 +43,44 @@ public final class FlapViewBuilder {
   /**
    The flap's background color.
 
-   The value is nil, it results in a transparent background color. The default value is black.
+   If the value is nil, it results in a transparent background color. The 
+   default value is black.
    */
   var backgroundColor: UIColor? = UIColor.blackColor()
+
+  /**
+   The radius to use when drawing rounded corners for the flap’s background.
+   
+   Setting the radius to a value greater than 0.0 causes the flap to begin
+   drawing rounded corners on its background.
+
+   The default value of this property is 5.0.
+   */
+  var cornerRadius: CGFloat = 5
 
   /**
    The font of the flap.
 
    If the font is nil, the flap uses its internal default *Courier* font.
+   
+   The default value of this property is nil.
    */
   var font: UIFont?
 
   /**
    The color of the text.
+   
+   Uses the white color by default.
    */
   var textColor: UIColor = UIColor.whiteColor()
+
+  /**
+   The flap's middle line color.
+
+   If the value is nil, it results in a transparent line color. The default
+   value is dark gray.
+   */
+  var lineColor: UIColor? = UIColor.darkGrayColor()
 
   // MARK: - Initializing a Flap View
 
