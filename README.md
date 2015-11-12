@@ -78,7 +78,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 use_frameworks!
-pod 'Splitflap', '~> 0.1.0'
+pod 'Splitflap', '~> 0.2.0'
 ```
 
 Install into your project:
@@ -109,7 +109,7 @@ $ brew install carthage
 To integrate `Splitflap` into your Xcode project using Carthage, specify it in your `Cartfile` file:
 
 ```ogdl
-github "yannickl/Splitflap" >= 0.1.0
+github "yannickl/Splitflap" >= 0.2.0
 ```
 
 #### Manually

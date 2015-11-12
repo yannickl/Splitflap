@@ -1,6 +1,9 @@
 # Change log
 
-## Version 0.2.0 (Under Developement)
+## Version 0.3.0 (Under Developement)
+
+## [Version 0.2.0](https://github.com/yannickl/Splitflap/releases/tag/0.2.0)
+Released on 2015-11-12.
 
 - [FIX] Parse characters and words
 - [ADD] `FlapViewBuilder` to make flap configuration easier
