@@ -1,12 +1,17 @@
 language: objective-c
 osx_image: xcode7.1
-branches:
-  only:
-    - master
+env:
+  matrix:
+    - DESTINATION="OS=9.1,name=iPad 2"
+    - DESTINATION="OS=9.1,name=iPad Air"
+    - DESTINATION="OS=9.1,name=iPhone 5"
+    - DESTINATION="OS=9.1,name=iPhone 6s"
+    - DESTINATION="OS=8.4,name=iPhone 6"
+    - DESTINATION="OS=8.4,name=iPad Air"
 before_install:
   - gem install xcpretty
 script:
-  - set -o pipefail
-  - xcodebuild -project Example/SplitflapExample.xcodeproj -scheme SplitflapTests -sdk iphonesimulator -destination "id=74B65E5F-38DA-42D9-AD99-1DF06695DC54" -configuration Release test | xcpretty -c
+  - xcodebuild -version
+  - xcodebuild -project Example/SplitflapExample.xcodeproj -scheme SplitflapTests -sdk iphonesimulator -destination "$DESTINATION" -enableCodeCoverage YES -configuration Release test | xcpretty -c
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -d
+  - bash <(curl -s https://codecov.io/bash)

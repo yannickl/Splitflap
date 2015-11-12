@@ -35,6 +35,7 @@
 		CE525DBF1BF4FC3200429200 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B91BF266FC00DE6BA9 /* TileView.swift */; };
 		CE525DC01BF4FC3200429200 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7F1BF3425C00429200 /* TokenGenerator.swift */; };
 		CE525DC11BF4FC3200429200 /* TokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D811BF3467D00429200 /* TokenParser.swift */; };
+		CE525DC31BF5134D00429200 /* TokenParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525DC21BF5134D00429200 /* TokenParserTests.swift */; };
 		CEB139A41BF266DD00DE6BA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139A31BF266DD00DE6BA9 /* AppDelegate.swift */; };
 		CEB139A61BF266DD00DE6BA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139A51BF266DD00DE6BA9 /* ViewController.swift */; };
 		CEB139A91BF266DD00DE6BA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB139A71BF266DD00DE6BA9 /* Main.storyboard */; };
@@ -89,6 +90,7 @@
 		CE525DAD1BF4FBC800429200 /* SplitflapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SplitflapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE525DB11BF4FBC800429200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE525DB71BF4FBE400429200 /* TokenGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenGeneratorTests.swift; sourceTree = "<group>"; };
+		CE525DC21BF5134D00429200 /* TokenParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenParserTests.swift; sourceTree = "<group>"; };
 		CEB139A01BF266DD00DE6BA9 /* SplitflapExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitflapExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB139A31BF266DD00DE6BA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEB139A51BF266DD00DE6BA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -139,8 +141,9 @@
 		CE525DAE1BF4FBC800429200 /* SplitflapTests */ = {
 			isa = PBXGroup;
 			children = (
-				CE525DB71BF4FBE400429200 /* TokenGeneratorTests.swift */,
 				CE525DB11BF4FBC800429200 /* Info.plist */,
+				CE525DB71BF4FBE400429200 /* TokenGeneratorTests.swift */,
+				CE525DC21BF5134D00429200 /* TokenParserTests.swift */,
 			);
 			path = SplitflapTests;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			files = (
 				CE525DBC1BF4FC3200429200 /* SplitflapDataSource.swift in Sources */,
 				CE525DBE1BF4FC3200429200 /* SplitflapTokens.swift in Sources */,
+				CE525DC31BF5134D00429200 /* TokenParserTests.swift in Sources */,
 				CE525DC11BF4FC3200429200 /* TokenParser.swift in Sources */,
 				CE525DBF1BF4FC3200429200 /* TileView.swift in Sources */,
 				CE525DB81BF4FBE400429200 /* TokenGeneratorTests.swift in Sources */,
