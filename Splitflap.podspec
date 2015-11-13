@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name             = 'Splitflap'
-  s.version          = '0.2.0'
+  s.version          = '1.0.0'
   s.license          = 'MIT'
-  s.summary          = 'A simple to use split-flap display for your Swift applications'
+  s.summary          = 'A simple split-flap display for your Swift applications'
   s.description      = <<-DESC
                         Splitflap is a simple to use component to present changeable alphanumeric text like often used as a public transport timetable in airports or railway stations or with some flip clocks.
                        DESC

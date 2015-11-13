@@ -36,7 +36,9 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
   // MARK: - Action Methods
 
   @IBAction func updateSplitFlapAction(sender: AnyObject) {
-    splitflap.setText(words[currentIndex], animated: true)
+    splitflap.setText(words[currentIndex], animated: true, completionBlock: {
+      print("Display finished!")
+    })
 
     currentIndex = (currentIndex + 1) % words.count
 
