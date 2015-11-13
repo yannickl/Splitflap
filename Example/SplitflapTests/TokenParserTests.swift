@@ -27,7 +27,7 @@
 import UIKit
 import XCTest
 
-class TokenParserTests: XCTestCase {
+class TokenParserTests: XCTTestCaseTemplate {
   func testParseEmptyString() {
     let parser = TokenParser(tokens: [])
 

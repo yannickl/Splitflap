@@ -133,7 +133,7 @@ import UIKit
     if let string = text  {
       tokens = tokenParser.parseString(string)
     }
-print("setText: \(text) => \(tokens)")
+
     textAsToken = nil
 
     for (index, flap) in flaps.enumerate() {
@@ -203,7 +203,7 @@ print("setText: \(text) => \(tokens)")
     let target = (datasource ?? self)
 
     numberOfFlaps = target.numberOfFlapsInSplitflap(self)
-    tokens        = target.supportedTokensInSplitflap(self)
+    tokens        = target.tokensInSplitflap(self)
 
     updateAndLayoutView()
   }

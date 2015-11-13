@@ -24,26 +24,39 @@
  *
  */
 
-import Foundation
+import UIKit
+import XCTest
 
-/**
- The SplitflapTokens defines a collection of token string ready to use for 
- split-flap view.
- 
- A token is a character, a symbol or a text that is displays by the flap view. A
- flap view manages a stack a token in order to display them in the good order when
- it needs to animate its token change.
-*/
-public class SplitflapTokens {
-  /// Combination of numeric characters.
-  public static let Numeric = "0123456789".characters.map { String($0) }
+class SplitflapDataSourceDatasourceTests: XCTTestCaseTemplate {
+  func testDefaultImplementation() {
+    class DataSourceMock: SplitflapDataSource {
+      func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
+        return 0
+      }
+    }
 
-  /// Combination of alphabetic characters.
-  public static let Alphabetic = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".characters.map { String($0) }
+    let datasourceMock = DataSourceMock()
+    let splitflap      = Splitflap()
 
-  /// Combination of alphabetic and numeric characters.
-  public static let Alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map { String($0) }
+    XCTAssertEqual(datasourceMock.numberOfFlapsInSplitflap(splitflap), 0)
+    XCTAssertEqual(datasourceMock.tokensInSplitflap(splitflap), SplitflapTokens.Alphanumeric)
+  }
 
-  /// Combination of alphabetic and numeric characters plus the space.
-  public static let AlphanumericAndSpace = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map { String($0) }
+  func testCustomImplementation() {
+    class DataSourceMock: SplitflapDataSource {
+      func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
+        return 5
+      }
+
+      private func tokensInSplitflap(splitflap: Splitflap) -> [String] {
+        return SplitflapTokens.Numeric
+      }
+    }
+
+    let datasourceMock = DataSourceMock()
+    let splitflap      = Splitflap()
+
+    XCTAssertEqual(datasourceMock.numberOfFlapsInSplitflap(splitflap), 5)
+    XCTAssertEqual(datasourceMock.tokensInSplitflap(splitflap), SplitflapTokens.Numeric)
+  }
 }

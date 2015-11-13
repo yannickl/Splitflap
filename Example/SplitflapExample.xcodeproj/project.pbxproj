@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE483C0D1BF5DF8A00979C2A /* SplitflapDataSourceDatasourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE483C0C1BF5DF8A00979C2A /* SplitflapDataSourceDatasourceTests.swift */; };
+		CE483C0F1BF5E08A00979C2A /* SplitflapDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE483C0E1BF5E08A00979C2A /* SplitflapDelegateTests.swift */; };
 		CE525D7A1BF331D100429200 /* SplitflapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D791BF331D100429200 /* SplitflapDataSource.swift */; };
 		CE525D7C1BF336EA00429200 /* SplitflapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */; };
 		CE525D7E1BF340BB00429200 /* SplitflapTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */; };
@@ -45,6 +47,7 @@
 		CEB139BE1BF266FC00DE6BA9 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B91BF266FC00DE6BA9 /* TileView.swift */; };
 		CEB139BF1BF266FC00DE6BA9 /* FlapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139BA1BF266FC00DE6BA9 /* FlapView.swift */; };
 		CEECB4DF1BF53107002511E0 /* SplitflapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECB4DE1BF53107002511E0 /* SplitflapTests.swift */; };
+		CEECB4E11BF5D843002511E0 /* XCTTestCaseTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEECB4E01BF5D843002511E0 /* XCTTestCaseTemplate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE483C0C1BF5DF8A00979C2A /* SplitflapDataSourceDatasourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapDataSourceDatasourceTests.swift; sourceTree = "<group>"; };
+		CE483C0E1BF5E08A00979C2A /* SplitflapDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapDelegateTests.swift; sourceTree = "<group>"; };
 		CE525D791BF331D100429200 /* SplitflapDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapDataSource.swift; sourceTree = "<group>"; };
 		CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapDelegate.swift; sourceTree = "<group>"; };
 		CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapTokens.swift; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 		CEB139B91BF266FC00DE6BA9 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		CEB139BA1BF266FC00DE6BA9 /* FlapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapView.swift; sourceTree = "<group>"; };
 		CEECB4DE1BF53107002511E0 /* SplitflapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapTests.swift; sourceTree = "<group>"; };
+		CEECB4E01BF5D843002511E0 /* XCTTestCaseTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTTestCaseTemplate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,9 +150,12 @@
 			isa = PBXGroup;
 			children = (
 				CE525DB11BF4FBC800429200 /* Info.plist */,
+				CEECB4E01BF5D843002511E0 /* XCTTestCaseTemplate.swift */,
 				CE525DB71BF4FBE400429200 /* TokenGeneratorTests.swift */,
 				CE525DC21BF5134D00429200 /* TokenParserTests.swift */,
 				CEECB4DE1BF53107002511E0 /* SplitflapTests.swift */,
+				CE483C0C1BF5DF8A00979C2A /* SplitflapDataSourceDatasourceTests.swift */,
+				CE483C0E1BF5E08A00979C2A /* SplitflapDelegateTests.swift */,
 			);
 			path = SplitflapTests;
 			sourceTree = "<group>";
@@ -286,7 +295,6 @@
 					};
 					CE525DAC1BF4FBC800429200 = {
 						CreatedOnToolsVersion = 7.1;
-						TestTargetID = CEB1399F1BF266DD00DE6BA9;
 					};
 					CEB1399F1BF266DD00DE6BA9 = {
 						CreatedOnToolsVersion = 7.1;
@@ -367,10 +375,13 @@
 				CE525DC11BF4FC3200429200 /* TokenParser.swift in Sources */,
 				CE525DBF1BF4FC3200429200 /* TileView.swift in Sources */,
 				CE525DB81BF4FBE400429200 /* TokenGeneratorTests.swift in Sources */,
+				CEECB4E11BF5D843002511E0 /* XCTTestCaseTemplate.swift in Sources */,
 				CE525DBD1BF4FC3200429200 /* SplitflapDelegate.swift in Sources */,
+				CE483C0F1BF5E08A00979C2A /* SplitflapDelegateTests.swift in Sources */,
 				CE525DBB1BF4FC3200429200 /* Splitflap.swift in Sources */,
 				CE525DBA1BF4FC3200429200 /* FlapViewBuilder.swift in Sources */,
 				CEECB4DF1BF53107002511E0 /* SplitflapTests.swift in Sources */,
+				CE483C0D1BF5DF8A00979C2A /* SplitflapDataSourceDatasourceTests.swift in Sources */,
 				CE525DC01BF4FC3200429200 /* TokenGenerator.swift in Sources */,
 				CE525DB91BF4FC3200429200 /* FlapView.swift in Sources */,
 			);
@@ -476,26 +487,22 @@
 		CE525DB41BF4FBC800429200 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SplitflapTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.SplitflapTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SplitflapExample.app/SplitflapExample";
 			};
 			name = Debug;
 		};
 		CE525DB51BF4FBC800429200 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SplitflapTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.SplitflapTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SplitflapExample.app/SplitflapExample";
 			};
 			name = Release;
 		};

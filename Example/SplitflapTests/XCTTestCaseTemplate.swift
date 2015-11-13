@@ -24,26 +24,18 @@
  *
  */
 
-import Foundation
+import UIKit
+import XCTest
 
-/**
- The SplitflapTokens defines a collection of token string ready to use for 
- split-flap view.
- 
- A token is a character, a symbol or a text that is displays by the flap view. A
- flap view manages a stack a token in order to display them in the good order when
- it needs to animate its token change.
-*/
-public class SplitflapTokens {
-  /// Combination of numeric characters.
-  public static let Numeric = "0123456789".characters.map { String($0) }
+class MockAppDelegate: NSObject, UIApplicationDelegate {
 
-  /// Combination of alphabetic characters.
-  public static let Alphabetic = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".characters.map { String($0) }
+}
 
-  /// Combination of alphabetic and numeric characters.
-  public static let Alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map { String($0) }
 
-  /// Combination of alphabetic and numeric characters plus the space.
-  public static let AlphanumericAndSpace = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map { String($0) }
+class XCTTestCaseTemplate: XCTestCase {
+  override func setUp() {
+    super.setUp()
+
+    UIApplication.sharedApplication().delegate = MockAppDelegate()
+  }
 }

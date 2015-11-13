@@ -1,6 +1,9 @@
 # Change log
 
-## Version 0.3.0 (Under Developement)
+## Version 1.0.0 (Under Developement)
+Released on 2015-11-13.
+
+- [UPDATE] Rename `supportedTokensInSplitflap:` method to `tokensInSplitflap:`
 
 ## [Version 0.2.0](https://github.com/yannickl/Splitflap/releases/tag/0.2.0)
 Released on 2015-11-12.

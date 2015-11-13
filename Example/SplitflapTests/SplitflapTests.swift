@@ -18,7 +18,7 @@
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
@@ -27,7 +27,7 @@
 import UIKit
 import XCTest
 
-class SplitflapTests: XCTestCase {
+class SplitflapTests: XCTTestCaseTemplate {
   func testDefaultSplitflap() {
     let splitflap = Splitflap()
 
@@ -40,15 +40,15 @@ class SplitflapTests: XCTestCase {
   }
 
   func testText() {
-    class MockDataSource: SplitflapDataSource {
-      private func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
+    class DataSourceMock: SplitflapDataSource {
+      func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
         return 5
       }
     }
 
-    let datasource       = MockDataSource()
+    let datasourceMock   = DataSourceMock()
     let splitflap        = Splitflap()
-    splitflap.datasource = datasource
+    splitflap.datasource = datasourceMock
     splitflap.reload()
     
     XCTAssertNil(splitflap.text)

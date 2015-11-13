@@ -27,7 +27,7 @@
 import UIKit
 import XCTest
 
-class TokenGeneratorTests: XCTestCase {
+class TokenGeneratorTests: XCTTestCaseTemplate {
   func testCurrentElement() {
     let emptyGenerator = TokenGenerator(tokens: [])
     XCTAssertNil(emptyGenerator.currentElement)
