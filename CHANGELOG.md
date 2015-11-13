@@ -4,7 +4,8 @@
 Released on 2015-11-13.
 
 - [UPDATE] Rename `supportedTokensInSplitflap:` method to `tokensInSplitflap:`
-- [ADD] `setText:animated:completionBlock:` method to know when an animation finished 
+- [ADD] `setText:animated:completionBlock:` method to know when an animation finished
+- [ADD] Test cases 
 
 ## [Version 0.2.0](https://github.com/yannickl/Splitflap/releases/tag/0.2.0)
 Released on 2015-11-12.

@@ -67,20 +67,14 @@ final class FlapView: UIView {
   }
 
   required init?(coder aDecoder: NSCoder) {
-    let dummyBuilder = FlapViewBuilder { builder in }
-
-    topTicTile    = TileView(builder: dummyBuilder, position: .Top)
-    bottomTicTile = TileView(builder: dummyBuilder, position: .Bottom)
-    topTacTile    = TileView(builder: dummyBuilder, position: .Top)
-    bottomTacTile = TileView(builder: dummyBuilder, position: .Bottom)
-
+    topTicTile     = TileView(builder: FlapViewBuilder(), position: .Top)
+    bottomTicTile  = TileView(builder: FlapViewBuilder(), position: .Bottom)
+    topTacTile     = TileView(builder: FlapViewBuilder(), position: .Top)
+    bottomTacTile  = TileView(builder: FlapViewBuilder(), position: .Bottom)
     tokens         = []
     tokenGenerator = TokenGenerator(tokens: [])
     
     super.init(coder: aDecoder)
-
-    setupViews()
-    setupAnimations()
   }
 
   // MARK: - Laying out Subviews

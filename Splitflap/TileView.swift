@@ -61,7 +61,6 @@ final class TileView: UIView {
   /// The font of the tile's text.
   private var font: UIFont?
 
-
   /**
    The radii size to use when drawing rounded corners.
    */
@@ -79,14 +78,14 @@ final class TileView: UIView {
   }
 
   required init?(coder aDecoder: NSCoder) {
-    self.cornerRadii = CGSizeMake(0, 0)
-    self.position    = .Top
-
+    cornerRadii = CGSizeMake(0, 0)
+    position    = .Top
     super.init(coder: aDecoder)
   }
 
   // MARK: - Layout the View
 
+  /// Setup the views helping by the given builder.
   private func setupViewsWithBuilder(builder: FlapViewBuilder) {
     font = builder.font
 

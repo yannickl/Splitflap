@@ -138,7 +138,11 @@ class SplitflapTests: XCTTestCaseTemplate {
     let datasourceMock   = DataSourceMock()
     let splitflap        = Splitflap()
     splitflap.datasource = datasourceMock
+
     splitflap.reload()
+    XCTAssertEqual(splitflap.numberOfFlaps, 2)
+
     splitflap.reload()
+    XCTAssertEqual(splitflap.numberOfFlaps, 2)
   }
 }
