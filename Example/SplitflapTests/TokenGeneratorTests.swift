@@ -37,6 +37,18 @@ class TokenGeneratorTests: XCTTestCaseTemplate {
 
     let nElementsGenerator = TokenGenerator(tokens: ["a", "b", "c", "d"])
     XCTAssertEqual(nElementsGenerator.currentElement, "a")
+
+    // Set current element
+    nElementsGenerator.currentElement = "c"
+    XCTAssertEqual(nElementsGenerator.currentElement, "c")
+
+    // Set invalid element
+    nElementsGenerator.currentElement = "l"
+    XCTAssertEqual(nElementsGenerator.currentElement, "c")
+
+    // Set no element
+    nElementsGenerator.currentElement = nil
+    XCTAssertEqual(nElementsGenerator.currentElement, "a")
   }
 
   func testNext() {

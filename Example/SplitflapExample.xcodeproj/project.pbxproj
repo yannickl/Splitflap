@@ -150,12 +150,12 @@
 			isa = PBXGroup;
 			children = (
 				CE525DB11BF4FBC800429200 /* Info.plist */,
-				CEECB4E01BF5D843002511E0 /* XCTTestCaseTemplate.swift */,
-				CE525DB71BF4FBE400429200 /* TokenGeneratorTests.swift */,
-				CE525DC21BF5134D00429200 /* TokenParserTests.swift */,
-				CEECB4DE1BF53107002511E0 /* SplitflapTests.swift */,
 				CE483C0C1BF5DF8A00979C2A /* SplitflapDataSourceDatasourceTests.swift */,
 				CE483C0E1BF5E08A00979C2A /* SplitflapDelegateTests.swift */,
+				CEECB4DE1BF53107002511E0 /* SplitflapTests.swift */,
+				CE525DB71BF4FBE400429200 /* TokenGeneratorTests.swift */,
+				CE525DC21BF5134D00429200 /* TokenParserTests.swift */,
+				CEECB4E01BF5D843002511E0 /* XCTTestCaseTemplate.swift */,
 			);
 			path = SplitflapTests;
 			sourceTree = "<group>";

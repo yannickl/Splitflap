@@ -37,6 +37,16 @@ class SplitflapTests: XCTTestCaseTemplate {
     XCTAssertEqual(splitflap.tokens, [])
     XCTAssertEqual(splitflap.flapSpacing, 2)
     XCTAssertNil(splitflap.text)
+
+    // 'didMoveToWindow' calls the 'reload' method
+    splitflap.didMoveToWindow()
+
+    XCTAssertNil(splitflap.datasource)
+    XCTAssertNil(splitflap.delegate)
+    XCTAssertEqual(splitflap.numberOfFlaps, 0)
+    XCTAssertEqual(splitflap.tokens, SplitflapTokens.Alphanumeric)
+    XCTAssertEqual(splitflap.flapSpacing, 2)
+    XCTAssertNil(splitflap.text)
   }
 
   func testText() {
@@ -46,8 +56,15 @@ class SplitflapTests: XCTTestCaseTemplate {
       }
     }
 
+    // By default, length is 0
+    let splitflap = Splitflap()
+    XCTAssertNil(splitflap.text)
+
+    splitflap.text = "Alongtext"
+    XCTAssertNil(splitflap.text)
+
+    // String with length 5
     let datasourceMock   = DataSourceMock()
-    let splitflap        = Splitflap()
     splitflap.datasource = datasourceMock
     splitflap.reload()
     
@@ -60,6 +77,32 @@ class SplitflapTests: XCTTestCaseTemplate {
     XCTAssertEqual(splitflap.text, "hello")
 
     splitflap.text = "$invalid!"
-    XCTAssertEqual(splitflap.text, nil)
+    XCTAssertNil(splitflap.text)
+  }
+
+  func testSetText() {
+    class DataSourceMock: SplitflapDataSource {
+      func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
+        return 9
+      }
+    }
+
+    // By default, length is 0
+    let splitflap = Splitflap()
+    XCTAssertNil(splitflap.text)
+
+    splitflap.setText("Alongtext", animated: true)
+    XCTAssertNil(splitflap.text)
+
+    // String with length 9
+    let datasourceMock   = DataSourceMock()
+    splitflap.datasource = datasourceMock
+    splitflap.reload()
+
+    splitflap.setText("Alongtext", animated: true)
+    XCTAssertEqual(splitflap.text, "Alongtext")
+
+    splitflap.setText("$invalid!", animated: true)
+    XCTAssertNil(splitflap.text)
   }
 }
