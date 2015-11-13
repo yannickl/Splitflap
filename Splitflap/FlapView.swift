@@ -43,6 +43,11 @@ final class FlapView: UIView {
   let tokens: [String]
   private let tokenGenerator:TokenGenerator
   private var targetToken: String?
+  private var targetCompletionBlock: (() -> ())? {
+    didSet {
+      oldValue?()
+    }
+  }
 
   // MARK: - Initializing a Flap View
 
@@ -150,15 +155,18 @@ final class FlapView: UIView {
   
   - parameter token: A token string.
   - parameter rotationDuration: If upper than 0, it animates the change.
+  - parameter completionBlock: A block called when the animation did finished.
+  If the text update is not animated the block is called immediately.
   */
-  func displayToken(token: String?, rotationDuration: Double) {
+  func displayToken(token: String?, rotationDuration: Double, completionBlock: (Void -> Void)? = nil) {
     let sanitizedToken = token ?? tokenGenerator.firstToken
 
     if rotationDuration > 0 {
       topAnim.duration    = rotationDuration / 4 * 3
       bottomAnim.duration = rotationDuration / 4
 
-      targetToken = sanitizedToken
+      targetToken           = sanitizedToken
+      targetCompletionBlock = completionBlock
 
       displayNextToken()
     }
@@ -166,6 +174,8 @@ final class FlapView: UIView {
       tokenGenerator.currentElement = sanitizedToken
       
       updateWithToken(sanitizedToken, animated: false)
+
+      completionBlock?()
     }
   }
 
@@ -174,7 +184,10 @@ final class FlapView: UIView {
   order to display all the tokens between the current one and the target one.
   */
   private func displayNextToken() {
-    guard tokenGenerator.currentElement != targetToken else {
+    guard tokenGenerator.currentElement != targetToken && targetToken != nil else {
+      targetToken           = nil
+      targetCompletionBlock = nil
+
       return
     }
 
@@ -189,8 +202,8 @@ final class FlapView: UIView {
     let bottomBack = animationTime == .Tic ? bottomTicTile : bottomTacTile
     let topFront   = animationTime == .Tic ? topTacTile : topTicTile
 
-    topBack.symbol    = token
-    bottomBack.symbol = token
+    topBack.setSymbol(token)
+    bottomBack.setSymbol(token) 
 
     topBack.layer.removeAllAnimations()
     bottomBack.layer.removeAllAnimations()

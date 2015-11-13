@@ -50,9 +50,8 @@ final class TokenGenerator: GeneratorType {
       if currentIndex < tokens.count {
         return tokens[currentIndex]
       }
-      else {
-        return nil
-      }
+
+      return nil
     }
     set(newValue) {
       if let value = newValue {

@@ -87,6 +87,12 @@ class SplitflapTests: XCTTestCaseTemplate {
       }
     }
 
+    class DelegateMock: SplitflapDelegate {
+      private func splitflap(splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double {
+        return 0.01
+      }
+    }
+
     // By default, length is 0
     let splitflap = Splitflap()
     XCTAssertNil(splitflap.text)
@@ -96,13 +102,43 @@ class SplitflapTests: XCTTestCaseTemplate {
 
     // String with length 9
     let datasourceMock   = DataSourceMock()
+    let delegateMock     = DelegateMock()
     splitflap.datasource = datasourceMock
+    splitflap.delegate   = delegateMock
     splitflap.reload()
 
-    splitflap.setText("Alongtext", animated: true)
-    XCTAssertEqual(splitflap.text, "Alongtext")
+    var expectation = expectationWithDescription("Block completed immediatly when no animation")
+    splitflap.setText("Alongtext", animated: false, completionBlock: {
+      expectation.fulfill()
+    })
+    waitForExpectationsWithTimeout(0.1, handler:nil)
 
-    splitflap.setText("$invalid!", animated: true)
+    expectation = expectationWithDescription("Block animation completed")
+    splitflap.setText("Alongtext", animated: true, completionBlock: {
+      expectation.fulfill()
+    })
+    XCTAssertEqual(splitflap.text, "Alongtext")
+    waitForExpectationsWithTimeout(2.0, handler:nil)
+
+    expectation = expectationWithDescription("Block animation completed even with invalid text")
+    splitflap.setText("$invalid!", animated: true, completionBlock: {
+      expectation.fulfill()
+    })
     XCTAssertNil(splitflap.text)
+    waitForExpectationsWithTimeout(2.0, handler:nil)
+  }
+
+  func testReload() {
+    class DataSourceMock: SplitflapDataSource {
+      func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
+        return 2
+      }
+    }
+
+    let datasourceMock   = DataSourceMock()
+    let splitflap        = Splitflap()
+    splitflap.datasource = datasourceMock
+    splitflap.reload()
+    splitflap.reload()
   }
 }

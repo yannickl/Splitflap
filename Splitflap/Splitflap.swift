@@ -123,10 +123,13 @@ import UIKit
    - parameter animated: *true* to animate the text change by rotating the flaps
    (component) to the new value; if you specify *false*, the new text is shown
    immediately.
+   - parameter completionBlock: A block called when the animation did finished. 
+   If the text update is not animated the block is called immediately.
    */
-  public func setText(text: String?, animated: Bool) {
-    let target = (delegate ?? self)
-    let delay  = animated ? 0.181 : 0
+  public func setText(text: String?, animated: Bool, completionBlock: (Void -> Void)? = nil) {
+    let completionGroup = dispatch_group_create()
+    let target          = (delegate ?? self)
+    let delay           = animated ? 0.181 : 0
 
     var tokens: [String] = []
 
@@ -145,10 +148,29 @@ import UIKit
         textAsToken?.appendContentsOf(t)
       }
 
-      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(index) * Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
+      if animated {
+        var flapBlock: (() -> ())?
+
+        if completionBlock != nil {
+          dispatch_group_enter(completionGroup)
+
+          flapBlock = {
+            dispatch_group_leave(completionGroup)
+          }
+        }
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(index) * Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
+          flap.displayToken(token, rotationDuration: rotationDuration, completionBlock: flapBlock)
+        })
+      }
+      else {
         flap.displayToken(token, rotationDuration: rotationDuration)
-      })
+      }
     }
+
+    dispatch_group_notify(completionGroup, dispatch_get_main_queue(), {
+      completionBlock?()
+    })
   }
 
   // MARK: - Observing View-Related Changes

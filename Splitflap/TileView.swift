@@ -45,13 +45,15 @@ final class TileView: UIView {
 
   let position: Position
 
-  var symbol: String? {
-    get {
-      return digitLabel.text
-    }
-    set(newValue) {
-      digitLabel.text = newValue
-    }
+  // MARK: - Setting Symbols
+
+  /**
+  Set the given symbol as text.
+  
+  - parameter symbol: An optional symbol string.
+  */
+  func setSymbol(symbol: String?) {
+    digitLabel.text = symbol
   }
 
   // MARK: - Configuring the Label
