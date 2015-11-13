@@ -37,8 +37,12 @@ func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
 ![Theming](http://yannickloriot.com/resources/splitflap-theming.gif)
 
 ```swift
-let splitflapView      = Splitflap(frame: CGRectMake(0, 0, 370, 53))
-splitflapView.delegate = self
+let splitflapView        = Splitflap(frame: CGRectMake(0, 0, 370, 53))
+splitflapView.delegate   = self
+splitflapView.datasource = self
+
+// Set the text with an emoji
+splitflap.text = "Cat \u{1F63B}"
 
 // MARK: - Splitflap Delegate Methods
 
@@ -52,6 +56,12 @@ func splitflap(splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapVi
     builder.textColor       = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
     builder.lineColor       = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
   }
+}
+
+// MARK: - Splitflap DataSource Methods
+
+func tokensInSplitflap(splitflap: Splitflap) -> [String] {
+  return [" ", "C", "a", "t", "\u{1F63B}"]
 }
 ```
 ### And many more...
