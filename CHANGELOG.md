@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 1.0.1](https://github.com/yannickl/Splitflap/releases/tag/1.0.1)
+Released on 2015-11-17.
+
+- [FIX] Builder properties access control ([#1](https://github.com/yannickl/Splitflap/issues/1))
+
 ## [Version 1.0.0](https://github.com/yannickl/Splitflap/releases/tag/1.0.0)
 Released on 2015-11-13.
 
