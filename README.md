@@ -61,12 +61,12 @@ func splitflap(splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapVi
 // MARK: - Splitflap DataSource Methods
 
 func tokensInSplitflap(splitflap: Splitflap) -> [String] {
-  return [" ", "C", "a", "t", "\u{1F63B}"]
+  return " Cat\u{1F63B}".characters.map { String($0) }
 }
 ```
 ### And many more...
 
-To go further, take a look at the example project.
+To go further, take a look at the documentation and the example project.
 
 *Note: All contributions are welcome*
 

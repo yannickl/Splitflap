@@ -46,6 +46,9 @@ import UIKit
 
   /**
   The delegate for the split-flap view.
+  
+  The data source must adopt the SplitflapDelegate protocol and implement the
+  required methods to specify the flap rotation for example.
   */
   public weak var delegate: SplitflapDelegate?
 
@@ -74,7 +77,7 @@ import UIKit
   The supported token strings by the split-flap view.
 
   A Splitflap object fetches the value of this property from the data source and
-  and caches it. The default value is zero.
+  and caches it. By default there is no token.
   */
   public private(set) var tokens: [String] = [] {
     didSet {

@@ -68,7 +68,7 @@ final class TokenParser {
     return tokensFound
   }
 
-  // MARK: -
+  // MARK: - Checking Token Validity
 
   /**
   Checks whether the given word is a token and returns true if it the case.
