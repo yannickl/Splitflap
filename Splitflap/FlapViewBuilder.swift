@@ -33,6 +33,8 @@ import UIKit
  take a look at https://github.com/ochococo/Design-Patterns-In-Swift#-builder)
  */
 public final class FlapViewBuilder {
+  // MARK: - Customizing Flaps
+  
   /**
    The builder block.
 

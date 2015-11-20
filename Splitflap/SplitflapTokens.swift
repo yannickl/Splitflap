@@ -35,15 +35,24 @@ import Foundation
  it needs to animate its token change.
 */
 public class SplitflapTokens {
-  /// Combination of numeric characters.
+  /// Numeric characters.
   public static let Numeric = "0123456789".characters.map { String($0) }
 
-  /// Combination of alphabetic characters.
+  /// Alphabetic characters (lower and upper cases).
   public static let Alphabetic = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".characters.map { String($0) }
 
-  /// Combination of alphabetic and numeric characters.
+  /// Combination of alphabetic (lower and upper cases) and numeric characters.
   public static let Alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map { String($0) }
 
-  /// Combination of alphabetic and numeric characters plus the space.
+  /// Combination of alphabetic (lower and upper cases) and numeric characters plus the space.
   public static let AlphanumericAndSpace = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map { String($0) }
+
+  /// The 12-hour clock characters (from 1 to 12).
+  public static let TwelveHourClock = (1 ... 12).map { String($0) }
+
+  /// The 24-hour clock characters (from 00 to 23).
+  public static let TwentyFourHourClock = (0 ... 23).map { String(format:"%02d", $0) }
+
+  /// The minute/second characters (from 00 to 59).
+  public static let MinuteAndSecond = (0 ... 59).map { String(format:"%02d", $0) }
 }
