@@ -28,5 +28,5 @@ import UIKit
 import XCTest
 
 class TileViewTests: XCTTestCaseTemplate {
-
+  
 }

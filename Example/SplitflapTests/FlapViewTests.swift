@@ -28,5 +28,12 @@ import UIKit
 import XCTest
 
 class FlapViewTests: XCTTestCaseTemplate {
+  func testInitWithCoder() {
+    let storyboard = UIStoryboard(name: "StoryboardTests", bundle: NSBundle(forClass: self.dynamicType))
 
+    let vc = storyboard.instantiateInitialViewController()
+
+    XCTAssertNotNil(vc)
+    XCTAssertEqual(vc?.view.subviews.count, 4)
+  }
 }

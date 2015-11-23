@@ -11,6 +11,7 @@
 		CE483C0F1BF5E08A00979C2A /* SplitflapDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE483C0E1BF5E08A00979C2A /* SplitflapDelegateTests.swift */; };
 		CE483C111BF5F0D300979C2A /* TileViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE483C101BF5F0D300979C2A /* TileViewTests.swift */; };
 		CE483C131BF5F0DD00979C2A /* FlapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE483C121BF5F0DD00979C2A /* FlapViewTests.swift */; };
+		CE5040551C03B99D007D9E9F /* StoryboardTests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5040541C03B99D007D9E9F /* StoryboardTests.storyboard */; };
 		CE525D7A1BF331D100429200 /* SplitflapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D791BF331D100429200 /* SplitflapDataSource.swift */; };
 		CE525D7C1BF336EA00429200 /* SplitflapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */; };
 		CE525D7E1BF340BB00429200 /* SplitflapTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */; };
@@ -88,6 +89,7 @@
 		CE483C0E1BF5E08A00979C2A /* SplitflapDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapDelegateTests.swift; sourceTree = "<group>"; };
 		CE483C101BF5F0D300979C2A /* TileViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileViewTests.swift; sourceTree = "<group>"; };
 		CE483C121BF5F0DD00979C2A /* FlapViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapViewTests.swift; sourceTree = "<group>"; };
+		CE5040541C03B99D007D9E9F /* StoryboardTests.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardTests.storyboard; sourceTree = "<group>"; };
 		CE525D791BF331D100429200 /* SplitflapDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapDataSource.swift; sourceTree = "<group>"; };
 		CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapDelegate.swift; sourceTree = "<group>"; };
 		CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapTokens.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				CE525DB71BF4FBE400429200 /* TokenGeneratorTests.swift */,
 				CE525DC21BF5134D00429200 /* TokenParserTests.swift */,
 				CEECB4E01BF5D843002511E0 /* XCTTestCaseTemplate.swift */,
+				CE5040541C03B99D007D9E9F /* StoryboardTests.storyboard */,
 			);
 			path = SplitflapTests;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5040551C03B99D007D9E9F /* StoryboardTests.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -80,6 +80,7 @@ final class TileView: UIView {
   required init?(coder aDecoder: NSCoder) {
     cornerRadii = CGSizeMake(0, 0)
     position    = .Top
+    
     super.init(coder: aDecoder)
   }
 
