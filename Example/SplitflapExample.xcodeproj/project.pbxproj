@@ -12,6 +12,19 @@
 		CE483C111BF5F0D300979C2A /* TileViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE483C101BF5F0D300979C2A /* TileViewTests.swift */; };
 		CE483C131BF5F0DD00979C2A /* FlapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE483C121BF5F0DD00979C2A /* FlapViewTests.swift */; };
 		CE5040551C03B99D007D9E9F /* StoryboardTests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5040541C03B99D007D9E9F /* StoryboardTests.storyboard */; };
+		CE50405D1C050024007D9E9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50405C1C050024007D9E9F /* AppDelegate.swift */; };
+		CE50405F1C050024007D9E9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50405E1C050024007D9E9F /* ViewController.swift */; };
+		CE5040621C050024007D9E9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5040601C050024007D9E9F /* Main.storyboard */; };
+		CE5040641C050024007D9E9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE5040631C050024007D9E9F /* Assets.xcassets */; };
+		CE5040691C050033007D9E9F /* FlapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139BA1BF266FC00DE6BA9 /* FlapView.swift */; };
+		CE50406A1C050033007D9E9F /* FlapViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D9D1BF3D57600429200 /* FlapViewBuilder.swift */; };
+		CE50406B1C050033007D9E9F /* Splitflap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B81BF266FC00DE6BA9 /* Splitflap.swift */; };
+		CE50406C1C050033007D9E9F /* SplitflapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D791BF331D100429200 /* SplitflapDataSource.swift */; };
+		CE50406D1C050033007D9E9F /* SplitflapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */; };
+		CE50406E1C050033007D9E9F /* SplitflapTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */; };
+		CE50406F1C050033007D9E9F /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB139B91BF266FC00DE6BA9 /* TileView.swift */; };
+		CE5040701C050033007D9E9F /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7F1BF3425C00429200 /* TokenGenerator.swift */; };
+		CE5040711C050033007D9E9F /* TokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D811BF3467D00429200 /* TokenParser.swift */; };
 		CE525D7A1BF331D100429200 /* SplitflapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D791BF331D100429200 /* SplitflapDataSource.swift */; };
 		CE525D7C1BF336EA00429200 /* SplitflapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */; };
 		CE525D7E1BF340BB00429200 /* SplitflapTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */; };
@@ -90,6 +103,12 @@
 		CE483C101BF5F0D300979C2A /* TileViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileViewTests.swift; sourceTree = "<group>"; };
 		CE483C121BF5F0DD00979C2A /* FlapViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlapViewTests.swift; sourceTree = "<group>"; };
 		CE5040541C03B99D007D9E9F /* StoryboardTests.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardTests.storyboard; sourceTree = "<group>"; };
+		CE50405A1C050024007D9E9F /* tvOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE50405C1C050024007D9E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CE50405E1C050024007D9E9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE5040611C050024007D9E9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE5040631C050024007D9E9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE5040651C050024007D9E9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE525D791BF331D100429200 /* SplitflapDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapDataSource.swift; sourceTree = "<group>"; };
 		CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapDelegate.swift; sourceTree = "<group>"; };
 		CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapTokens.swift; sourceTree = "<group>"; };
@@ -118,6 +137,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CE5040571C050024007D9E9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE525D841BF3833700429200 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,6 +169,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE50405B1C050024007D9E9F /* tvOSExample */ = {
+			isa = PBXGroup;
+			children = (
+				CE50405C1C050024007D9E9F /* AppDelegate.swift */,
+				CE50405E1C050024007D9E9F /* ViewController.swift */,
+				CE5040601C050024007D9E9F /* Main.storyboard */,
+				CE5040631C050024007D9E9F /* Assets.xcassets */,
+				CE5040651C050024007D9E9F /* Info.plist */,
+			);
+			path = tvOSExample;
+			sourceTree = "<group>";
+		};
 		CE525D891BF3833700429200 /* Splitflap */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +214,7 @@
 				CEB139A21BF266DD00DE6BA9 /* SplitflapExample */,
 				CE525D891BF3833700429200 /* Splitflap */,
 				CE525DAE1BF4FBC800429200 /* SplitflapTests */,
+				CE50405B1C050024007D9E9F /* tvOSExample */,
 				CEB139A11BF266DD00DE6BA9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -186,6 +225,7 @@
 				CEB139A01BF266DD00DE6BA9 /* SplitflapExample.app */,
 				CE525D881BF3833700429200 /* Splitflap.framework */,
 				CE525DAD1BF4FBC800429200 /* SplitflapTests.xctest */,
+				CE50405A1C050024007D9E9F /* tvOSExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,6 +274,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		CE5040591C050024007D9E9F /* tvOSExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE5040681C050024007D9E9F /* Build configuration list for PBXNativeTarget "tvOSExample" */;
+			buildPhases = (
+				CE5040561C050024007D9E9F /* Sources */,
+				CE5040571C050024007D9E9F /* Frameworks */,
+				CE5040581C050024007D9E9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tvOSExample;
+			productName = tvOSExample;
+			productReference = CE50405A1C050024007D9E9F /* tvOSExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		CE525D871BF3833700429200 /* Splitflap */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE525D911BF3833700429200 /* Build configuration list for PBXNativeTarget "Splitflap" */;
@@ -299,6 +356,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Yannick LORIOT";
 				TargetAttributes = {
+					CE5040591C050024007D9E9F = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
 					CE525D871BF3833700429200 = {
 						CreatedOnToolsVersion = 7.1;
 					};
@@ -326,11 +386,21 @@
 				CEB1399F1BF266DD00DE6BA9 /* SplitflapExample */,
 				CE525DAC1BF4FBC800429200 /* SplitflapTests */,
 				CE525D871BF3833700429200 /* Splitflap */,
+				CE5040591C050024007D9E9F /* tvOSExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CE5040581C050024007D9E9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE5040641C050024007D9E9F /* Assets.xcassets in Resources */,
+				CE5040621C050024007D9E9F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE525D861BF3833700429200 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,6 +429,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CE5040561C050024007D9E9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE50405F1C050024007D9E9F /* ViewController.swift in Sources */,
+				CE50406A1C050033007D9E9F /* FlapViewBuilder.swift in Sources */,
+				CE50406D1C050033007D9E9F /* SplitflapDelegate.swift in Sources */,
+				CE50406E1C050033007D9E9F /* SplitflapTokens.swift in Sources */,
+				CE50406F1C050033007D9E9F /* TileView.swift in Sources */,
+				CE5040701C050033007D9E9F /* TokenGenerator.swift in Sources */,
+				CE5040711C050033007D9E9F /* TokenParser.swift in Sources */,
+				CE50406C1C050033007D9E9F /* SplitflapDataSource.swift in Sources */,
+				CE50405D1C050024007D9E9F /* AppDelegate.swift in Sources */,
+				CE5040691C050033007D9E9F /* FlapView.swift in Sources */,
+				CE50406B1C050033007D9E9F /* Splitflap.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE525D831BF3833700429200 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -433,6 +521,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CE5040601C050024007D9E9F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE5040611C050024007D9E9F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		CEB139A71BF266DD00DE6BA9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -452,6 +548,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CE5040661C050024007D9E9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = tvOSExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.tvOSExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		CE5040671C050024007D9E9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = tvOSExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.tvOSExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
 		CE525D921BF3833700429200 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -628,6 +754,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CE5040681C050024007D9E9F /* Build configuration list for PBXNativeTarget "tvOSExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE5040661C050024007D9E9F /* Debug */,
+				CE5040671C050024007D9E9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		CE525D911BF3833700429200 /* Build configuration list for PBXNativeTarget "Splitflap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  SplitflapExample
+//  tvOSExample
 //
-//  Created by Yannick LORIOT on 10/11/15.
+//  Created by Yannick LORIOT on 24/11/15.
 //  Copyright © 2015 Yannick LORIOT. All rights reserved.
 //
 
@@ -21,7 +21,7 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
     FlapViewBuilder { builder in
       builder.backgroundColor = UIColor.whiteColor()
     }
-    
+
     splitflap.datasource = self
     splitflap.delegate   = self
     splitflap.reload()
@@ -69,10 +69,11 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
     return FlapViewBuilder { builder in
       builder.backgroundColor = UIColor.blackColor()
       builder.cornerRadius    = 5
-      builder.font            = UIFont(name: "Courier", size: 50)
+      builder.font            = UIFont(name: "Courier", size: 80)
       builder.textAlignment   = .Center
       builder.textColor       = UIColor.whiteColor()
       builder.lineColor       = UIColor.darkGrayColor()
     }
   }
 }
+
