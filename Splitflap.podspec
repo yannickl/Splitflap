@@ -12,8 +12,11 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/yannickl/Splitflap.git', :tag => s.version }
   s.screenshot       = 'http://yannickloriot.com/resources/splitflap-logo.gif'
 
-  s.ios.deployment_target = '8.0'
-  s.ios.frameworks        = 'UIKit', 'QuartzCore'
+  s.ios.deployment_target  = '8.0'
+  s.tvos.deployment_target = '9.0'
+
+  s.ios.frameworks  = 'UIKit', 'QuartzCore'
+  s.tvos.frameworks = 'UIKit', 'QuartzCore'
 
   s.source_files = 'Splitflap/*.swift'
   s.requires_arc = true

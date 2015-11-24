@@ -1,5 +1,9 @@
 # Change log
 
+## Version 1.1.0 (Under Development)
+
+- [ADD] tvOS supports
+
 ## [Version 1.0.1](https://github.com/yannickl/Splitflap/releases/tag/1.0.1)
 Released on 2015-11-17.
 
