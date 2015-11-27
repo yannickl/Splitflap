@@ -211,9 +211,11 @@ import UIKit
       addSubview(flap)
     }
 
-    self.flaps = tmp
+    flaps = tmp
 
     layoutIfNeeded()
+
+    setText(text, animated:  false)
   }
 
   // MARK: - Reloading the Splitflap

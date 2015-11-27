@@ -109,11 +109,6 @@
 		CE5040611C050024007D9E9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE5040631C050024007D9E9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE5040651C050024007D9E9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE5040781C0505A1007D9E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE50407A1C0505A1007D9E9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE50407C1C0505A1007D9E9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CE50407F1C0505A1007D9E9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CE5040811C0505A1007D9E9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE525D791BF331D100429200 /* SplitflapDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapDataSource.swift; sourceTree = "<group>"; };
 		CE525D7B1BF336EA00429200 /* SplitflapDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapDelegate.swift; sourceTree = "<group>"; };
 		CE525D7D1BF340BB00429200 /* SplitflapTokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitflapTokens.swift; sourceTree = "<group>"; };
@@ -186,18 +181,6 @@
 			path = tvOSExample;
 			sourceTree = "<group>";
 		};
-		CE5040771C0505A1007D9E9F /* OSXExample */ = {
-			isa = PBXGroup;
-			children = (
-				CE5040781C0505A1007D9E9F /* AppDelegate.swift */,
-				CE50407A1C0505A1007D9E9F /* ViewController.swift */,
-				CE50407C1C0505A1007D9E9F /* Assets.xcassets */,
-				CE50407E1C0505A1007D9E9F /* Main.storyboard */,
-				CE5040811C0505A1007D9E9F /* Info.plist */,
-			);
-			path = OSXExample;
-			sourceTree = "<group>";
-		};
 		CE525D891BF3833700429200 /* Splitflap */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,7 +215,6 @@
 				CE525D891BF3833700429200 /* Splitflap */,
 				CE525DAE1BF4FBC800429200 /* SplitflapTests */,
 				CE50405B1C050024007D9E9F /* tvOSExample */,
-				CE5040771C0505A1007D9E9F /* OSXExample */,
 				CEB139A11BF266DD00DE6BA9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -547,14 +529,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		CE50407E1C0505A1007D9E9F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE50407F1C0505A1007D9E9F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CEB139A71BF266DD00DE6BA9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -787,6 +761,7 @@
 				CE5040671C050024007D9E9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE525D911BF3833700429200 /* Build configuration list for PBXNativeTarget "Splitflap" */ = {
 			isa = XCConfigurationList;

@@ -1,5 +1,10 @@
 # Change log
 
+## Version 1.2.0 (Under development)
+
+- [ADD] `TwelveHourClock`, `TwentyFourHourClock` and `MinuteAndSecond` tokens
+- [FIX] Keep text displayed when reload data
+
 ## Version 1.1.0 (Under Development)
 
 - [ADD] tvOS supports
