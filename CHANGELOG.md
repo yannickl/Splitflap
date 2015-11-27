@@ -1,13 +1,11 @@
 # Change log
 
-## Version 1.2.0 (Under development)
+## [Version 1.1.0](https://github.com/yannickl/Splitflap/releases/tag/1.1.0)
+Released on 2015-11-27.)
 
 - [ADD] `TwelveHourClock`, `TwentyFourHourClock` and `MinuteAndSecond` tokens
-- [FIX] Keep text displayed when reload data
-
-## Version 1.1.0 (Under Development)
-
 - [ADD] tvOS supports
+- [FIX] Keep text displayed when reload data
 
 ## [Version 1.0.1](https://github.com/yannickl/Splitflap/releases/tag/1.0.1)
 Released on 2015-11-17.
