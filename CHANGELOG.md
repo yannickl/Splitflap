@@ -1,7 +1,12 @@
 # Change log
 
+## [Version 1.1.1](https://github.com/yannickl/Splitflap/releases/tag/1.1.1)
+Released on 2015-12-14.
+
+- [FIX] flap animation continue when new text is set [#2](https://github.com/yannickl/Splitflap/issues/2)
+
 ## [Version 1.1.0](https://github.com/yannickl/Splitflap/releases/tag/1.1.0)
-Released on 2015-11-27.)
+Released on 2015-11-27.
 
 - [ADD] `TwelveHourClock`, `TwentyFourHourClock` and `MinuteAndSecond` tokens
 - [ADD] tvOS supports
