@@ -159,10 +159,14 @@ final class FlapView: UIView {
       topAnim.duration    = rotationDuration / 4 * 3
       bottomAnim.duration = rotationDuration / 4
 
+      let animating = targetToken != nil
+
       targetToken           = sanitizedToken
       targetCompletionBlock = completionBlock
 
-      displayNextToken()
+      if !animating {
+        displayNextToken()
+      }
     }
     else {
       tokenGenerator.currentElement = sanitizedToken

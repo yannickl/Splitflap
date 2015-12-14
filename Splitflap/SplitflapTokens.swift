@@ -36,7 +36,7 @@ import Foundation
 */
 public class SplitflapTokens {
   /// Numeric characters.
-  public static let Numeric = "0123456789".characters.map { String($0) }
+  public static let Numeric = (0 ... 9).map { String($0) }
 
   /// Alphabetic characters (lower and upper cases).
   public static let Alphabetic = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".characters.map { String($0) }

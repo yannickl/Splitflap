@@ -1,5 +1,8 @@
 language: objective-c
 osx_image: xcode7.1
+branches:
+  only:
+    - master
 env:
   matrix:
     - DESTINATION="OS=9.1,name=iPad 2"

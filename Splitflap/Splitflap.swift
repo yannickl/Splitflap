@@ -47,7 +47,7 @@ import UIKit
   /**
   The delegate for the split-flap view.
   
-  The data source must adopt the SplitflapDelegate protocol and implement the
+  The delegate must adopt the SplitflapDelegate protocol and implement the
   required methods to specify the flap rotation for example.
   */
   public weak var delegate: SplitflapDelegate?
