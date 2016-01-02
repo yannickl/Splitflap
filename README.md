@@ -1,4 +1,6 @@
-![Splitflap](http://yannickloriot.com/resources/splitflap-logo.gif)
+<p align="center">
+  <img src="http://yannickloriot.com/resources/splitflap-logo.gif" alt="Splitflap" />
+</p>
 
 [![License](https://cocoapod-badges.herokuapp.com/l/Splitflap/badge.svg)](http://cocoadocs.org/docsets/Splitflap/) [![Supported Platforms](https://cocoapod-badges.herokuapp.com/p/Splitflap/badge.svg)](http://cocoadocs.org/docsets/Splitflap/) [![Version](https://cocoapod-badges.herokuapp.com/v/Splitflap/badge.svg)](http://cocoadocs.org/docsets/Splitflap/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/yannickl/Splitflap.svg?branch=master)](https://travis-ci.org/yannickl/Splitflap) [![codecov.io](http://codecov.io/github/yannickl/Splitflap/coverage.svg?branch=master)](http://codecov.io/github/yannickl/Splitflap?branch=master)
 
