@@ -40,7 +40,7 @@ public final class FlapViewBuilder {
 
    The block gives a reference of builder you can configure.
    */
-  public typealias FlapViewBuilderBlock = (builder: FlapViewBuilder) -> ()
+  public typealias FlapViewBuilderBlock = (builder: FlapViewBuilder) -> Void
 
   /**
    The flap's background color.
@@ -103,7 +103,7 @@ public final class FlapViewBuilder {
    
    - parameter buildBlock: A FlapView builder block to configure itself.
    */
-  public init(buildBlock: FlapViewBuilderBlock) {
+  public init(@noescape buildBlock: FlapViewBuilderBlock) {
     buildBlock(builder: self)
   }
 }
