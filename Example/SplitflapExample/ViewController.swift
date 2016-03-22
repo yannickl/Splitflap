@@ -17,10 +17,6 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    FlapViewBuilder { builder in
-      builder.backgroundColor = UIColor.whiteColor()
-    }
     
     splitflap.datasource = self
     splitflap.delegate   = self

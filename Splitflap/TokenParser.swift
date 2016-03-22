@@ -34,7 +34,8 @@ final class TokenParser {
 
   required init(tokens: [String]) {
     // Transforms a list into a dictionary to improve the search
-    self.tokens = tokens.reduce([:]) { (var dict, elem) in
+    self.tokens = tokens.reduce([:]) { (dict, elem) in
+      var dict   = dict
       dict[elem] = true
 
       return dict
