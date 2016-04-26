@@ -15,7 +15,7 @@ The first example is the simplest way to use the `Splitflap` component. Here how
 ```swift
 import Splitflap
 
-let splitflapView        = Splitflap(frame: CGRectMake(0, 0, 370, 53))
+let splitflapView        = Splitflap(frame: CGRect(x: 0, y: 0, width: 370, height: 53))
 splitflapView.datasource = self
 
 // Set the text to display by animating the flaps
@@ -37,7 +37,7 @@ func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
 ![Theming](http://yannickloriot.com/resources/splitflap-theming.gif)
 
 ```swift
-let splitflapView        = Splitflap(frame: CGRectMake(0, 0, 370, 53))
+let splitflapView        = Splitflap(frame: CGRect(x: 0, y: 0, width: 370, height: 53))
 splitflapView.delegate   = self
 splitflapView.datasource = self
 
