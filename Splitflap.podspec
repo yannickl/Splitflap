@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Splitflap'
-  s.version          = '1.1.1'
+  s.version          = '1.1.2'
   s.license          = 'MIT'
   s.summary          = 'A simple split-flap display for your Swift applications'
   s.description      = <<-DESC
