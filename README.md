@@ -134,6 +134,23 @@ To integrate `Splitflap` into your Xcode project using Carthage, specify it in y
 github "yannickl/Splitflap" >= 2.0.0
 ```
 
+#### Swift Package Manager
+
+You can use [The Swift Package Manager](https://swift.org/package-manager) to install `Splitflap` by adding the proper description to your `Package.swift` file:
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "YOUR_PROJECT_NAME",
+    targets: [],
+    dependencies: [
+        .Package(url: "https://github.com/yannickl/Splitflap.git", versions: "2.0.0" ..< Version.max)
+    ]
+)
+```
+
+Note that the [Swift Package Manager](https://swift.org/package-manager) is still in early design and development, for more information checkout its [GitHub Page](https://github.com/apple/swift-package-manager).
+
 #### Manually
 
 [Download](https://github.com/YannickL/Splitflap/archive/master.zip) the project and copy the `Splitflap` folder into your project to use it in.
