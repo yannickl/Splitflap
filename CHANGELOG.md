@@ -1,5 +1,12 @@
 # Change log
 
+## [Version 2.0.0](https://github.com/yannickl/Splitflap/releases/tag/2.0.0)
+*Released on 2016-09-15.*
+
+**Swift 3 Supports**
+
+- [ADD] Swift Package Manager supports
+
 ## [Version 1.1.1](https://github.com/yannickl/Splitflap/releases/tag/1.1.1)
 Released on 2015-12-14.
 
