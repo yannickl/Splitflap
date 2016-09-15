@@ -34,25 +34,25 @@ import Foundation
  flap view manages a stack a token in order to display them in the good order when
  it needs to animate its token change.
 */
-public class SplitflapTokens {
+open class SplitflapTokens {
   /// Numeric characters.
-  public static let Numeric = (0 ... 9).map { String($0) }
+  open static let Numeric = (0 ... 9).map { String($0) }
 
   /// Alphabetic characters (lower and upper cases).
-  public static let Alphabetic = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".characters.map { String($0) }
+  open static let Alphabetic = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".characters.map { String($0) }
 
   /// Combination of alphabetic (lower and upper cases) and numeric characters.
-  public static let Alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map { String($0) }
+  open static let Alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map { String($0) }
 
   /// Combination of alphabetic (lower and upper cases) and numeric characters plus the space.
-  public static let AlphanumericAndSpace = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map { String($0) }
+  open static let AlphanumericAndSpace = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map { String($0) }
 
   /// The 12-hour clock characters (from 1 to 12).
-  public static let TwelveHourClock = (1 ... 12).map { String($0) }
+  open static let TwelveHourClock = (1 ... 12).map { String($0) }
 
   /// The 24-hour clock characters (from 00 to 23).
-  public static let TwentyFourHourClock = (0 ... 23).map { String(format:"%02d", $0) }
+  open static let TwentyFourHourClock = (0 ... 23).map { String(format:"%02d", $0) }
 
   /// The minute/second characters (from 00 to 59).
-  public static let MinuteAndSecond = (0 ... 59).map { String(format:"%02d", $0) }
+  open static let MinuteAndSecond = (0 ... 59).map { String(format:"%02d", $0) }
 }

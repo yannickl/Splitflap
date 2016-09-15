@@ -44,7 +44,7 @@ public protocol SplitflapDelegate: class {
   at 0 for the leftmost flap.
   - returns: The duration of the flap rotation in seconds.
   */
-  func splitflap(splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double
+  func splitflap(_ splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double
 
   // MARK: - Configuring the Label of Flaps
 
@@ -56,18 +56,18 @@ public protocol SplitflapDelegate: class {
   at 0 for the leftmost flap.
   - returns: A FlapView builder object to create custom flaps.
   */
-  func splitflap(splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder
+  func splitflap(_ splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder
 }
 
 /// Default implementation of SplitflapDelegate
 public extension SplitflapDelegate {
   /// Returns by default 0.2 seconds.
-  func splitflap(splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double {
+  func splitflap(_ splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double {
     return 0.2
   }
 
   /// Returns the default FlapViewBuilder configuration by default.
-  func splitflap(splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
+  func splitflap(_ splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
     return FlapViewBuilder()
   }
 }

@@ -31,7 +31,7 @@ import UIKit
  used as a public transport timetable in airports or railway stations and with
  some flip clocks.
  */
-@IBDesignable public class Splitflap: UIView {
+@IBDesignable open class Splitflap: UIView {
   // MARK: - Specifying the Data Source
 
   /**
@@ -40,7 +40,7 @@ import UIKit
   The data source must adopt the SplitflapDataSource protocol and implement the
   required methods to return the number of flaps.
   */
-  public weak var datasource: SplitflapDataSource?
+  open weak var datasource: SplitflapDataSource?
 
   // MARK: - Specifying the Delegate
 
@@ -50,7 +50,7 @@ import UIKit
   The delegate must adopt the SplitflapDelegate protocol and implement the
   required methods to specify the flap rotation for example.
   */
-  public weak var delegate: SplitflapDelegate?
+  open weak var delegate: SplitflapDelegate?
 
   // MARK: - Getting Flaps
 
@@ -60,10 +60,10 @@ import UIKit
   A Splitflap object fetches the value of this property from the data source and
   and caches it. The default value is zero.
   */
-  public private(set) var numberOfFlaps: Int = 0
+  open fileprivate(set) var numberOfFlaps: Int = 0
 
   /// The flap views used the the split-flap component to display text.
-  private var flaps: [FlapView] = [] {
+  fileprivate var flaps: [FlapView] = [] {
     didSet {
       for flap in oldValue {
         flap.removeFromSuperview()
@@ -79,14 +79,14 @@ import UIKit
   A Splitflap object fetches the value of this property from the data source and
   and caches it. By default there is no token.
   */
-  public private(set) var tokens: [String] = [] {
+  open fileprivate(set) var tokens: [String] = [] {
     didSet {
       tokenParser = TokenParser(tokens: tokens)
     }
   }
 
   /// Token parser used to parse text into small chunk send to each flaps.
-  private var tokenParser: TokenParser = TokenParser(tokens: [])
+  fileprivate var tokenParser: TokenParser = TokenParser(tokens: [])
 
   // MARK: - Configuring the Flap Spacing
 
@@ -95,12 +95,12 @@ import UIKit
 
   The default value of this property is 2.0.
   */
-  @IBInspectable public var flapSpacing: CGFloat = 2
+  @IBInspectable open var flapSpacing: CGFloat = 2
 
   // MARK: - Accessing the Text Attributes
 
   /// The current displayed text.
-  private var textAsToken: String?
+  fileprivate var textAsToken: String?
 
   /**
    The text displayed by the split-flap.
@@ -110,7 +110,7 @@ import UIKit
 
    - seealso: setText:animated:
    */
-  public var text: String? {
+  open var text: String? {
     get {
       return textAsToken
     }
@@ -129,8 +129,8 @@ import UIKit
    - parameter completionBlock: A block called when the animation did finished. 
    If the text update is not animated the block is called immediately.
    */
-  public func setText(text: String?, animated: Bool, completionBlock: (Void -> Void)? = nil) {
-    let completionGroup = dispatch_group_create()
+  open func setText(_ text: String?, animated: Bool, completionBlock: ((Void) -> Void)? = nil) {
+    let completionGroup = DispatchGroup()
     let target          = (delegate ?? self)
     let delay           = animated ? 0.181 : 0
 
@@ -142,27 +142,27 @@ import UIKit
 
     textAsToken = nil
 
-    for (index, flap) in flaps.enumerate() {
+    for (index, flap) in flaps.enumerated() {
       let token: String?   = index < tokens.count ? tokens[index] : nil
       let rotationDuration = animated ? target.splitflap(self, rotationDurationForFlapAtIndex: index) : 0
 
       if let t = token {
         textAsToken = textAsToken ?? ""
-        textAsToken?.appendContentsOf(t)
+        textAsToken?.append(t)
       }
 
       if animated {
         var flapBlock: (() -> ())?
 
         if completionBlock != nil {
-          dispatch_group_enter(completionGroup)
+          completionGroup.enter()
 
           flapBlock = {
-            dispatch_group_leave(completionGroup)
+            completionGroup.leave()
           }
         }
 
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(index) * Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(index) * Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
           flap.displayToken(token, rotationDuration: rotationDuration, completionBlock: flapBlock)
         })
       }
@@ -171,7 +171,7 @@ import UIKit
       }
     }
 
-    dispatch_group_notify(completionGroup, dispatch_get_main_queue(), {
+    completionGroup.notify(queue: DispatchQueue.main, execute: {
       completionBlock?()
     })
   }
@@ -179,27 +179,27 @@ import UIKit
   // MARK: - Observing View-Related Changes
 
   /// Tells the view that its window object changed.
-  public override func didMoveToWindow() {
+  open override func didMoveToWindow() {
     reload()
   }
 
   // MARK: - Laying out Subviews
 
   /// Lay out subviews.
-  public override func layoutSubviews() {
+  open override func layoutSubviews() {
     super.layoutSubviews()
 
     let fNumberOfFlaps = CGFloat(numberOfFlaps)
     let widthPerFlap   = (bounds.width - flapSpacing * (fNumberOfFlaps - 1)) / fNumberOfFlaps
 
-    for (index, flap) in flaps.enumerate() {
+    for (index, flap) in flaps.enumerated() {
       let fIndex = CGFloat(index)
-      flap.frame = CGRectMake(fIndex * widthPerFlap + flapSpacing * fIndex, 0, widthPerFlap, bounds.height)
+      flap.frame = CGRect(x: fIndex * widthPerFlap + flapSpacing * fIndex, y: 0, width: widthPerFlap, height: bounds.height)
     }
   }
 
   /// Rebuild and layout the split-flap view.
-  private func updateAndLayoutView() {
+  fileprivate func updateAndLayoutView() {
     let targetDelegate = (delegate ?? self)
 
     var tmp: [FlapView] = []
@@ -226,7 +226,7 @@ import UIKit
   Call this method to reload all the data that is used to construct the split-flap
   view. It should not be called in during a animation.
   */
-  public func reload() {
+  open func reload() {
     let target = (datasource ?? self)
 
     numberOfFlaps = target.numberOfFlapsInSplitflap(self)
@@ -239,7 +239,7 @@ import UIKit
 /// Default implementation of SplitflapDataSource
 extension Splitflap: SplitflapDataSource {
   /// By default the Splitflap object does not have flaps, so returns 0. 
-  public func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
+  public func numberOfFlapsInSplitflap(_ splitflap: Splitflap) -> Int {
     return 0
   }
 }

@@ -51,7 +51,7 @@ final class TokenParser {
   - returns: A list of token. An empty list if the given string does not
   contains token.
   */
-  func parseString(string: String) -> [String] {
+  func parseString(_ string: String) -> [String] {
     var tokensFound: [String] = []
 
     var word: String = ""
@@ -76,7 +76,7 @@ final class TokenParser {
 
   - parameter word: A word as String.
   */
-  private func isToken(word: String) -> Bool {
+  fileprivate func isToken(_ word: String) -> Bool {
     return tokens[word] != nil
   }
 }

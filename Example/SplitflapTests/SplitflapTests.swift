@@ -51,7 +51,7 @@ class SplitflapTests: XCTTestCaseTemplate {
 
   func testText() {
     class DataSourceMock: SplitflapDataSource {
-      func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
+      func numberOfFlapsInSplitflap(_ splitflap: Splitflap) -> Int {
         return 5
       }
     }
@@ -82,7 +82,7 @@ class SplitflapTests: XCTTestCaseTemplate {
 
   func testSetText() {
     class DataSourceMock: SplitflapDataSource {
-      func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
+      func numberOfFlapsInSplitflap(_ splitflap: Splitflap) -> Int {
         return 9
       }
     }
@@ -107,30 +107,30 @@ class SplitflapTests: XCTTestCaseTemplate {
     splitflap.delegate   = delegateMock
     splitflap.reload()
 
-    var expectation = expectationWithDescription("Block completed immediatly when no animation")
+    var expect = expectation(description: "Block completed immediatly when no animation")
     splitflap.setText("Alongtext", animated: false, completionBlock: {
-      expectation.fulfill()
+      expect.fulfill()
     })
-    waitForExpectationsWithTimeout(0.1, handler:nil)
+    waitForExpectations(timeout: 0.1, handler:nil)
 
-    expectation = expectationWithDescription("Block animation completed")
+    expect = expectation(description: "Block animation completed")
     splitflap.setText("Alongtext", animated: true, completionBlock: {
-      expectation.fulfill()
+      expect.fulfill()
     })
     XCTAssertEqual(splitflap.text, "Alongtext")
-    waitForExpectationsWithTimeout(2.0, handler:nil)
+    waitForExpectations(timeout: 2.0, handler:nil)
 
-    expectation = expectationWithDescription("Block animation completed even with invalid text")
+    expect = expectation(description: "Block animation completed even with invalid text")
     splitflap.setText("$invalid!", animated: true, completionBlock: {
-      expectation.fulfill()
+      expect.fulfill()
     })
     XCTAssertNil(splitflap.text)
-    waitForExpectationsWithTimeout(2.0, handler:nil)
+    waitForExpectations(timeout: 2.0, handler:nil)
   }
 
   func testReload() {
     class DataSourceMock: SplitflapDataSource {
-      func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
+      func numberOfFlapsInSplitflap(_ splitflap: Splitflap) -> Int {
         return 2
       }
     }

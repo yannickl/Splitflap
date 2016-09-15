@@ -30,7 +30,7 @@ import Foundation
  A TokenGenerator helps the flap view by choosing the right token rescpecting the
  initial order.
 */
-final class TokenGenerator: GeneratorType {
+final class TokenGenerator: IteratorProtocol {
   typealias Element = String
 
   let tokens: [String]
@@ -42,7 +42,7 @@ final class TokenGenerator: GeneratorType {
   // MARK: - Implementing GeneratorType
 
   /// Current element index
-  private var currentIndex = 0
+  fileprivate var currentIndex = 0
 
   /// Returns the current element of the generator, nil otherwise.
   var currentElement: Element? {
@@ -55,7 +55,7 @@ final class TokenGenerator: GeneratorType {
     }
     set(newValue) {
       if let value = newValue {
-        currentIndex = tokens.indexOf(value) ?? currentIndex
+        currentIndex = tokens.index(of: value) ?? currentIndex
       }
       else {
         currentIndex = 0
@@ -65,6 +65,7 @@ final class TokenGenerator: GeneratorType {
 
   /// Advance to the next element and return it, or `nil` if no next.
   /// element exists.
+  @discardableResult
   func next() -> Element? {
     let tokenCount = tokens.count
 

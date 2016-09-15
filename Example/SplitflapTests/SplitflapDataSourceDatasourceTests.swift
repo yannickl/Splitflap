@@ -30,7 +30,7 @@ import XCTest
 class SplitflapDataSourceDatasourceTests: XCTTestCaseTemplate {
   func testDefaultImplementation() {
     class DataSourceMock: SplitflapDataSource {
-      func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
+      func numberOfFlapsInSplitflap(_ splitflap: Splitflap) -> Int {
         return 0
       }
     }
@@ -44,11 +44,11 @@ class SplitflapDataSourceDatasourceTests: XCTTestCaseTemplate {
 
   func testCustomImplementation() {
     class DataSourceMock: SplitflapDataSource {
-      func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
+      func numberOfFlapsInSplitflap(_ splitflap: Splitflap) -> Int {
         return 5
       }
 
-      private func tokensInSplitflap(splitflap: Splitflap) -> [String] {
+      func tokensInSplitflap(_ splitflap: Splitflap) -> [String] {
         return SplitflapTokens.Numeric
       }
     }

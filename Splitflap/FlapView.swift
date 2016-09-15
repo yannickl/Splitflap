@@ -31,19 +31,19 @@ import QuartzCore
  A Flap view aims to display given tokens with by rotating its tiles to show the
  desired character or graphic.
 */
-final class FlapView: UIView {
+final class FlapView: UIView, CAAnimationDelegate {
   // The tiles used to display and animate the flaps
-  private let topTicTile: TileView
-  private let bottomTicTile: TileView
-  private let topTacTile: TileView
-  private let bottomTacTile: TileView
+  fileprivate let topTicTile: TileView
+  fileprivate let bottomTicTile: TileView
+  fileprivate let topTacTile: TileView
+  fileprivate let bottomTacTile: TileView
 
   // MARK: - Working With Tokens
 
   let tokens: [String]
-  private let tokenGenerator:TokenGenerator
-  private var targetToken: String?
-  private var targetCompletionBlock: (() -> ())? {
+  fileprivate let tokenGenerator:TokenGenerator
+  fileprivate var targetToken: String?
+  fileprivate var targetCompletionBlock: (() -> ())? {
     didSet {
       oldValue?()
     }
@@ -52,25 +52,25 @@ final class FlapView: UIView {
   // MARK: - Initializing a Flap View
 
   required init(tokens: [String], builder: FlapViewBuilder) {
-    self.topTicTile    = TileView(builder: builder, position: .Top)
-    self.bottomTicTile = TileView(builder: builder, position: .Bottom)
-    self.topTacTile    = TileView(builder: builder, position: .Top)
-    self.bottomTacTile = TileView(builder: builder, position: .Bottom)
+    self.topTicTile    = TileView(builder: builder, position: .top)
+    self.bottomTicTile = TileView(builder: builder, position: .bottom)
+    self.topTacTile    = TileView(builder: builder, position: .top)
+    self.bottomTacTile = TileView(builder: builder, position: .bottom)
 
     self.tokens         = tokens
     self.tokenGenerator = TokenGenerator(tokens: tokens)
 
-    super.init(frame: CGRectZero)
+    super.init(frame: CGRect.zero)
 
     setupViews()
     setupAnimations()
   }
 
   required init?(coder aDecoder: NSCoder) {
-    topTicTile     = TileView(builder: FlapViewBuilder(), position: .Top)
-    bottomTicTile  = TileView(builder: FlapViewBuilder(), position: .Bottom)
-    topTacTile     = TileView(builder: FlapViewBuilder(), position: .Top)
-    bottomTacTile  = TileView(builder: FlapViewBuilder(), position: .Bottom)
+    topTicTile     = TileView(builder: FlapViewBuilder(), position: .top)
+    bottomTicTile  = TileView(builder: FlapViewBuilder(), position: .bottom)
+    topTacTile     = TileView(builder: FlapViewBuilder(), position: .top)
+    bottomTacTile  = TileView(builder: FlapViewBuilder(), position: .bottom)
     tokens         = []
     tokenGenerator = TokenGenerator(tokens: [])
     
@@ -82,8 +82,8 @@ final class FlapView: UIView {
   override func layoutSubviews() {
     super.layoutSubviews()
 
-    let topLeafFrame    = CGRectMake(0, 0, bounds.width, bounds.height / 2)
-    let bottomLeafFrame = CGRectMake(0, bounds.height / 2, bounds.width, bounds.height / 2)
+    let topLeafFrame    = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height / 2)
+    let bottomLeafFrame = CGRect(x: 0, y: bounds.height / 2, width: bounds.width, height: bounds.height / 2)
 
     topTicTile.frame    = topLeafFrame
     bottomTicTile.frame = bottomLeafFrame
@@ -93,16 +93,16 @@ final class FlapView: UIView {
 
   // MARK: - Initializing the Flap View
 
-  private func setupViews() {
+  fileprivate func setupViews() {
     addSubview(topTicTile)
     addSubview(bottomTicTile)
     addSubview(topTacTile)
     addSubview(bottomTacTile)
 
-    topTicTile.layer.anchorPoint    = CGPointMake(0.5, 1.0)
-    bottomTicTile.layer.anchorPoint = CGPointMake(0.5, 0)
-    topTacTile.layer.anchorPoint    = CGPointMake(0.5, 1.0)
-    bottomTacTile.layer.anchorPoint = CGPointMake(0.5, 0)
+    topTicTile.layer.anchorPoint    = CGPoint(x: 0.5, y: 1.0)
+    bottomTicTile.layer.anchorPoint = CGPoint(x: 0.5, y: 0)
+    topTacTile.layer.anchorPoint    = CGPoint(x: 0.5, y: 1.0)
+    bottomTacTile.layer.anchorPoint = CGPoint(x: 0.5, y: 0)
 
     updateWithToken(tokenGenerator.firstToken, animated: false)
   }
@@ -110,36 +110,36 @@ final class FlapView: UIView {
   // MARK: - Settings the Animations
 
   /// Defines the current time of the animation to know which tile to display.
-  private enum AnimationTime {
+  fileprivate enum AnimationTime {
     /// Tic time.
-    case Tic
+    case tic
     /// Tac time.
-    case Tac
+    case tac
   }
 
-  private var animationTime = AnimationTime.Tac
-  private let topAnim       = CABasicAnimation(keyPath: "transform")
-  private let bottomAnim    = CABasicAnimation(keyPath: "transform")
+  fileprivate var animationTime = AnimationTime.tac
+  fileprivate let topAnim       = CABasicAnimation(keyPath: "transform")
+  fileprivate let bottomAnim    = CABasicAnimation(keyPath: "transform")
 
-  private func setupAnimations() {
+  fileprivate func setupAnimations() {
     // Set the perspective
     let zDepth: CGFloat         = 1000
     var skewedIdentityTransform = CATransform3DIdentity
     skewedIdentityTransform.m34 = 1 / -zDepth
 
     // Predefine the animation
-    topAnim.fromValue = NSValue(CATransform3D: skewedIdentityTransform)
-    topAnim.toValue   = NSValue(CATransform3D: CATransform3DRotate(skewedIdentityTransform, -CGFloat(M_PI_2), 1, 0, 0))
-    topAnim.removedOnCompletion = false
-    topAnim.fillMode            = kCAFillModeForwards
-    topAnim.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+    topAnim.fromValue = NSValue(caTransform3D: skewedIdentityTransform)
+    topAnim.toValue   = NSValue(caTransform3D: CATransform3DRotate(skewedIdentityTransform, -CGFloat(M_PI_2), 1, 0, 0))
+    topAnim.isRemovedOnCompletion = false
+    topAnim.fillMode              = kCAFillModeForwards
+    topAnim.timingFunction        = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
 
-    bottomAnim.fromValue = NSValue(CATransform3D: CATransform3DRotate(skewedIdentityTransform, CGFloat(M_PI_2), 1, 0, 0))
-    bottomAnim.toValue   = NSValue(CATransform3D: skewedIdentityTransform)
-    bottomAnim.delegate            = self
-    bottomAnim.removedOnCompletion = true
-    bottomAnim.fillMode            = kCAFillModeBoth
-    bottomAnim.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+    bottomAnim.fromValue = NSValue(caTransform3D: CATransform3DRotate(skewedIdentityTransform, CGFloat(M_PI_2), 1, 0, 0))
+    bottomAnim.toValue   = NSValue(caTransform3D: skewedIdentityTransform)
+    bottomAnim.delegate              = self
+    bottomAnim.isRemovedOnCompletion = true
+    bottomAnim.fillMode              = kCAFillModeBoth
+    bottomAnim.timingFunction        = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
   }
 
   // MARK: - Animating the Flap View
@@ -152,7 +152,7 @@ final class FlapView: UIView {
   - parameter completionBlock: A block called when the animation did finished.
   If the text update is not animated the block is called immediately.
   */
-  func displayToken(token: String?, rotationDuration: Double, completionBlock: (Void -> Void)? = nil) {
+  func displayToken(_ token: String?, rotationDuration: Double, completionBlock: ((Void) -> Void)? = nil) {
     let sanitizedToken = token ?? tokenGenerator.firstToken
 
     if rotationDuration > 0 {
@@ -181,7 +181,7 @@ final class FlapView: UIView {
   Method used in conjunction with the `animationDidStop:finished:` callback in
   order to display all the tokens between the current one and the target one.
   */
-  private func displayNextToken() {
+  fileprivate func displayNextToken() {
     guard tokenGenerator.currentElement != targetToken && targetToken != nil else {
       targetToken           = nil
       targetCompletionBlock = nil
@@ -195,10 +195,10 @@ final class FlapView: UIView {
   }
 
   /// Display the given token. If animated it rotate the flaps.
-  private func updateWithToken(token: String?, animated: Bool) {
-    let topBack    = animationTime == .Tic ? topTicTile : topTacTile
-    let bottomBack = animationTime == .Tic ? bottomTicTile : bottomTacTile
-    let topFront   = animationTime == .Tic ? topTacTile : topTicTile
+  fileprivate func updateWithToken(_ token: String?, animated: Bool) {
+    let topBack    = animationTime == .tic ? topTicTile : topTacTile
+    let bottomBack = animationTime == .tic ? bottomTicTile : bottomTacTile
+    let topFront   = animationTime == .tic ? topTacTile : topTicTile
 
     topBack.setSymbol(token)
     bottomBack.setSymbol(token) 
@@ -208,28 +208,28 @@ final class FlapView: UIView {
     topFront.layer.removeAllAnimations()
 
     if animated {
-      bringSubviewToFront(topFront)
-      bringSubviewToFront(bottomBack)
+      bringSubview(toFront: topFront)
+      bringSubview(toFront: bottomBack)
 
       // Animation
       topAnim.beginTime = CACurrentMediaTime()
-      topFront.layer.addAnimation(topAnim, forKey: "topDownFlip")
+      topFront.layer.add(topAnim, forKey: "topDownFlip")
 
       bottomAnim.beginTime = topAnim.beginTime + topAnim.duration
-      bottomBack.layer.addAnimation(bottomAnim, forKey: "bottomDownFlip")
+      bottomBack.layer.add(bottomAnim, forKey: "bottomDownFlip")
     }
     else {
-      bringSubviewToFront(topBack)
-      bringSubviewToFront(bottomBack)
+      bringSubview(toFront: topBack)
+      bringSubview(toFront: bottomBack)
 
-      animationTime = animationTime == .Tic ? .Tac : .Tic
+      animationTime = animationTime == .tic ? .tac : .tic
     }
   }
 
   // MARK: - CAAnimation Delegate Methods
 
-  override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-    animationTime = animationTime == .Tic ? .Tac : .Tic
+  func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    animationTime = animationTime == .tic ? .tac : .tic
     
     displayNextToken()
   }

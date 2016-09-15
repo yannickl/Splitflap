@@ -31,16 +31,16 @@ import UIKit
  top or the bottom of a leaf.
 */
 final class TileView: UIView {
-  private let digitLabel        = UILabel()
-  private let mainLineView      = UIView()
-  private let secondaryLineView = UIView()
+  fileprivate let digitLabel        = UILabel()
+  fileprivate let mainLineView      = UIView()
+  fileprivate let secondaryLineView = UIView()
 
   /// Defines the position and by the same time appearance of the tiles.
   enum Position {
     /// Tile positioned as a top leaf.
-    case Top
+    case top
     /// Tile positioned as a bottom leaf.
-    case Bottom
+    case bottom
   }
 
   let position: Position
@@ -52,34 +52,34 @@ final class TileView: UIView {
   
   - parameter symbol: An optional symbol string.
   */
-  func setSymbol(symbol: String?) {
+  func setSymbol(_ symbol: String?) {
     digitLabel.text = symbol
   }
 
   // MARK: - Configuring the Label
 
   /// The font of the tile's text.
-  private var font: UIFont?
+  fileprivate var font: UIFont?
 
   /**
    The radii size to use when drawing rounded corners.
    */
-  private let cornerRadii: CGSize
+  fileprivate let cornerRadii: CGSize
 
   // MARK: - Initializing a Flap View
 
   required init(builder: FlapViewBuilder, position: Position) {
-    self.cornerRadii = CGSizeMake(builder.cornerRadius, builder.cornerRadius)
+    self.cornerRadii = CGSize(width: builder.cornerRadius, height: builder.cornerRadius)
     self.position    = position
 
-    super.init(frame: CGRectZero)
+    super.init(frame: CGRect.zero)
 
     setupViewsWithBuilder(builder)
   }
 
   required init?(coder aDecoder: NSCoder) {
-    cornerRadii = CGSizeMake(0, 0)
-    position    = .Top
+    cornerRadii = CGSize(width: 0, height: 0)
+    position    = .top
     
     super.init(coder: aDecoder)
   }
@@ -87,7 +87,7 @@ final class TileView: UIView {
   // MARK: - Layout the View
 
   /// Setup the views helping by the given builder.
-  private func setupViewsWithBuilder(builder: FlapViewBuilder) {
+  fileprivate func setupViewsWithBuilder(_ builder: FlapViewBuilder) {
     font = builder.font
 
     layer.masksToBounds = true
@@ -113,15 +113,15 @@ final class TileView: UIView {
     // Round corners
     let path: UIBezierPath
 
-    if position == .Top {
-      path = UIBezierPath(roundedRect:bounds, byRoundingCorners:[.TopLeft, .TopRight], cornerRadii: cornerRadii)
+    if position == .top {
+      path = UIBezierPath(roundedRect:bounds, byRoundingCorners:[.topLeft, .topRight], cornerRadii: cornerRadii)
     }
     else {
-      path = UIBezierPath(roundedRect:bounds, byRoundingCorners:[.BottomLeft, .BottomRight], cornerRadii: cornerRadii)
+      path = UIBezierPath(roundedRect:bounds, byRoundingCorners:[.bottomLeft, .bottomRight], cornerRadii: cornerRadii)
     }
 
     let maskLayer  = CAShapeLayer()
-    maskLayer.path = path.CGPath
+    maskLayer.path = path.cgPath
     layer.mask     = maskLayer
 
     // Position elements
@@ -129,17 +129,17 @@ final class TileView: UIView {
     var mainLineViewFrame      = bounds
     var secondaryLineViewFrame = bounds
 
-    if position == .Top {
+    if position == .top {
       digitLabelFrame.size.height = digitLabelFrame.height * 2
       digitLabelFrame.origin.y    = 0
-      mainLineViewFrame           = CGRectMake(0, bounds.height - 2, bounds.width, 4)
-      secondaryLineViewFrame      = CGRectMake(0, bounds.height - 1, bounds.width, 2)
+      mainLineViewFrame           = CGRect(x: 0, y: bounds.height - 2, width: bounds.width, height: 4)
+      secondaryLineViewFrame      = CGRect(x: 0, y: bounds.height - 1, width: bounds.width, height: 2)
     }
     else {
       digitLabelFrame.size.height = digitLabelFrame.height * 2
       digitLabelFrame.origin.y    = -digitLabelFrame.height / 2
-      mainLineViewFrame           = CGRectMake(0, -2, bounds.width, 3)
-      secondaryLineViewFrame      = CGRectMake(0, -2, bounds.width, 2)
+      mainLineViewFrame           = CGRect(x: 0, y: -2, width: bounds.width, height: 3)
+      secondaryLineViewFrame      = CGRect(x: 0, y: -2, width: bounds.width, height: 2)
     }
 
     digitLabel.frame         = digitLabelFrame

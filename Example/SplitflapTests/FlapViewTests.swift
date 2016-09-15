@@ -29,7 +29,7 @@ import XCTest
 
 class FlapViewTests: XCTTestCaseTemplate {
   func testInitWithCoder() {
-    let storyboard = UIStoryboard(name: "StoryboardTests", bundle: NSBundle(forClass: self.dynamicType))
+    let storyboard = UIStoryboard(name: "StoryboardTests", bundle: Bundle(for: type(of: self)))
 
     let vc = storyboard.instantiateInitialViewController()
 

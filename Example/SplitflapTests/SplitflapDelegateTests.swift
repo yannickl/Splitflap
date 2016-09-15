@@ -39,18 +39,18 @@ class SplitflapDelegateTests: XCTTestCaseTemplate {
 
   func testCustomImplementation() {
     class DelegateMock: SplitflapDelegate {
-      private func splitflap(splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double {
+      func splitflap(_ splitflap: Splitflap, rotationDurationForFlapAtIndex index: Int) -> Double {
         return 1
       }
 
-      func splitflap(splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
+      func splitflap(_ splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
         return FlapViewBuilder { builder in
-          builder.backgroundColor = UIColor.redColor()
+          builder.backgroundColor = UIColor.red
           builder.cornerRadius    = 0
           builder.font            = UIFont(name: "HelveticaNeue", size: 50)
-          builder.textAlignment   = .Left
-          builder.textColor       = UIColor.yellowColor()
-          builder.lineColor       = UIColor.greenColor()
+          builder.textAlignment   = .left
+          builder.textColor       = UIColor.yellow
+          builder.lineColor       = UIColor.green
         }
       }
     }
@@ -61,11 +61,11 @@ class SplitflapDelegateTests: XCTTestCaseTemplate {
     XCTAssertEqual(delegateMock.splitflap(splitflap, rotationDurationForFlapAtIndex: 0), 1)
 
     let builder = delegateMock.splitflap(splitflap, builderForFlapAtIndex: 0)
-    XCTAssertEqual(builder.backgroundColor, UIColor.redColor())
+    XCTAssertEqual(builder.backgroundColor, UIColor.red)
     XCTAssertEqual(builder.cornerRadius, 0)
     XCTAssertEqual(builder.font, UIFont(name: "HelveticaNeue", size: 50))
-    XCTAssertEqual(builder.textAlignment, NSTextAlignment.Left)
-    XCTAssertEqual(builder.textColor, UIColor.yellowColor())
-    XCTAssertEqual(builder.lineColor, UIColor.greenColor())
+    XCTAssertEqual(builder.textAlignment, NSTextAlignment.left)
+    XCTAssertEqual(builder.textColor, UIColor.yellow)
+    XCTAssertEqual(builder.lineColor, UIColor.green)
   }
 }

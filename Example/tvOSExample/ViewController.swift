@@ -18,16 +18,12 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    FlapViewBuilder { builder in
-      builder.backgroundColor = UIColor.whiteColor()
-    }
-
     splitflap.datasource = self
     splitflap.delegate   = self
     splitflap.reload()
   }
 
-  override func viewDidAppear(animated: Bool) {
+  override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
 
     updateSplitFlapAction(actionButton)
@@ -35,7 +31,7 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
 
   // MARK: - Action Methods
 
-  @IBAction func updateSplitFlapAction(sender: AnyObject) {
+  @IBAction func updateSplitFlapAction(_ sender: AnyObject) {
     splitflap.setText(words[currentIndex], animated: true, completionBlock: {
       print("Display finished!")
     })
@@ -45,17 +41,17 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
     updateButtonWithTitle(words[currentIndex])
   }
 
-  private func updateButtonWithTitle(title: String) {
-    actionButton.setTitle("Say \(words[currentIndex])!", forState: .Normal)
+  private func updateButtonWithTitle(_ title: String) {
+    actionButton.setTitle("Say \(words[currentIndex])!", for: .normal)
   }
 
   // MARK: - Splitflap DataSource Methods
 
-  func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
+  func numberOfFlapsInSplitflap(_ splitflap: Splitflap) -> Int {
     return 7
   }
 
-  func tokensInSplitflap(splitflap: Splitflap) -> [String] {
+  func tokensInSplitflap(_ splitflap: Splitflap) -> [String] {
     return SplitflapTokens.AlphanumericAndSpace
   }
 
@@ -67,12 +63,12 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
 
   func splitflap(splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
     return FlapViewBuilder { builder in
-      builder.backgroundColor = UIColor.blackColor()
+      builder.backgroundColor = UIColor.black
       builder.cornerRadius    = 5
       builder.font            = UIFont(name: "Courier", size: 80)
-      builder.textAlignment   = .Center
-      builder.textColor       = UIColor.whiteColor()
-      builder.lineColor       = UIColor.darkGrayColor()
+      builder.textAlignment   = .center
+      builder.textColor       = UIColor.white
+      builder.lineColor       = UIColor.darkGray
     }
   }
 }

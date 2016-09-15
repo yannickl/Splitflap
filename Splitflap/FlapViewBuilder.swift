@@ -40,7 +40,7 @@ public final class FlapViewBuilder {
 
    The block gives a reference of builder you can configure.
    */
-  public typealias FlapViewBuilderBlock = (builder: FlapViewBuilder) -> Void
+  public typealias FlapViewBuilderBlock = (_ builder: FlapViewBuilder) -> Void
 
   /**
    The flap's background color.
@@ -48,7 +48,7 @@ public final class FlapViewBuilder {
    If the value is nil, it results in a transparent background color. The 
    default value is black.
    */
-  public var backgroundColor: UIColor? = UIColor.blackColor()
+  public var backgroundColor: UIColor? = .black
 
   /**
    The radius to use when drawing rounded corners for the flap’s background.
@@ -74,14 +74,14 @@ public final class FlapViewBuilder {
    
    The default value of this property is NSTextAlignment.Center.
   */
-  public var textAlignment: NSTextAlignment = .Center
+  public var textAlignment: NSTextAlignment = .center
 
   /**
    The color of the text.
    
    Uses the white color by default.
    */
-  public var textColor: UIColor = UIColor.whiteColor()
+  public var textColor: UIColor = UIColor.white
 
   /**
    The flap's middle line color.
@@ -89,7 +89,7 @@ public final class FlapViewBuilder {
    If the value is nil, it results in a transparent line color. The default
    value is dark gray.
    */
-  public var lineColor: UIColor? = UIColor.darkGrayColor()
+  public var lineColor: UIColor? = UIColor.darkGray
 
   // MARK: - Initializing a Flap View
 
@@ -103,7 +103,7 @@ public final class FlapViewBuilder {
    
    - parameter buildBlock: A FlapView builder block to configure itself.
    */
-  public init(@noescape buildBlock: FlapViewBuilderBlock) {
-    buildBlock(builder: self)
+  public init(buildBlock: FlapViewBuilderBlock) {
+    buildBlock(self)
   }
 }

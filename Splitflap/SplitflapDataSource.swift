@@ -40,7 +40,7 @@ public protocol SplitflapDataSource: class {
    - parameter splitflap: The split-flap view requesting the data.
    - returns: The number of flaps.
   */
-  func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int
+  func numberOfFlapsInSplitflap(_ splitflap: Splitflap) -> Int
 
   // MARK: - Managing Supported Tokens for the Splitflap Components
 
@@ -54,13 +54,13 @@ public protocol SplitflapDataSource: class {
    - returns: A list of token string used by each flaps to manage their stack of
   token.
   */
-  func tokensInSplitflap(splitflap: Splitflap) -> [String]
+  func tokensInSplitflap(_ splitflap: Splitflap) -> [String]
 }
 
 /// Default implementation of SplitflapDataSource
 public extension SplitflapDataSource {
   /// Returns by default the Alphanumeric token list.
-  func tokensInSplitflap(splitflap: Splitflap) -> [String] {
+  func tokensInSplitflap(_ splitflap: Splitflap) -> [String] {
     return SplitflapTokens.Alphanumeric
   }
 }
