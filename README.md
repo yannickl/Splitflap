@@ -1,8 +1,18 @@
-![Splitflap](http://yannickloriot.com/resources/splitflap-logo.gif)
+<p align="center">
+  <img src="http://yannickloriot.com/resources/splitflap-logo.gif" alt="Splitflap">
+</p>
 
-[![License](https://cocoapod-badges.herokuapp.com/l/Splitflap/badge.svg)](http://cocoadocs.org/docsets/Splitflap/) [![Supported Platforms](https://cocoapod-badges.herokuapp.com/p/Splitflap/badge.svg)](http://cocoadocs.org/docsets/Splitflap/) [![Version](https://cocoapod-badges.herokuapp.com/v/Splitflap/badge.svg)](http://cocoadocs.org/docsets/Splitflap/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/yannickl/Splitflap.svg?branch=master)](https://travis-ci.org/yannickl/Splitflap) [![codecov.io](http://codecov.io/github/yannickl/Splitflap/coverage.svg?branch=master)](http://codecov.io/github/yannickl/Splitflap?branch=master) [![codebeat badge](https://codebeat.co/badges/492436df-b511-4802-973a-51ec61a55011)](https://codebeat.co/projects/github-com-yannickl-splitflap)
+<p align="center">
+  <a href="http://cocoadocs.org/docsets/Splitflap/"><img alt="Supported Platforms" src="https://cocoapod-badges.herokuapp.com/p/Splitflap/badge.svg"/></a>
+  <a href="http://cocoadocs.org/docsets/Splitflap/"><img alt="Version" src="https://cocoapod-badges.herokuapp.com/v/Splitflap/badge.svg"/></a>
+  <a href="https://github.com/Carthage/Carthage"><img alt="Carthage compatible" src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/></a>
+  <a href="https://travis-ci.org/yannickl/Splitflap"><img alt="Build status" src="https://travis-ci.org/yannickl/Splitflap.svg?branch=master"/></a>
+  <a href="http://codecov.io/github/yannickl/Splitflap"><img alt="Code coverage status" src="http://codecov.io/github/yannickl/Splitflap/coverage.svg?branch=master"/></a>
+</p>
 
-Splitflap is a simple to use component to present changeable alphanumeric text like often used as a public transport timetable in airports or railway stations or with some flip clocks.
+**Splitflap** is a simple to use component to present changeable alphanumeric text like often used as a public transport timetable in airports or railway stations or with some flip clocks.
+
+*N.B.: This branch is Swift 3 compatible, use the [v1.1.2 version](https://github.com/yannickl/Splitflap/tree/1.1.2) for Swift 2.x.*
 
 ## Usage
 
@@ -24,7 +34,7 @@ splitflapView.setText("Hello", animated: true)
 // MARK: - Splitflap DataSource Methods
 
 // Defines the number of flaps that will be used to display the text
-func numberOfFlapsInSplitflap(splitflap: Splitflap) -> Int {
+func numberOfFlapsInSplitflap(_ splitflap: Splitflap) -> Int {
   return 5
 }
 
@@ -47,12 +57,12 @@ splitflap.text = "Cat \u{1F63B}"
 // MARK: - Splitflap Delegate Methods
 
 // Configure the appearance for each flaps
-func splitflap(splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
+func splitflap(_ splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
   return FlapViewBuilder { builder in
     builder.backgroundColor = UIColor(red: 251/255, green: 249/255, blue: 243/255, alpha: 1)
     builder.cornerRadius    = 5
     builder.font            = UIFont(name: "Avenir-Black", size:45)
-    builder.textAlignment   = .Center
+    builder.textAlignment   = .center
     builder.textColor       = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
     builder.lineColor       = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
   }
@@ -60,7 +70,7 @@ func splitflap(splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapVi
 
 // MARK: - Splitflap DataSource Methods
 
-func tokensInSplitflap(splitflap: Splitflap) -> [String] {
+func tokensInSplitflap(_ splitflap: Splitflap) -> [String] {
   return " Cat\u{1F63B}".characters.map { String($0) }
 }
 ```
@@ -90,7 +100,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 use_frameworks!
-pod 'Splitflap', '~> 1.1.2'
+pod 'Splitflap', '~> 2.0.0'
 ```
 
 Install into your project:
@@ -121,7 +131,7 @@ $ brew install carthage
 To integrate `Splitflap` into your Xcode project using Carthage, specify it in your `Cartfile` file:
 
 ```ogdl
-github "yannickl/Splitflap" >= 1.1.2
+github "yannickl/Splitflap" >= 2.0.0
 ```
 
 #### Manually

@@ -63,12 +63,12 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
 
   func splitflap(_ splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
     return FlapViewBuilder { builder in
-      builder.backgroundColor = UIColor.black
+      builder.backgroundColor = .black
       builder.cornerRadius    = 5
       builder.font            = UIFont(name: "Courier", size: 50)
       builder.textAlignment   = .center
-      builder.textColor       = UIColor.white
-      builder.lineColor       = UIColor.darkGray
+      builder.textColor       = .white
+      builder.lineColor       = .darkGray
     }
   }
 }
