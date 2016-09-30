@@ -12,7 +12,11 @@
 
 **Splitflap** is a simple to use component to present changeable alphanumeric text like often used as a public transport timetable in airports or railway stations or with some flip clocks.
 
-*N.B.: This branch is Swift 3 compatible, use the [v1.1.2 version](https://github.com/yannickl/Splitflap/tree/1.1.2) for Swift 2.x.*
+## Requirements
+
+- iOS 8.0+ / tvOS 9.0+
+- Xcode 8.0+
+- Swift 3.0+
 
 ## Usage
 
