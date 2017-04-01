@@ -129,12 +129,12 @@ final class FlapView: UIView, CAAnimationDelegate {
 
     // Predefine the animation
     topAnim.fromValue = NSValue(caTransform3D: skewedIdentityTransform)
-    topAnim.toValue   = NSValue(caTransform3D: CATransform3DRotate(skewedIdentityTransform, -CGFloat(M_PI_2), 1, 0, 0))
+    topAnim.toValue   = NSValue(caTransform3D: CATransform3DRotate(skewedIdentityTransform, CGFloat.pi / -2, 1, 0, 0))
     topAnim.isRemovedOnCompletion = false
     topAnim.fillMode              = kCAFillModeForwards
     topAnim.timingFunction        = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
 
-    bottomAnim.fromValue = NSValue(caTransform3D: CATransform3DRotate(skewedIdentityTransform, CGFloat(M_PI_2), 1, 0, 0))
+    bottomAnim.fromValue = NSValue(caTransform3D: CATransform3DRotate(skewedIdentityTransform, CGFloat.pi / 2, 1, 0, 0))
     bottomAnim.toValue   = NSValue(caTransform3D: skewedIdentityTransform)
     bottomAnim.delegate              = self
     bottomAnim.isRemovedOnCompletion = true
