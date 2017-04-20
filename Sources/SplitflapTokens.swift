@@ -48,7 +48,7 @@ open class SplitflapTokens {
   open static let AlphanumericAndSpace = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".characters.map { String($0) }
 
   /// The 12-hour clock characters (from 1 to 12).
-  open static let TwelveHourClock = (1 ... 12).map { String($0) }
+  open static let TwelveHourClock = (1 ... 12).map { String(format:"%02d", $0) }
 
   /// The 24-hour clock characters (from 00 to 23).
   open static let TwentyFourHourClock = (0 ... 23).map { String(format:"%02d", $0) }
