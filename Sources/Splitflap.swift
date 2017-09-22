@@ -129,7 +129,7 @@ import UIKit
    - parameter completionBlock: A block called when the animation did finished. 
    If the text update is not animated the block is called immediately.
    */
-  open func setText(_ text: String?, animated: Bool, completionBlock: ((Void) -> Void)? = nil) {
+  open func setText(_ text: String?, animated: Bool, completionBlock: (() -> Void)? = nil) {
     let completionGroup = DispatchGroup()
     let target          = (delegate ?? self)
     let delay           = animated ? 0.181 : 0

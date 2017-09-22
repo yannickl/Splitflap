@@ -152,7 +152,7 @@ final class FlapView: UIView, CAAnimationDelegate {
   - parameter completionBlock: A block called when the animation did finished.
   If the text update is not animated the block is called immediately.
   */
-  func displayToken(_ token: String?, rotationDuration: Double, completionBlock: ((Void) -> Void)? = nil) {
+  func displayToken(_ token: String?, rotationDuration: Double, completionBlock: (() -> Void)? = nil) {
     let sanitizedToken = token ?? tokenGenerator.firstToken
 
     if rotationDuration > 0 {
