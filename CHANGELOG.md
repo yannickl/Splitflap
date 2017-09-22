@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 3.0.0](https://github.com/yannickl/Splitflap/releases/tag/3.0.0)
+*Released on 2017-09-22.*
+
+**Swift 4 Supports**
+
 ## [Version 2.1.0](https://github.com/yannickl/Splitflap/releases/tag/2.1.0)
 *Released on 2017-04-01.*
 
