@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 3.0.1](https://github.com/yannickl/Splitflap/releases/tag/3.0.1)
+*Released on 2017-12-10.*
+
+- [FIX] Updating to last swift syntax.
+
 ## [Version 3.0.0](https://github.com/yannickl/Splitflap/releases/tag/3.0.0)
 *Released on 2017-09-22.*
 
