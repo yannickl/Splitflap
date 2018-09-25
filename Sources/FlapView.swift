@@ -131,15 +131,15 @@ final class FlapView: UIView, CAAnimationDelegate {
     topAnim.fromValue = NSValue(caTransform3D: skewedIdentityTransform)
     topAnim.toValue   = NSValue(caTransform3D: CATransform3DRotate(skewedIdentityTransform, CGFloat.pi / -2, 1, 0, 0))
     topAnim.isRemovedOnCompletion = false
-    topAnim.fillMode              = kCAFillModeForwards
-    topAnim.timingFunction        = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+    topAnim.fillMode              = CAMediaTimingFillMode.forwards
+    topAnim.timingFunction        = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
 
     bottomAnim.fromValue = NSValue(caTransform3D: CATransform3DRotate(skewedIdentityTransform, CGFloat.pi / 2, 1, 0, 0))
     bottomAnim.toValue   = NSValue(caTransform3D: skewedIdentityTransform)
     bottomAnim.delegate              = self
     bottomAnim.isRemovedOnCompletion = true
-    bottomAnim.fillMode              = kCAFillModeBoth
-    bottomAnim.timingFunction        = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+    bottomAnim.fillMode              = CAMediaTimingFillMode.both
+    bottomAnim.timingFunction        = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
   }
 
   // MARK: - Animating the Flap View
@@ -208,8 +208,8 @@ final class FlapView: UIView, CAAnimationDelegate {
     topFront.layer.removeAllAnimations()
 
     if animated {
-      bringSubview(toFront: topFront)
-      bringSubview(toFront: bottomBack)
+      bringSubviewToFront(topFront)
+      bringSubviewToFront(bottomBack)
 
       // Animation
       topAnim.beginTime = CACurrentMediaTime()
@@ -219,8 +219,8 @@ final class FlapView: UIView, CAAnimationDelegate {
       bottomBack.layer.add(bottomAnim, forKey: "bottomDownFlip")
     }
     else {
-      bringSubview(toFront: topBack)
-      bringSubview(toFront: bottomBack)
+      bringSubviewToFront(topBack)
+      bringSubviewToFront(bottomBack)
 
       animationTime = animationTime == .tic ? .tac : .tic
     }

@@ -36,23 +36,23 @@ import Foundation
 */
 open class SplitflapTokens {
   /// Numeric characters.
-  open static let Numeric = (0 ... 9).map { String($0) }
+  public static let Numeric = (0 ... 9).map { String($0) }
 
   /// Alphabetic characters (lower and upper cases).
-  open static let Alphabetic = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".map { String($0) }
+  public static let Alphabetic = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".map { String($0) }
 
   /// Combination of alphabetic (lower and upper cases) and numeric characters.
-  open static let Alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".map { String($0) }
+  public static let Alphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".map { String($0) }
 
   /// Combination of alphabetic (lower and upper cases) and numeric characters plus the space.
-  open static let AlphanumericAndSpace = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".map { String($0) }
+  public static let AlphanumericAndSpace = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".map { String($0) }
 
   /// The 12-hour clock characters (from 1 to 12).
-  open static let TwelveHourClock = (1 ... 12).map { String($0) }
+  public static let TwelveHourClock = (1 ... 12).map { String($0) }
 
   /// The 24-hour clock characters (from 00 to 23).
-  open static let TwentyFourHourClock = (0 ... 23).map { String(format:"%02d", $0) }
+  public static let TwentyFourHourClock = (0 ... 23).map { String(format:"%02d", $0) }
 
   /// The minute/second characters (from 00 to 59).
-  open static let MinuteAndSecond = (0 ... 59).map { String(format:"%02d", $0) }
+  public static let MinuteAndSecond = (0 ... 59).map { String(format:"%02d", $0) }
 }

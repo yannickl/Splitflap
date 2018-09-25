@@ -42,7 +42,7 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
   }
 
   fileprivate func updateButtonWithTitle(_ title: String) {
-    actionButton.setTitle("Say \(words[currentIndex])!", for: UIControlState())
+    actionButton.setTitle("Say \(words[currentIndex])!", for: UIControl.State())
   }
 
   // MARK: - Splitflap DataSource Methods
