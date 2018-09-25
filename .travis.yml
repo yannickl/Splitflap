@@ -1,10 +1,10 @@
 language: objective-c
-osx_image: xcode9.2
+osx_image: xcode10
 before_install:
   - gem install xcpretty
 script:
   - cd Example
   - xcodebuild -version
-  - xcodebuild -project SplitflapExample.xcodeproj -scheme SplitflapTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6" -configuration Release GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES ONLY_ACTIVE_ARCH=YES test | xcpretty -c
+  - xcodebuild -project SplitflapExample.xcodeproj -scheme SplitflapTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 8" -configuration Release GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES ONLY_ACTIVE_ARCH=YES test | xcpretty -c
 after_success:
   - bash <(curl -s https://codecov.io/bash)
