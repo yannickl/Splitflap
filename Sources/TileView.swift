@@ -97,12 +97,15 @@ final class TileView: UIView {
     digitLabel.textColor       = builder.textColor
     digitLabel.backgroundColor = builder.backgroundColor
 
-    mainLineView.backgroundColor      = builder.lineColor
-    secondaryLineView.backgroundColor = builder.backgroundColor
-
     addSubview(digitLabel)
-    addSubview(mainLineView)
-    addSubview(secondaryLineView)
+    
+    // Don't add the line if the color was set to nil
+    if let lineColor = builder.lineColor {
+      mainLineView.backgroundColor      = lineColor
+      secondaryLineView.backgroundColor = builder.backgroundColor
+      addSubview(mainLineView)
+      addSubview(secondaryLineView)
+    }
   }
 
   // MARK: - Laying out Subviews
