@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 4.1.0](https://github.com/yannickl/Splitflap/releases/tag/4.1.0)
+*Released on 2018-11-24.*
+
+- [FIX] Don't show lines when color is set to nil
+
 ## [Version 4.0.0](https://github.com/yannickl/Splitflap/releases/tag/4.0.0)
 *Released on 2018-09-25.*
 
