@@ -11,7 +11,7 @@
   <a href="http://codecov.io/github/yannickl/Splitflap"><img alt="Code coverage status" src="http://codecov.io/github/yannickl/Splitflap/coverage.svg?branch=master"/></a>
 </p>
 
-**Splitflap** is a simple to use component to present changeable alphanumeric text like often used as a public transport timetable in airports or railway stations or with some flip clocks.
+***Splitflap*** is a simple to use component to present changeable alphanumeric text like often used as a public transport timetable in airports or railway stations or with some flip clocks.
 
 <p align="center">
     <a href="#requirements">Requirements</a> • <a href="#usage">Usage</a> • <a href="#installation">Installation</a> • <a href="#contribution">Contribution</a> • <a href="#contact">Contact</a> • <a href="#license-mit">License</a>
