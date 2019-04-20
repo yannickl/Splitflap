@@ -86,6 +86,8 @@ final class TileView: UIView {
 
   // MARK: - Layout the View
 
+  fileprivate var flipPointHeightFactor: CGFloat = 1.0
+
   /// Setup the views helping by the given builder.
   fileprivate func setupViewsWithBuilder(_ builder: FlapViewBuilder) {
     font = builder.font
@@ -96,6 +98,7 @@ final class TileView: UIView {
     digitLabel.textAlignment   = builder.textAlignment
     digitLabel.textColor       = builder.textColor
     digitLabel.backgroundColor = builder.backgroundColor
+	flipPointHeightFactor 	   = builder.flipPointHeightFactor
 
     addSubview(digitLabel)
     
@@ -135,14 +138,14 @@ final class TileView: UIView {
     if position == .top {
       digitLabelFrame.size.height = digitLabelFrame.height * 2
       digitLabelFrame.origin.y    = 0
-      mainLineViewFrame           = CGRect(x: 0, y: bounds.height - 2, width: bounds.width, height: 4)
-      secondaryLineViewFrame      = CGRect(x: 0, y: bounds.height - 1, width: bounds.width, height: 2)
+      mainLineViewFrame           = CGRect(x: 0, y: bounds.height - (2 * flipPointHeightFactor), width: bounds.width, height: 4 * flipPointHeightFactor)
+      secondaryLineViewFrame      = CGRect(x: 0, y: bounds.height - (1 * flipPointHeightFactor), width: bounds.width, height: 2 * flipPointHeightFactor)
     }
     else {
       digitLabelFrame.size.height = digitLabelFrame.height * 2
       digitLabelFrame.origin.y    = -digitLabelFrame.height / 2
-      mainLineViewFrame           = CGRect(x: 0, y: -2, width: bounds.width, height: 3)
-      secondaryLineViewFrame      = CGRect(x: 0, y: -2, width: bounds.width, height: 2)
+      mainLineViewFrame           = CGRect(x: 0, y: -2 * flipPointHeightFactor, width: bounds.width, height: 3 * flipPointHeightFactor)
+      secondaryLineViewFrame      = CGRect(x: 0, y: -2 * flipPointHeightFactor, width: bounds.width, height: 2 * flipPointHeightFactor)
     }
 
     digitLabel.frame         = digitLabelFrame
