@@ -92,9 +92,10 @@ public final class FlapViewBuilder {
   public var lineColor: UIColor? = UIColor.darkGray
 
 	/**
-	The flap's middle line height relative to the default.
+	The flap's middle line height relative to the default. The default value
+   id 1.0.
 	*/
-  	public var flipPointHeightFactor: CGFloat = 1.0
+  public var flipPointHeightFactor: CGFloat = 1.0
 	
   // MARK: - Initializing a Flap View
 

@@ -55,7 +55,7 @@ final class TokenGenerator: IteratorProtocol {
     }
     set(newValue) {
       if let value = newValue {
-        currentIndex = tokens.index(of: value) ?? currentIndex
+        currentIndex = tokens.firstIndex(of: value) ?? currentIndex
       }
       else {
         currentIndex = 0
