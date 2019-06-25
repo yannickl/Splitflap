@@ -97,6 +97,8 @@ import UIKit
   */
   @IBInspectable open var flapSpacing: CGFloat = 2
 
+  open var synchronizesFlaps = false
+
   // MARK: - Accessing the Text Attributes
 
   /// The current displayed text.
@@ -162,9 +164,13 @@ import UIKit
           }
         }
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(index) * Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
+        if synchronizesFlaps {
           flap.displayToken(token, rotationDuration: rotationDuration, completionBlock: flapBlock)
-        })
+        } else {
+          DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(index) * Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
+            flap.displayToken(token, rotationDuration: rotationDuration, completionBlock: flapBlock)
+          })
+        }
       }
       else {
         flap.displayToken(token, rotationDuration: rotationDuration)
