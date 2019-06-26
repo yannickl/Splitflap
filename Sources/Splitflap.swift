@@ -99,6 +99,8 @@ import UIKit
 
   open var synchronizesFlaps = false
 
+    open var flapDidFlip: (() -> Void)?
+
   // MARK: - Accessing the Text Attributes
 
   /// The current displayed text.
@@ -160,6 +162,7 @@ import UIKit
           completionGroup.enter()
 
           flapBlock = {
+            self.flapDidFlip?()
             completionGroup.leave()
           }
         }
