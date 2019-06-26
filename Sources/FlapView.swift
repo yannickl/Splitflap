@@ -41,7 +41,7 @@ final class FlapView: UIView, CAAnimationDelegate {
   // MARK: - Working With Tokens
 
   let tokens: [String]
-  fileprivate let tokenGenerator:TokenGenerator
+  fileprivate let tokenGenerator: TokenGenerator
   fileprivate var targetToken: String?
   fileprivate var targetCompletionBlock: (() -> ())? {
     didSet {
@@ -58,7 +58,7 @@ final class FlapView: UIView, CAAnimationDelegate {
     self.bottomTacTile = TileView(builder: builder, position: .bottom)
 
     self.tokens         = tokens
-    self.tokenGenerator = TokenGenerator(tokens: tokens)
+    self.tokenGenerator = TokenGenerator(tokens: tokens, placeholderToken: builder.placeholderConfiguration?.placeholderSymbol)
 
     super.init(frame: CGRect.zero)
 
@@ -72,7 +72,7 @@ final class FlapView: UIView, CAAnimationDelegate {
     topTacTile     = TileView(builder: FlapViewBuilder(), position: .top)
     bottomTacTile  = TileView(builder: FlapViewBuilder(), position: .bottom)
     tokens         = []
-    tokenGenerator = TokenGenerator(tokens: [])
+    tokenGenerator = TokenGenerator(tokens: [], placeholderToken: nil)
     
     super.init(coder: aDecoder)
   }
@@ -189,7 +189,11 @@ final class FlapView: UIView, CAAnimationDelegate {
       return
     }
 
-    if let token = tokenGenerator.next() {
+    // flip straight to placeholder if that's the target
+    if let targetToken = targetToken, targetToken == tokenGenerator.placeholderToken {
+      updateWithToken(targetToken, animated: true)
+      tokenGenerator.reset()
+    } else if let token = tokenGenerator.next() {
       updateWithToken(token, animated: true)
     }
   }

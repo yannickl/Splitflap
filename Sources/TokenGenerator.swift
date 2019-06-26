@@ -33,10 +33,16 @@ import Foundation
 final class TokenGenerator: IteratorProtocol {
   typealias Element = String
 
-  let tokens: [String]
+  private let _tokens: [String]
+  let placeholderToken: String?
 
-  required init(tokens: [String]) {
-    self.tokens = tokens
+  var tokens: [String] {
+    return [placeholderToken].compactMap { $0 } + _tokens
+  }
+
+  required init(tokens: [String], placeholderToken: String?) {
+    self._tokens = tokens
+    self.placeholderToken = placeholderToken
   }
 
   // MARK: - Implementing GeneratorType
@@ -75,6 +81,17 @@ final class TokenGenerator: IteratorProtocol {
 
     currentIndex = (currentIndex + 1) % tokens.count
 
+    // skip placeholder when iterating
+    if currentIndex == 0 && placeholderToken != nil {
+      currentIndex += 1
+    }
+
+    return tokens[currentIndex]
+  }
+
+  @discardableResult
+  func reset() -> Element? {
+    currentIndex = 0
     return tokens[currentIndex]
   }
 
