@@ -49,17 +49,26 @@ final class TileView: UIView {
 
   /**
   Set the given symbol as text.
-  
+
   - parameter symbol: An optional symbol string.
   */
   func setSymbol(_ symbol: String?) {
-    digitLabel.text = symbol
+    if let placeholderConfig = placeholderConfiguration, placeholderConfig.placeholderSymbol == symbol {
+      digitLabel.text = placeholderConfig.swapSymbol
+      digitLabel.textColor = placeholderConfig.placeholderTextColor
+    } else {
+      digitLabel.text = symbol
+      digitLabel.textColor = textColor
+    }
   }
 
   // MARK: - Configuring the Label
 
   /// The font of the tile's text.
   fileprivate var font: UIFont?
+
+  fileprivate var textColor: UIColor?
+  fileprivate var placeholderConfiguration: PlaceholderSymbolConfiguration?
 
   /**
    The radii size to use when drawing rounded corners.
@@ -80,7 +89,7 @@ final class TileView: UIView {
   required init?(coder aDecoder: NSCoder) {
     cornerRadii = CGSize(width: 0, height: 0)
     position    = .top
-    
+
     super.init(coder: aDecoder)
   }
 
@@ -94,14 +103,16 @@ final class TileView: UIView {
 
     layer.masksToBounds = true
     backgroundColor     = builder.backgroundColor
+    textColor = builder.textColor
+    placeholderConfiguration = builder.placeholderConfiguration
 
     digitLabel.textAlignment   = builder.textAlignment
     digitLabel.textColor       = builder.textColor
     digitLabel.backgroundColor = builder.backgroundColor
-	flipPointHeightFactor 	   = builder.flipPointHeightFactor
+    flipPointHeightFactor      = builder.flipPointHeightFactor
 
     addSubview(digitLabel)
-    
+
     // Don't add the line if the color was set to nil
     if let lineColor = builder.lineColor {
       mainLineView.backgroundColor      = lineColor

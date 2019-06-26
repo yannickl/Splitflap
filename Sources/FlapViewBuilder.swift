@@ -34,7 +34,7 @@ import UIKit
  */
 public final class FlapViewBuilder {
   // MARK: - Customizing Flaps
-  
+
   /**
    The builder block.
 
@@ -45,14 +45,14 @@ public final class FlapViewBuilder {
   /**
    The flap's background color.
 
-   If the value is nil, it results in a transparent background color. The 
+   If the value is nil, it results in a transparent background color. The
    default value is black.
    */
   public var backgroundColor: UIColor? = .black
 
   /**
    The radius to use when drawing rounded corners for the flap’s background.
-   
+
    Setting the radius to a value greater than 0.0 causes the flap to begin
    drawing rounded corners on its background.
 
@@ -64,24 +64,28 @@ public final class FlapViewBuilder {
    The font of the flap.
 
    If the font is nil, the flap uses its internal default *Courier* font.
-   
+
    The default value of this property is nil.
    */
   public var font: UIFont?
 
   /**
    The technique to use for aligning the text.
-   
+
    The default value of this property is NSTextAlignment.Center.
   */
   public var textAlignment: NSTextAlignment = .center
 
   /**
    The color of the text.
-   
+
    Uses the white color by default.
    */
   public var textColor: UIColor = UIColor.white
+
+  /**
+   */
+  public var placeholderConfiguration: PlaceholderSymbolConfiguration?
 
   /**
    The flap's middle line color.
@@ -96,7 +100,7 @@ public final class FlapViewBuilder {
    id 1.0.
 	*/
   public var flipPointHeightFactor: CGFloat = 1.0
-	
+
   // MARK: - Initializing a Flap View
 
   /**
@@ -106,7 +110,7 @@ public final class FlapViewBuilder {
 
   /**
    Initialize a FlapView builder with default values.
-   
+
    - parameter buildBlock: A FlapView builder block to configure itself.
    */
   public init(buildBlock: FlapViewBuilderBlock) {

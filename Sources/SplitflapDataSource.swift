@@ -47,7 +47,7 @@ public protocol SplitflapDataSource: class {
   /**
    Called by the split-flap view when it needs to update the token strings that
    each flaps must display.
-   
+
    If you don't implement this method the split-flap view will use the
    `Alphanumeric` token list.
    - parameter splitflap: The split-flap view requesting the data.
@@ -55,6 +55,8 @@ public protocol SplitflapDataSource: class {
   token.
   */
   func tokensInSplitflap(_ splitflap: Splitflap) -> [String]
+
+  func placeholderToken(_ splitflap: Splitflap) -> String?
 }
 
 /// Default implementation of SplitflapDataSource
@@ -62,5 +64,9 @@ public extension SplitflapDataSource {
   /// Returns by default the Alphanumeric token list.
   func tokensInSplitflap(_ splitflap: Splitflap) -> [String] {
     return SplitflapTokens.Alphanumeric
+  }
+
+  func placeholderToken(_ splitflap: Splitflap) -> String? {
+    return nil
   }
 }

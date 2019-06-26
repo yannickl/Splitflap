@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93D8152822C3EE8200C471F8 /* PlaceholderSymbolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D8152722C3EE8200C471F8 /* PlaceholderSymbolConfiguration.swift */; };
+		93D8152922C3EED600C471F8 /* PlaceholderSymbolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D8152722C3EE8200C471F8 /* PlaceholderSymbolConfiguration.swift */; };
+		93D8152A22C3EED600C471F8 /* PlaceholderSymbolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D8152722C3EE8200C471F8 /* PlaceholderSymbolConfiguration.swift */; };
+		93D8152B22C3EED600C471F8 /* PlaceholderSymbolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D8152722C3EE8200C471F8 /* PlaceholderSymbolConfiguration.swift */; };
 		CE50405D1C050024007D9E9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50405C1C050024007D9E9F /* AppDelegate.swift */; };
 		CE50405F1C050024007D9E9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50405E1C050024007D9E9F /* ViewController.swift */; };
 		CE5040621C050024007D9E9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5040601C050024007D9E9F /* Main.storyboard */; };
@@ -98,6 +102,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		93D8152722C3EE8200C471F8 /* PlaceholderSymbolConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderSymbolConfiguration.swift; sourceTree = "<group>"; };
 		CE50405A1C050024007D9E9F /* tvOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE50405C1C050024007D9E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE50405E1C050024007D9E9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +253,7 @@
 			children = (
 				CEE340841D8AEA4600FF580D /* FlapView.swift */,
 				CEE340851D8AEA4600FF580D /* FlapViewBuilder.swift */,
+				93D8152722C3EE8200C471F8 /* PlaceholderSymbolConfiguration.swift */,
 				CEE340861D8AEA4600FF580D /* Splitflap.swift */,
 				CEE340871D8AEA4600FF580D /* SplitflapDataSource.swift */,
 				CEE340881D8AEA4600FF580D /* SplitflapDelegate.swift */,
@@ -437,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D8152B22C3EED600C471F8 /* PlaceholderSymbolConfiguration.swift in Sources */,
 				CE50405F1C050024007D9E9F /* ViewController.swift in Sources */,
 				CEE340A91D8AEA4A00FF580D /* FlapViewBuilder.swift in Sources */,
 				CEE340AC1D8AEA4A00FF580D /* SplitflapDelegate.swift in Sources */,
@@ -455,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D8152A22C3EED600C471F8 /* PlaceholderSymbolConfiguration.swift in Sources */,
 				CEE340A11D8AEA4A00FF580D /* Splitflap.swift in Sources */,
 				CEE340A51D8AEA4A00FF580D /* TileView.swift in Sources */,
 				CEE3409F1D8AEA4A00FF580D /* FlapView.swift in Sources */,
@@ -483,6 +491,7 @@
 				CEE3409D1D8AEA4900FF580D /* TokenGenerator.swift in Sources */,
 				CEE340961D8AEA4900FF580D /* FlapView.swift in Sources */,
 				CEE340BC1D8AEA5F00FF580D /* SplitflapDelegateTests.swift in Sources */,
+				93D8152922C3EED600C471F8 /* PlaceholderSymbolConfiguration.swift in Sources */,
 				CEE340BF1D8AEA5F00FF580D /* TileViewTests.swift in Sources */,
 				CEE3409C1D8AEA4900FF580D /* TileView.swift in Sources */,
 				CEE340C21D8AEA5F00FF580D /* XCTTestCaseTemplate.swift in Sources */,
@@ -499,6 +508,7 @@
 				CEE3408E1D8AEA4600FF580D /* FlapViewBuilder.swift in Sources */,
 				CEE340911D8AEA4600FF580D /* SplitflapDelegate.swift in Sources */,
 				CEE340921D8AEA4600FF580D /* SplitflapTokens.swift in Sources */,
+				93D8152822C3EE8200C471F8 /* PlaceholderSymbolConfiguration.swift in Sources */,
 				CEE340931D8AEA4600FF580D /* TileView.swift in Sources */,
 				CEE340941D8AEA4600FF580D /* TokenGenerator.swift in Sources */,
 				CEE340951D8AEA4600FF580D /* TokenParser.swift in Sources */,
