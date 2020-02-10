@@ -51,7 +51,10 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
     return 7
   }
 
-  func tokensInSplitflap(_ splitflap: Splitflap) -> [String] {
+    func tokensInSplitflap(_ splitflap: Splitflap, flap: Int) -> [String] {
+        if flap == 0 {
+            return SplitflapTokens.Alphanumeric
+        }
     return SplitflapTokens.AlphanumericAndSpace
   }
 
