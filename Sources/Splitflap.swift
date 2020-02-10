@@ -71,23 +71,6 @@ import UIKit
     }
   }
 
-  // MARK: - Getting Supported Tokens
-
-  /**
-  The supported token strings by the split-flap view.
-
-  A Splitflap object fetches the value of this property from the data source and
-  and caches it. By default there is no token.
-  */
-  open fileprivate(set) var tokens: [String] = [] {
-    didSet {
-      tokenParser = TokenParser(tokens: tokens)
-    }
-  }
-
-  /// Token parser used to parse text into small chunk send to each flaps.
-  fileprivate var tokenParser: TokenParser = TokenParser(tokens: [])
-
   // MARK: - Configuring the Flap Spacing
 
   /**
@@ -134,15 +117,15 @@ import UIKit
     let target          = (delegate ?? self)
     let delay           = animated ? 0.181 : 0
 
-    var tokens: [String] = []
-
-    if let string = text  {
-      tokens = tokenParser.parseString(string)
-    }
-
     textAsToken = nil
 
     for (index, flap) in flaps.enumerated() {
+        var tokens = self.datasource?.tokensInSplitflap(self, flap: index) ?? []
+        let parser = TokenParser(tokens: tokens)
+        if let string = text {
+            tokens = parser.parseString(string)
+        }
+        
       let token: String?   = index < tokens.count ? tokens[index] : nil
       let rotationDuration = animated ? target.splitflap(self, rotationDurationForFlapAtIndex: index) : 0
 
@@ -205,7 +188,7 @@ import UIKit
     var tmp: [FlapView] = []
 
     for index in 0 ..< numberOfFlaps {
-      let flap = FlapView(tokens: tokens, builder: targetDelegate.splitflap(self, builderForFlapAtIndex: index))
+        let flap = FlapView(tokens: self.datasource?.tokensInSplitflap(self, flap: index) ?? [], builder: targetDelegate.splitflap(self, builderForFlapAtIndex: index))
 
       tmp.append(flap)
       addSubview(flap)
@@ -230,7 +213,6 @@ import UIKit
     let target = (datasource ?? self)
 
     numberOfFlaps = target.numberOfFlapsInSplitflap(self)
-    tokens        = target.tokensInSplitflap(self)
 
     updateAndLayoutView()
   }

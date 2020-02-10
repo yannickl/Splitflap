@@ -39,7 +39,7 @@ class SplitflapDataSourceDatasourceTests: XCTTestCaseTemplate {
     let splitflap      = Splitflap()
 
     XCTAssertEqual(datasourceMock.numberOfFlapsInSplitflap(splitflap), 0)
-    XCTAssertEqual(datasourceMock.tokensInSplitflap(splitflap), SplitflapTokens.Alphanumeric)
+    XCTAssertEqual(datasourceMock.tokensInSplitflap(splitflap, flap:0), SplitflapTokens.Alphanumeric)
   }
 
   func testCustomImplementation() {
@@ -48,7 +48,7 @@ class SplitflapDataSourceDatasourceTests: XCTTestCaseTemplate {
         return 5
       }
 
-      func tokensInSplitflap(_ splitflap: Splitflap) -> [String] {
+        func tokensInSplitflap(_ splitflap: Splitflap, flap: Int) -> [String] {
         return SplitflapTokens.Numeric
       }
     }
@@ -57,6 +57,6 @@ class SplitflapDataSourceDatasourceTests: XCTTestCaseTemplate {
     let splitflap      = Splitflap()
 
     XCTAssertEqual(datasourceMock.numberOfFlapsInSplitflap(splitflap), 5)
-    XCTAssertEqual(datasourceMock.tokensInSplitflap(splitflap), SplitflapTokens.Numeric)
+    XCTAssertEqual(datasourceMock.tokensInSplitflap(splitflap, flap:0), SplitflapTokens.Numeric)
   }
 }

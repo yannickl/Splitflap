@@ -54,13 +54,13 @@ public protocol SplitflapDataSource: class {
    - returns: A list of token string used by each flaps to manage their stack of
   token.
   */
-  func tokensInSplitflap(_ splitflap: Splitflap) -> [String]
+    func tokensInSplitflap(_ splitflap: Splitflap, flap: Int) -> [String]
 }
 
 /// Default implementation of SplitflapDataSource
 public extension SplitflapDataSource {
   /// Returns by default the Alphanumeric token list.
-  func tokensInSplitflap(_ splitflap: Splitflap) -> [String] {
+    func tokensInSplitflap(_ splitflap: Splitflap, flap: Int) -> [String] {
     return SplitflapTokens.Alphanumeric
   }
 }
