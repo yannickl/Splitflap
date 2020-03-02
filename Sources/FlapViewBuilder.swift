@@ -96,7 +96,14 @@ public final class FlapViewBuilder {
    id 1.0.
 	*/
   public var flipPointHeightFactor: CGFloat = 1.0
-	
+
+  /**
+   The on/off toggle for a label's property "adjustsFontSizeToFitWidth" inside every flap
+
+   By defaul the value is false, but it could be changed while initing a builder
+   */
+  public var adjustsFontSizeToFitWidth: Bool = false
+    
   // MARK: - Initializing a Flap View
 
   /**

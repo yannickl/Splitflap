@@ -98,6 +98,7 @@ final class TileView: UIView {
     digitLabel.textAlignment   = builder.textAlignment
     digitLabel.textColor       = builder.textColor
     digitLabel.backgroundColor = builder.backgroundColor
+    digitLabel.adjustsFontSizeToFitWidth = builder.adjustsFontSizeToFitWidth
 	flipPointHeightFactor 	   = builder.flipPointHeightFactor
 
     addSubview(digitLabel)
