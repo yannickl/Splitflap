@@ -69,6 +69,9 @@ class ViewController: UIViewController, SplitflapDataSource, SplitflapDelegate {
       builder.textAlignment   = .center
       builder.textColor       = .white
       builder.lineColor       = .darkGray
+        
+      //Prefilled with false value, so could be ignored 👇
+      builder.adjustsFontSizeToFitWidth = false
     }
   }
 }
