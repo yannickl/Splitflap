@@ -38,6 +38,8 @@ final class FlapView: UIView, CAAnimationDelegate {
   fileprivate let topTacTile: TileView
   fileprivate let bottomTacTile: TileView
 
+  var getBackCurrentValue: ((String) -> Void)?
+
   // MARK: - Working With Tokens
 
   let tokens: [String]
@@ -171,7 +173,7 @@ final class FlapView: UIView, CAAnimationDelegate {
     else {
       tokenGenerator.currentElement = sanitizedToken
       
-      updateWithToken(sanitizedToken, animated: false)
+      updateWithToken(sanitizedToken, animated: true)
 
       completionBlock?()
     }
@@ -224,6 +226,12 @@ final class FlapView: UIView, CAAnimationDelegate {
 
       animationTime = animationTime == .tic ? .tac : .tic
     }
+
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { [weak self] in
+          if let getBackValue = self?.getBackCurrentValue {
+              getBackValue(token ?? "")
+          }
+      })
   }
 
   // MARK: - CAAnimation Delegate Methods
