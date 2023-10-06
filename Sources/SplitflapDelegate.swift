@@ -57,6 +57,11 @@ public protocol SplitflapDelegate: class {
   - returns: A FlapView builder object to create custom flaps.
   */
   func splitflap(_ splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder
+
+  /**
+  Called when the text in the count down view changes.
+  **/
+  func splitflap(_ splitflap: Splitflap, currentText value: String)
 }
 
 /// Default implementation of SplitflapDelegate
@@ -70,4 +75,7 @@ public extension SplitflapDelegate {
   func splitflap(_ splitflap: Splitflap, builderForFlapAtIndex index: Int) -> FlapViewBuilder {
     return FlapViewBuilder()
   }
+
+ /// Get call when text changes
+ func splitflap(_ splitflap: Splitflap, currentText value: String){}
 }
