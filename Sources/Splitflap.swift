@@ -132,7 +132,7 @@ import UIKit
   open func setText(_ text: String?, animated: Bool, completionBlock: (() -> Void)? = nil) {
     let completionGroup = DispatchGroup()
     let target          = (delegate ?? self)
-    let delay           = animated ? 0.181 : 0
+    let delay           = animated ? 0.181 : 0.281
 
     var tokens: [String] = []
 
@@ -195,7 +195,14 @@ import UIKit
     for (index, flap) in flaps.enumerated() {
       let fIndex = CGFloat(index)
       flap.frame = CGRect(x: fIndex * widthPerFlap + flapSpacing * fIndex, y: 0, width: widthPerFlap, height: bounds.height)
-    }
+    }   
+   
+      for flap in flaps {
+          flap.getBackCurrentValue = { value in
+              //                print("find the current vlaue ::: \(value)")
+               self.delegate?.splitflap(self, currentText: value)
+          }
+      }
   }
 
   /// Rebuild and layout the split-flap view.
